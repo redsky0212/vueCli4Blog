@@ -108,7 +108,7 @@ module.exports = {
   ## @Component
   * (vue-class-component)의 데코레이터이다.
   * javascript의 class를 Vue가 인식할 수 있게 변환하는 데코레이터.
-  ```javascript
+  ```vue
   <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
 
