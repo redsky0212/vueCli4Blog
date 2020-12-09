@@ -123,3 +123,28 @@ module.exports = {
   };
   */
   ```
+  * @Component데코레이터에 Vue 컴포넌트 객체 자체 옵션을 설정할 수 있다. 
+    - 많이사용하는 것들
+       - Child Components, Directives, Filters, Mixins, Data, DOM, Life-cycle Hooks, Asset, Configuration
+  ```vue
+  <script lang="ts">
+  import { Component, Vue } from 'vue-property-decorator';
+
+  @Component({
+    components: {
+      AppButton,
+      ProductList
+    },
+    directives: {
+      resize
+    },
+    filters: {
+      dateFormat
+    },
+    mixins: [
+      PageMixin
+    ]
+  })
+  export default class SampleComponent extends Vue {}
+  </script>
+  ```
