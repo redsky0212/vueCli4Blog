@@ -120,5 +120,4 @@ module.exports = {
     name: 'SampleComponent'
   };
   */
-7</script>
   ```
