@@ -103,48 +103,138 @@ module.exports = {
   </script>
   ```
 
-  # vue-property-decorator 사용
-  * vue-property-decorator는 vue-class-component를 기반으로 제작되었다.
-  * 참조 url
-    - [http://ccambo.github.io/Dev/Vue/6.How-to-use-vue-property-decorator/](http://ccambo.github.io/Dev/Vue/6.How-to-use-vue-property-decorator/)
-  ## @Component
-  * (vue-class-component)의 데코레이터이다.
-  * javascript의 class를 Vue가 인식할 수 있게 변환하는 데코레이터.
-  ```vue
-  <script lang="ts">
-  import { Component, Vue } from 'vue-property-decorator';
+# vue-property-decorator 사용
+* vue-property-decorator는 vue-class-component를 기반으로 제작되었다.
+* 참조 url
+  - [http://ccambo.github.io/Dev/Vue/6.How-to-use-vue-property-decorator/](http://ccambo.github.io/Dev/Vue/6.How-to-use-vue-property-decorator/)
+## @Component
+* (vue-class-component)의 데코레이터이다.
+* javascript의 class를 Vue가 인식할 수 있게 변환하는 데코레이터.
+```vue
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
 
-  @Component
-  export default class SampleComponent extends Vue {}
-  </script>
-  /* // 위 코드의 Vue 객체형식
-  export default {
-    name: 'SampleComponent'
-  };
-  */
-  ```
-  * @Component데코레이터에 Vue 컴포넌트 객체 자체 옵션을 설정할 수 있다. 
-    - 많이사용하는 것들
-       - Child Components, Directives, Filters, Mixins, Data, DOM, Life-cycle Hooks, Asset, Configuration
-  ```vue
-  <script lang="ts">
-  import { Component, Vue } from 'vue-property-decorator';
+@Component
+export default class SampleComponent extends Vue {}
+</script>
+/* // 위 코드의 Vue 객체형식
+export default {
+  name: 'SampleComponent'
+};
+*/
+```
+* @Component데코레이터에 Vue 컴포넌트 객체 자체 옵션을 설정할 수 있다. 
+  - 많이사용하는 것들
+    - Child Components, Directives, Filters, Mixins, Data, DOM, Life-cycle Hooks, Asset, Configuration
+```vue
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
 
-  @Component({
-    components: {
-      AppButton,
-      ProductList
+@Component({
+  components: {
+    AppButton,
+    ProductList
+  },
+  directives: {
+    resize
+  },
+  filters: {
+    dateFormat
+  },
+  mixins: [
+    PageMixin
+  ]
+})
+export default class SampleComponent extends Vue {}
+</script>
+```
+
+## @Prop
+* api : @Prop(options: (PropOptions | Constructor[] | Constructor) = {})
+* 부모컴포넌트가 넘겨준 값
+```vue
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator';
+
+@Component
+export default class SampleComponent extends Vue {
+  @Prop(Number) readonly propA: number | undefined
+  @Prop({ default: 'default value' }) readonly propB!: string
+  @Prop([String, Boolean]) readonly propC: string | boolean | undefined
+}
+</script>
+/* // 위 코드의 Vue 객체형식으로 변환하면...
+<script>
+export default {
+  name: 'SampleComponent',
+  props: {
+    propA: {
+      type: Number
     },
-    directives: {
-      resize
+    propB: {
+      default: 'default value'
     },
-    filters: {
-      dateFormat
-    },
-    mixins: [
-      PageMixin
+    propC: {
+      type: [String, Boolean]
+    }
+  }
+};
+</script>
+*/
+```
+
+## @Watch
+* api : @Watch(path: string, opitons: WatchOptions = {})  // 첫번째인자: 모니터링 대상, 두번째인자: 옵션
+  - 옵션 immediate: 최초 컴포넌트 생성 시에도 호출할것인지여부
+  - 옵션 deep: 모니터링 대상값의 내부까지 모두 모니터링할것인지 여부 (json, array일경우)
+* 지정대상을 모니터링해서 값이 변경 되었을때 호출.
+```vue
+<script lang="ts">
+import { Component, Watch, Vue } from 'vue-property-decorator';
+
+@Component
+export default class SampleComponent extends Vue {
+  @Watch('child')
+  onChildChanged(val: string, oldVal: string) {}
+
+  @Watch('person', { immediate: true, deep: true })
+  onPersonChanged1(val: Person, oldVal: Person) {}
+
+  @Watch('person')
+  onPersonChanged2(val: Person, oldVal: Person) {}
+}
+</script>
+/* // 위 코드의 Vue 객체형식으로 변환하면...
+<script>
+export default {
+  name: 'SampleComponent',
+  watch: {
+    child: [
+      {
+        handler: 'onChildChanged',
+        immediate: false,
+        deep: false
+      }
+    ],
+    person: [
+      {
+        handler: 'onPersonChanged1',
+        immediate: true,
+        deep: true
+      },
+      {
+        handler: 'onPersonChanged2',
+        immediate: false,
+        deep: false
+      }
     ]
-  })
-  export default class SampleComponent extends Vue {}
-  </script>
-  ```
+  },
+  methods: {
+    onChildChanged(val, oldVal) {},
+    onPersonChanged1(val, oldVal) {},
+    onPersonChanged2(val, oldVal) {}
+  }
+};
+</script>
+*/
+```
