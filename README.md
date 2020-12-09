@@ -188,6 +188,7 @@ export default {
   - 옵션 immediate: 최초 컴포넌트 생성 시에도 호출할것인지여부
   - 옵션 deep: 모니터링 대상값의 내부까지 모두 모니터링할것인지 여부 (json, array일경우)
 * 지정대상을 모니터링해서 값이 변경 되었을때 호출.
+* 같은 대상을 여러번 watch하게 코딩이 되었을 경우 맨 마지막 watch만 실행됨.
 ```vue
 <script lang="ts">
 import { Component, Watch, Vue } from 'vue-property-decorator';
@@ -237,4 +238,70 @@ export default {
 };
 </script>
 */
+```
+
+## @PropSync
+* 일반적으로 @Prop으로 부모로부터 넘겨져 온 값은 자식컴포넌트에서 변경할 수 없다.
+* 하지만 부모컴포넌트에서 .sync로 넘어온 props는 @PropSync로 받고 값을 변경할 수 있다.
+* @PropSync로 받지않고 일반 @Prop으로 받았을경우에는 update이벤트로 부모props값을 변경할 수 있다.
+```vue
+<!-- 부모컴포넌트 -->
+<!-- 아래 두 코드는 같은 의미의 코드이다. -->
+<template>
+  <ChildComponent :childValue.sync="value" />
+  <ChildComponent :childValue="value" @update:childValue="value = $event" />
+</template>
+```
+```vue
+<!-- 자식컴포넌트 -->
+<!-- @PropSync를 사용한 코드 -->
+<script lang="ts">
+import { Component, PropSync, Vue } from 'vue-property-decorator';
+
+@Component
+export default class SampleComponent extends Vue {
+  @PropSync({ type: String }) childValue: string;
+  ...
+  // 값 변경 적용
+  updateValue(newVal: string) {
+    this.childValue = newVal;   // 이 시점에서 부모 컴포넌트로 전달된다.
+  }
+}
+</script>
+```
+```vue
+<!-- 자식컴포넌트 -->
+<!-- @PropSync를 사용하지 않은 코드 -->
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator';
+
+@Component
+export default class SampleComponent extends Vue {
+  @Prop({ type: String }) childValue: string;
+  ...
+  // 값 변경 적용
+  updateValue(newVal: string) {
+    this.$emit('update:childValue', newVal);  // 값 설정 및, 부모 컴포넌트로 이벤트 전달
+  }
+}
+</script>
+```
+* 아래와 같이 사용할 수도있다.
+```vue
+<template>
+  <doggie :size.sync="size" />
+</template> 
+<script>
+export default { 
+  data: { size: 'little' }
+} 
+</script>
+
+<!-- children component -->
+<template> 
+  <input :value="size" @input="$emit('update:size', $event.target.value)" />
+</template> 
+<script>
+export default { props: ['size'], }
+</script>
 ```
