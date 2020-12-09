@@ -105,6 +105,8 @@ module.exports = {
 
   # vue-property-decorator 사용
   * vue-property-decorator는 vue-class-component를 기반으로 제작되었다.
+  * 참조 url
+    - [http://ccambo.github.io/Dev/Vue/6.How-to-use-vue-property-decorator/](http://ccambo.github.io/Dev/Vue/6.How-to-use-vue-property-decorator/)
   ## @Component
   * (vue-class-component)의 데코레이터이다.
   * javascript의 class를 Vue가 인식할 수 있게 변환하는 데코레이터.
