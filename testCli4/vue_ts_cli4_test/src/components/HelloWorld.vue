@@ -91,15 +91,33 @@
         >
       </li>
     </ul>
+    <span>{{ propTest2 }}</span>
+    <input type="text" value="" @input="onChange" />
+    <span>{{ syncTest }}</span>
+    <input type="text" value="" @input="onChange2" />
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
+import { Component, Emit, Prop, PropSync, Vue } from "vue-property-decorator";
 
 @Component
 export default class HelloWorld extends Vue {
   @Prop() private msg!: string;
+  @PropSync('propTest') propTest2!: string;
+  @Prop() syncTest!: string;
+
+  private onChange( event: any ) {
+    const elem: HTMLInputElement = event.target as HTMLInputElement;
+    const val: string = elem.value;
+    this.propTest2 = val;
+  }
+  
+  private onChange2( event: any ) {
+    const elem: HTMLInputElement = event.target as HTMLInputElement;
+    const val: string = elem.value;
+    this.$emit('uptate:syncTest', val);
+  }
 }
 </script>
 
