@@ -1,9 +1,11 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld :msg="msg" :prop-test.sync="aaa" :sync-test="bbb" @update:sync-test="changeB" />
+    <HelloWorld :msg="msg" :prop-test.sync="aaa" :prop-testbbb="bbb" @uptate:prop-testbbb="changeB" />
     <p style="color:red;">{{ aaa }}</p>
     <p style="color:blue;">{{ bbb }}</p>
+    <p>value값:</p>
+    <p></p>
   </div>
 </template>
 
@@ -22,6 +24,7 @@ export default class App extends Vue {
   private bbb = 'bbb';
 
   private changeB(val: string) {
+    console.log('2=====>' + val);
     this.bbb = val;
   }
 }
