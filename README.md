@@ -444,7 +444,23 @@ select : (props: value, event: change)
   ```
   - input태그의 value값 변경으로 인하여 무한루프 또는 props변경관련 에러가 발생할 수 있다.
 * @Model 사용해보기
-  - ..
+  - api: @Model(event?: string, options:(PropOptions | Constructor[] | Constructor) = {})
+  ```
+  // 예제
+  @Model('change', {type: Boolean}) checked!: boolean;
+  // 위 예제는 아래 소스와 같은 의미이다
+  export default {
+    model: {
+      prop: 'checked',
+      event: 'change',
+    },
+    props: {
+      checked: {
+    
+      }
+    }
+  }
+  ```
 
 ## input tag buffer관련소스정리
 * 아이폰의 커스텀 삭제버튼이 있는경우 처리 소스
