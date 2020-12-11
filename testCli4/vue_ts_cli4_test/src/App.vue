@@ -1,7 +1,12 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld :msg="msg" :prop-test.sync="aaa" :prop-testbbb="bbb" @uptate:prop-testbbb="changeB" />
+    <HelloWorld
+      :msg="msg"
+      :test.sync="aaa"
+      :testbbb="bbb"
+      @uptate:testbbba="bbb = $event"
+    />
     <p style="color:red;">{{ aaa }}</p>
     <p style="color:blue;">{{ bbb }}</p>
     <p>value값:</p>

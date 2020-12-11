@@ -249,7 +249,7 @@ export default {
 <!-- 아래 두 코드는 같은 의미의 코드이다. -->
 <template>
   <ChildComponent :childValue.sync="value" />
-  <ChildComponent :childValue="value" @update:childValue="value = $event" />
+  <ChildComponent :childValue="value" @update:커스텀="value = $event" />
 </template>
 ```
 ```vue
@@ -260,11 +260,11 @@ import { Component, PropSync, Vue } from 'vue-property-decorator';
 
 @Component
 export default class SampleComponent extends Vue {
-  @PropSync({ type: String }) childValue: string;
+  @PropSync('value', { type: String }) 변수명1: string;
   ...
-  // 값 변경 적용
+  // 화면 상황에 따라 특정 값 변경 적용
   updateValue(newVal: string) {
-    this.childValue = newVal;   // 이 시점에서 부모 컴포넌트로 전달된다.
+    this.변수명1 = newVal;   // 이 시점에서 부모 컴포넌트로 전달된다.
   }
 }
 </script>
@@ -277,11 +277,11 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component
 export default class SampleComponent extends Vue {
-  @Prop({ type: String }) childValue: string;
+  @Prop() value: string;
   ...
-  // 값 변경 적용
+  // 화면 상황에 따라 값 변경 적용
   updateValue(newVal: string) {
-    this.$emit('update:childValue', newVal);  // 값 설정 및, 부모 컴포넌트로 이벤트 전달
+    this.$emit('update:커스텀', newVal);  // 값 설정 및, 부모 컴포넌트로 이벤트 전달
   }
 }
 </script>
@@ -298,6 +298,7 @@ export default {
 </script>
 
 <!-- children component -->
+<!-- 핵심은 input value에 props를 셋팅한것 -->
 <template> 
   <input :value="size" @input="$emit('update:size', $event.target.value)" />
 </template> 

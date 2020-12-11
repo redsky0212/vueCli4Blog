@@ -5,8 +5,8 @@
     
     <span>{{ propTest2 }}</span>
     <input type="text" value="" @input="onChange" />
-    <span>{{ propTestbbb }}</span>
-    <input type="text" value="" @input="onChange2" />
+    <span>{{ testbbb }}</span>
+    <input type="text" :value="testbbb" @input="onChange2" />
   </div>
 </template>
 
@@ -16,8 +16,8 @@ import { Component, Emit, Prop, PropSync, Vue } from "vue-property-decorator";
 @Component
 export default class HelloWorld extends Vue {
   @Prop() private msg!: string;
-  @PropSync('propTest') propTest2!: string;
-  @Prop() propTestbbb!: string;
+  @PropSync('test') propTest2!: string;
+  @Prop() testbbb!: string;
 
   private onChange( event: any ) {
     const elem: HTMLInputElement = event.target as HTMLInputElement;
@@ -29,7 +29,7 @@ export default class HelloWorld extends Vue {
     const elem: HTMLInputElement = event.target as HTMLInputElement;
     const val: string = elem.value;
     console.log('1=====>' + val);
-    this.$emit('uptate:prop-testbbb', val);
+    this.$emit('uptate:testbbba', val);
   }
 }
 </script>
