@@ -345,3 +345,55 @@ export default class HelloWorld extends Vue {
 }
 </script>
 ```
+## @Ref
+* api: @Ref(refKey?: string)
+* $refs 와 대응되는 데코레이터.
+* @Ref를 사용함으로 인하여 오타나 수정 관리가 더 쉬워진다.
+* refKey를 인자로 넘겨주고 컴포넌트내부에서는 새로운 변수로 설정해서 사용할 수도있다.
+```vue
+<template>
+  <ChildComponent ref="childComponent" />
+  <button ref="submitButton">submit버튼</button>
+</template>
+<script lang="ts">
+import { Vue, Ref, Component } from 'vue-property-decorator';
+
+@Component
+export default class HelloWorld extends Vue {
+
+  @Ref() childComponent: ChildComponent;
+  @Ref() submitButton: HTMLButtonElement;
+
+  private mounted() {
+    // 자식컴포넌트의 내부 메서드 사용.
+    this.childComponent.updateValue();
+    // HTML Element의속성사용
+    this.submitButton.focus();
+  }
+
+}
+</script>
+```
+
+## input tag buffer관련소스정리
+* 아이폰의 커스텀 삭제버튼이 있는경우 처리 소스
+```javascript
+<input type="test" id="testInput" />
+<button onclick="testFocus()">포커스이동</button>
+
+function testFocus() {
+  clearBuffer(document.getElementById('testInput));
+}
+function clearBuffer(currentInput) {
+  var elem = document.createElement('INPUT');
+  elem.type = 'text';
+  elem.id = 'hidden_input_element';
+  elem.style.position = 'absolute';
+  elem.style.top = '-1000px';
+  document.body.appendChild(elem);
+  currentInput.value = '';
+  document.getElementById('hidden_input_element').focus();
+  currentInput.focus();
+  document.getElementById('hidden_input_element').remove();
+}
+```
