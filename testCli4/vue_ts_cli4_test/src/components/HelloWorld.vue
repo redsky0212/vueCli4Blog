@@ -7,6 +7,7 @@
     <input type="text" value="" @input="onChange" />
     <span>{{ testbbb }}</span>
     <input type="text" :value="testbbb" @input="onChange2" />
+    <button @click="testEmit">testEmit</button>
   </div>
 </template>
 
@@ -18,6 +19,11 @@ export default class HelloWorld extends Vue {
   @Prop() private msg!: string;
   @PropSync('test') propTest2!: string;
   @Prop() testbbb!: string;
+
+  @Emit('test-emit')
+  private testEmit() {
+    return 'aaaaaa';
+  }
 
   private onChange( event: any ) {
     const elem: HTMLInputElement = event.target as HTMLInputElement;

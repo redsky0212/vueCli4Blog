@@ -6,6 +6,7 @@
       :test.sync="aaa"
       :testbbb="bbb"
       @uptate:testbbba="bbb = $event"
+      @test-emit="testEmitFunc"
     />
     <p style="color:red;">{{ aaa }}</p>
     <p style="color:blue;">{{ bbb }}</p>
@@ -27,6 +28,10 @@ export default class App extends Vue {
   private msg = 'Welcome to Your Vue.js + TypeScript App';
   private aaa = 'fjkdsajf';
   private bbb = 'bbb';
+
+  private testEmitFunc(val: string) {
+    alert(val);
+  }
 
   private changeB(val: string) {
     console.log('2=====>' + val);

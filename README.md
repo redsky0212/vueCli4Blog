@@ -306,3 +306,42 @@ export default {
 export default { props: ['size'], }
 </script>
 ```
+
+## @Emit
+* api: @Emit(eventName?: string)
+* 부모에 설정된 event를 실행시키는 this.$emit의 데코레이터
+  - 자식컴포넌트에서 @Emit의 인자로 eventName을 넘겨주지 않았을경우 메서드명이 이벤트명이 된다.
+    - 메서드명의 카멜케이스는 부모컴포넌트에서는 캐밥케이스로 사용해줘야 한다.
+  - 자식컴퍼넌트에서 @Emit의 인자로 eventName을 넘겨줬을때는 넘겨준 eventName을 그대로 사용해줘야한다.
+```vue
+<!-- 부모컴포넌트 -->
+<template>
+  <HelloWorld @test-emit="emitHandler" />
+</template>
+<script lang="ts">
+export default 부모컴포넌트 extends Vue {
+  private emitHandler(val: string) {
+    alert(val);
+  }
+}
+</script>
+```
+```vue
+<!-- 자식컴포넌트 -->
+<template>
+  <button @click="testEmit">emit테스트버튼</button>
+</template>
+<script lang="ts">
+import { Vue, Emit, Component } from 'vue-property-decorator';
+
+@Component
+export default class HelloWorld extends Vue {
+
+  @Emit()
+  private testEmit() {
+    return 'aaaaaaaa';
+  }
+
+}
+</script>
+```
