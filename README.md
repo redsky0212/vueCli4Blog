@@ -375,6 +375,77 @@ export default class HelloWorld extends Vue {
 </script>
 ```
 
+## @Model
+* @Model데코레이터를 알기전에 v-model을 먼저 알아야한다.
+* v-model
+  - Form 요소의 양방향 데이타를 할 수 있다.
+  - 컴포넌트에서는 v-model로 넘겨준 데이타를 양방향 연결을 한다.
+  - 부모로부터 넘겨받은 props을 자식에서는 event로 올려줘서 데이터를 양방향으로 적용할 수 있다.
+  - 이렇게 매번 props와 event로 값변경, 유지 하는것을 좀 더 간편하게 하는게 v-model이다.
+  ```vue
+  <!-- v-model을 사용하지 않은 소스 -->
+  <template>
+    <input type="text" :value="inputVal" @input="changeValue" />
+  </template>
+  <script lang="ts">
+  export default class Test extends vue {
+    private inputVal = '';
+
+    private changeValue(event: any) {
+      const elem: HTMLInputElement = event.target as HTMLInputElement;
+      const val: string = elem.value;
+      this.inputVal = val;
+    }
+  }
+  </script>
+  
+  <!-- v-model로 사용한 소스 -->
+  <template>
+    <input type="text" v-model="inputVal" />
+  </template>
+  <script lang="ts">
+  export default class Test extends vue {
+    private inputVal = '';
+  }
+  </script>
+  ```
+  - 위와같이 v-model을 사용하면 짧은 소스로 양방향 데이타 연계를 할 수 있다.
+* 각각 Form요소마다 v-model적용시 사용되는 props, event 내용
+```
+input : (props: value, event: input)
+input(checkbox, radio) : (props: checked, event: change)
+select : (props: value, event: change)
+```
+* v-model사용시 문제점
+  - IME입력(한글) 시 한글자 입력이 완료되어야 데이타에 적용되어서 한타임씩 늦게 적용되는듯한 현상이 있습니다. (이런경우에는v-model을 사용하지 않고 props, event를 직접연결해서 사용하기를 권고하고있습니다.)
+  - 그래도 v-model로 사용하고자 할때는 input을 커스텀 컴포넌트로 만들어서 하는 방법도 있습니다.
+  ```vue
+  <!-- CustomInput.vue -->
+  <template>
+    <input :value="value" @input="onInput">
+  </template>
+  <script lang="ts">
+  export default class Test extends vue {
+    @Prop() value: string
+
+    @Emit('input')
+    private onInput(event: any) {
+      const elem: HTMLInputElement = event.target as HTMLInputElement;
+      const val: string = elem.value;
+      return val;
+    }
+  }
+  </script>
+
+  <!-- 부모컴포넌트에서 사용하는 예제 -->
+  <template>
+    <CustomInput v-model="inputVal" />
+  </template>
+  ```
+  - input태그의 value값 변경으로 인하여 무한루프 또는 props변경관련 에러가 발생할 수 있다.
+* @Model 사용해보기
+  - ..
+
 ## input tag buffer관련소스정리
 * 아이폰의 커스텀 삭제버튼이 있는경우 처리 소스
 ```javascript
