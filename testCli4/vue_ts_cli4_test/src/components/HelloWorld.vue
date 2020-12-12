@@ -8,11 +8,12 @@
     <span>{{ testbbb }}</span>
     <input type="text" :value="testbbb" @input="onChange2" />
     <button @click="testEmit">testEmit</button>
+    <input type="text" value="" ref="testRef" />
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Emit, Prop, PropSync, Vue } from "vue-property-decorator";
+import { Component, Emit, Prop, PropSync, Ref, Vue } from "vue-property-decorator";
 
 @Component
 export default class HelloWorld extends Vue {
@@ -22,8 +23,11 @@ export default class HelloWorld extends Vue {
 
   @Emit('test-emit')
   private testEmit() {
+    this.refVar.focus();
     return 'aaaaaa';
   }
+
+  @Ref('testRef') readonly refVar!: HTMLInputElement;
 
   private onChange( event: any ) {
     const elem: HTMLInputElement = event.target as HTMLInputElement;

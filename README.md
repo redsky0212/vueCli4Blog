@@ -311,7 +311,7 @@ export default { props: ['size'], }
 * api: @Emit(eventName?: string)
 * 부모에 설정된 event를 실행시키는 this.$emit의 데코레이터
   - 자식컴포넌트에서 @Emit의 인자로 eventName을 넘겨주지 않았을경우 메서드명이 이벤트명이 된다.
-    - 메서드명의 카멜케이스는 부모컴포넌트에서는 캐밥케이스로 사용해줘야 한다.
+    - `메서드명의 카멜케이스는 부모컴포넌트에서는 캐밥케이스로 사용해줘야 한다.`
   - 자식컴퍼넌트에서 @Emit의 인자로 eventName을 넘겨줬을때는 넘겨준 eventName을 그대로 사용해줘야한다.
 ```javascript
 // <!-- 부모컴포넌트 -->
@@ -341,6 +341,11 @@ export default class HelloWorld extends Vue {
   private testEmit() {
     return 'aaaaaaaa';
   }
+  // 또는 아래와 같이 사용한다.
+  // @Emit('test-emit')
+  // private testEmit() {
+  //   return 'aaaaaaaa';
+  // }
 
 }
 </script>
@@ -363,6 +368,9 @@ export default class HelloWorld extends Vue {
 
   @Ref() childComponent: ChildComponent;
   @Ref() submitButton: HTMLButtonElement;
+  // 또는
+  // @Ref('submitButton') submitButtonVar!: HTMLButtonElement; 
+  // this.submitButtonVar 로 사용한다.
 
   private mounted() {
     // 자식컴포넌트의 내부 메서드 사용.
