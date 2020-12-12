@@ -110,23 +110,23 @@ module.exports = {
 ## @Component
 * (vue-class-component)의 데코레이터이다.
 * javascript의 class를 Vue가 인식할 수 있게 변환하는 데코레이터.
-```vue
+```javascript
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 
 @Component
 export default class SampleComponent extends Vue {}
 </script>
-/* // 위 코드의 Vue 객체형식
+
+// 위 코드의 Vue 객체형식
 export default {
   name: 'SampleComponent'
 };
-*/
 ```
 * @Component데코레이터에 Vue 컴포넌트 객체 자체 옵션을 설정할 수 있다. 
   - 많이사용하는 것들
     - Child Components, Directives, Filters, Mixins, Data, DOM, Life-cycle Hooks, Asset, Configuration
-```vue
+```javascript
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 
@@ -152,7 +152,7 @@ export default class SampleComponent extends Vue {}
 ## @Prop
 * api : @Prop(options: (PropOptions | Constructor[] | Constructor) = {})
 * 부모컴포넌트가 넘겨준 값
-```vue
+```javascript
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
@@ -163,7 +163,7 @@ export default class SampleComponent extends Vue {
   @Prop([String, Boolean]) readonly propC: string | boolean | undefined
 }
 </script>
-/* // 위 코드의 Vue 객체형식으로 변환하면...
+// 위 코드의 Vue 객체형식으로 변환하면...
 <script>
 export default {
   name: 'SampleComponent',
@@ -180,7 +180,6 @@ export default {
   }
 };
 </script>
-*/
 ```
 
 ## @Watch
@@ -189,7 +188,7 @@ export default {
   - 옵션 deep: 모니터링 대상값의 내부까지 모두 모니터링할것인지 여부 (json, array일경우)
 * 지정대상을 모니터링해서 값이 변경 되었을때 호출.
 * 같은 대상을 여러번 watch하게 코딩이 되었을 경우 맨 마지막 watch만 실행됨.
-```vue
+```javascript
 <script lang="ts">
 import { Component, Watch, Vue } from 'vue-property-decorator';
 
@@ -205,7 +204,8 @@ export default class SampleComponent extends Vue {
   onPersonChanged2(val: Person, oldVal: Person) {}
 }
 </script>
-/* // 위 코드의 Vue 객체형식으로 변환하면...
+
+// 위 코드의 Vue 객체형식으로 변환하면...
 <script>
 export default {
   name: 'SampleComponent',
@@ -237,24 +237,24 @@ export default {
   }
 };
 </script>
-*/
 ```
 
 ## @PropSync
 * 일반적으로 @Prop으로 부모로부터 넘겨져 온 값은 자식컴포넌트에서 변경할 수 없다.
 * 하지만 부모컴포넌트에서 .sync로 넘어온 props는 @PropSync로 받고 값을 변경할 수 있다.
 * @PropSync로 받지않고 일반 @Prop으로 받았을경우에는 update이벤트로 부모props값을 변경할 수 있다.
-```vue
-<!-- 부모컴포넌트 -->
-<!-- 아래 두 코드는 같은 의미의 코드이다. -->
+
+```javascript
+// <!-- 부모컴포넌트 -->
+// <!-- 아래 두 코드는 같은 의미의 코드이다. -->
 <template>
   <ChildComponent :childValue.sync="value" />
   <ChildComponent :childValue="value" @update:커스텀="value = $event" />
 </template>
 ```
-```vue
-<!-- 자식컴포넌트 -->
-<!-- @PropSync를 사용한 코드 -->
+```javascript
+// <!-- 자식컴포넌트 -->
+// <!-- @PropSync를 사용한 코드 -->
 <script lang="ts">
 import { Component, PropSync, Vue } from 'vue-property-decorator';
 
@@ -269,9 +269,9 @@ export default class SampleComponent extends Vue {
 }
 </script>
 ```
-```vue
-<!-- 자식컴포넌트 -->
-<!-- @PropSync를 사용하지 않은 코드 -->
+```javascript
+// <!-- 자식컴포넌트 -->
+// <!-- @PropSync를 사용하지 않은 코드 -->
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
@@ -287,7 +287,7 @@ export default class SampleComponent extends Vue {
 </script>
 ```
 * 아래와 같이 사용할 수도있다.
-```vue
+```javascript
 <template>
   <doggie :size.sync="size" />
 </template> 
@@ -297,8 +297,8 @@ export default {
 } 
 </script>
 
-<!-- children component -->
-<!-- 핵심은 input value에 props를 셋팅한것 -->
+// <!-- children component -->
+// <!-- 핵심은 input value에 props를 셋팅한것 -->
 <template> 
   <input :value="size" @input="$emit('update:size', $event.target.value)" />
 </template> 
@@ -313,8 +313,8 @@ export default { props: ['size'], }
   - 자식컴포넌트에서 @Emit의 인자로 eventName을 넘겨주지 않았을경우 메서드명이 이벤트명이 된다.
     - 메서드명의 카멜케이스는 부모컴포넌트에서는 캐밥케이스로 사용해줘야 한다.
   - 자식컴퍼넌트에서 @Emit의 인자로 eventName을 넘겨줬을때는 넘겨준 eventName을 그대로 사용해줘야한다.
-```vue
-<!-- 부모컴포넌트 -->
+```javascript
+// <!-- 부모컴포넌트 -->
 <template>
   <HelloWorld @test-emit="emitHandler" />
 </template>
@@ -326,8 +326,8 @@ export default 부모컴포넌트 extends Vue {
 }
 </script>
 ```
-```vue
-<!-- 자식컴포넌트 -->
+```javascript
+// <!-- 자식컴포넌트 -->
 <template>
   <button @click="testEmit">emit테스트버튼</button>
 </template>
@@ -350,7 +350,7 @@ export default class HelloWorld extends Vue {
 * $refs 와 대응되는 데코레이터.
 * @Ref를 사용함으로 인하여 오타나 수정 관리가 더 쉬워진다.
 * refKey를 인자로 넘겨주고 컴포넌트내부에서는 새로운 변수로 설정해서 사용할 수도있다.
-```vue
+```javascript
 <template>
   <ChildComponent ref="childComponent" />
   <button ref="submitButton">submit버튼</button>
@@ -382,8 +382,8 @@ export default class HelloWorld extends Vue {
   - 컴포넌트에서는 v-model로 넘겨준 데이타를 양방향 연결을 한다.
   - 부모로부터 넘겨받은 props을 자식에서는 event로 올려줘서 데이터를 양방향으로 적용할 수 있다.
   - 이렇게 매번 props와 event로 값변경, 유지 하는것을 좀 더 간편하게 하는게 v-model이다.
-  ```vue
-  <!-- v-model을 사용하지 않은 소스 -->
+  ```javascript
+  // <!-- v-model을 사용하지 않은 소스 -->
   <template>
     <input type="text" :value="inputVal" @input="changeValue" />
   </template>
@@ -399,7 +399,7 @@ export default class HelloWorld extends Vue {
   }
   </script>
   
-  <!-- v-model로 사용한 소스 -->
+  // <!-- v-model로 사용한 소스 -->
   <template>
     <input type="text" v-model="inputVal" />
   </template>
@@ -419,8 +419,8 @@ select : (props: value, event: change)
 * v-model사용시 문제점
   - IME입력(한글) 시 한글자 입력이 완료되어야 데이타에 적용되어서 한타임씩 늦게 적용되는듯한 현상이 있습니다. (이런경우에는v-model을 사용하지 않고 props, event를 직접연결해서 사용하기를 권고하고있습니다.)
   - 그래도 v-model로 사용하고자 할때는 input을 커스텀 컴포넌트로 만들어서 하는 방법도 있습니다.
-  ```vue
-  <!-- CustomInput.vue -->
+  ```javascript
+  // <!-- CustomInput.vue -->
   <template>
     <input :value="value" @input="onInput">
   </template>
@@ -437,7 +437,7 @@ select : (props: value, event: change)
   }
   </script>
 
-  <!-- 부모컴포넌트에서 사용하는 예제 -->
+  // <!-- 부모컴포넌트에서 사용하는 예제 -->
   <template>
     <CustomInput v-model="inputVal" />
   </template>
@@ -445,7 +445,7 @@ select : (props: value, event: change)
   - input태그의 value값 변경으로 인하여 무한루프 또는 props변경관련 에러가 발생할 수 있다.
 * @Model 사용해보기
   - api: @Model(event?: string, options:(PropOptions | Constructor[] | Constructor) = {})
-  ```
+  ```javascript
   // 예제
   @Model('change', {type: Boolean}) checked!: boolean;
   // 위 예제는 아래 소스와 같은 의미이다
