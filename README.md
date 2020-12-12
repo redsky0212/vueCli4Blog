@@ -452,7 +452,9 @@ select : (props: value, event: change)
   ```
   - input태그의 value값 변경으로 인하여 무한루프 또는 props변경관련 에러가 발생할 수 있다.
 * @Model 사용해보기
-  - api: @Model(event?: string, options:(PropOptions | Constructor[] | Constructor) = {})
+  - api: @Model(event?: string, options:(PropOptions | Constructor[] | Constructor) = {}) 데코레이터
+  - 그냥 input, input type=checkbox, radio, select 같은 tag에서 사용할때는 v-model attribute로 사용하면 된다.
+  - 컴포넌트에 v-model로 속성을 넘겨줬을때 그 자식 컴포넌트에서 @Model을 사용하여 아래와 같이 사용하면 된다.
   ```javascript
   // 예제
   @Model('change', {type: Boolean}) checked!: boolean;
@@ -464,10 +466,39 @@ select : (props: value, event: change)
     },
     props: {
       checked: {
-    
+        type: Boolean,
       }
     }
   }
+  ```
+   ```javascript
+  // 위와같이 model을 선언하고 사용하는 예제 소스
+  // Tag는 일반 Tag이든 input, select Tag이든 사용법은 같다.
+  <template>
+    <div>
+      <button @click="onClick">값변경</button>
+    </div>
+  </template>
+
+  <script lang="ts">
+  import { Component, Emit, Model, Vue } from "vue-property-decorator";
+
+  @Component
+  export default class ModelTest extends Vue {
+    // 일반적으로 input, select태그에서 기본 설정되는 props, event는 있으나 아래와 같이 직접 이벤트를 설정해주면 그것을 사용한다.
+    @Model("change", { type: Number }) private value!: number;
+
+    @Emit("change")
+    private onChange(num: number) {
+      return num;
+    }
+
+    private onClick(event: Event): void {
+      const num: number = this.value;
+      this.onChange(num + 1);
+    }
+  }
+  </script>
   ```
 
 ## input tag buffer관련소스정리

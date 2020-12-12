@@ -16,8 +16,8 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import HelloWorld from '@/components/HelloWorld.vue';
+import { Component, Vue } from "vue-property-decorator";
+import HelloWorld from "@/components/HelloWorld.vue";
 
 @Component({
   components: {
@@ -25,16 +25,16 @@ import HelloWorld from '@/components/HelloWorld.vue';
   }
 })
 export default class App extends Vue {
-  private msg = 'Welcome to Your Vue.js + TypeScript App';
-  private aaa = 'fjkdsajf';
-  private bbb = 'bbb';
+  private msg = "Welcome to Your Vue.js + TypeScript App";
+  private aaa = "fjkdsajf";
+  private bbb = "bbb";
 
   private testEmitFunc(val: string) {
     alert(val);
   }
 
   private changeB(val: string) {
-    console.log('2=====>' + val);
+    console.log("2=====>" + val);
     this.bbb = val;
   }
 }
