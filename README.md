@@ -152,6 +152,7 @@ export default class SampleComponent extends Vue {}
 ## @Prop
 * api : @Prop(options: (PropOptions | Constructor[] | Constructor) = {})
 * 부모컴포넌트가 넘겨준 값
+* 넘겨받은 props는 항상 `type, default, required`의 validate는 사용하는게 좋음.
 ```javascript
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
@@ -500,8 +501,17 @@ select : (props: value, event: change)
   }
   </script>
   ```
+  ## @Provide / @Inject
+  * props와 같은 부모로부터 받은 값을 자식으로 전달해주는 역할을 한다.
+  * props와 다른것은 바로 직계 부모가 아닌 한참 위 부모로 부터도 데이터를 받을 수 있다는것이 차이점.
+  * 일반적인 컴포넌트에서는 사용하지 않고 드러내지 않고 고급 라이브러리 개발 등 과 같은 특수한 경우에 사용.
+  * 이것은 반응형이 아니다. 반응형으로 사용할때는 `@ProvideReactive / @InjectReactive`를 사용한다.
+  * 부모가 Provide로 전해주고 자식이 Inject로 받는다.
+  * 참조
+    - [https://medium.com/witinweb/vue-js-provide-inject-%EC%97%90-%EB%8C%80%ED%95%B4-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0-743502dbb449](https://medium.com/witinweb/vue-js-provide-inject-%EC%97%90-%EB%8C%80%ED%95%B4-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0-743502dbb449)
+    - [https://github.com/kaorun343/vue-property-decorator#Provide](https://github.com/kaorun343/vue-property-decorator#Provide)
 
-## input tag buffer관련소스정리
+## input tag buffer관련소스정리(그냥참조용)
 * 아이폰의 커스텀 삭제버튼이 있는경우 처리 소스
 ```javascript
 <input type="test" id="testInput" />
