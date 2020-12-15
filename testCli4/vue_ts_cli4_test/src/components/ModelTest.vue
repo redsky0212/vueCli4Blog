@@ -11,7 +11,7 @@ import { Component, Emit, Model, Vue } from "vue-property-decorator";
 export default class ModelTest extends Vue {
   @Model("change", { type: Number }) private value!: number;
 
-  private onClick(event: Event): void {
+  private onClick(): void {
     const num: number = this.value;
     this.onChange(num + 1);
   }
