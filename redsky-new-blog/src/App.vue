@@ -1,9 +1,22 @@
 <template>
   <section class="body">
     <!-- start: header -->
-    <header class="header"></header>
+    <header class="header">
+      <div class="logo-container">
+        <router-link to="/" class="logo">
+          <img src="@/assets/images/logo.png" height="35" alt="Porto Admin" />
+        </router-link>
+        <div
+          class="visible-xs toggle-sidebar-left"
+          data-toggle-class="sidebar-left-opened"
+          data-target="html"
+          data-fire-event="sidebar-left-opened"
+        >
+          <i class="fa fa-bars" aria-label="Toggle sidebar"></i>
+        </div>
+      </div>
+    </header>
     <!-- end: header -->
-
   </section>
 </template>
 
