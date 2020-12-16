@@ -3,9 +3,11 @@
     <!-- start: header -->
     <header class="header">
       <div class="logo-container">
-        <router-link to="/" class="logo">
+        <!-- <router-link to="/" class="logo"> -->
+        <a href="../" class="logo">
           <img src="@/assets/images/logo.png" height="35" alt="Porto Admin" />
-        </router-link>
+        </a>
+        <!-- </router-link> -->
         <div class="visible-xs toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened">
           <i class="fa fa-bars" aria-label="Toggle sidebar"></i>
         </div>
@@ -516,7 +518,7 @@
           </div>
         </header>
         <!-- start: page -->
-        fdsa
+        fdsagf
         <!-- end: page -->
       </section>
     </div>
@@ -532,20 +534,23 @@ import HelloWorld from './components/HelloWorld.vue';
     HelloWorld,
   },
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  private publicPath = process.env.BASE_URL;
+  private mounted() {
+    // Theme Base, Components and Settings
+    const themeInitJs1 = document.createElement('script');
+    themeInitJs1.setAttribute('src', `${this.publicPath}assets/javascripts/theme.js`);
+    // Theme Custom
+    const themeInitJs2 = document.createElement('script');
+    themeInitJs2.setAttribute('src', `${this.publicPath}assets/javascripts/theme.custom.js`);
+    // Theme Initialization Files
+    const themeInitJs3 = document.createElement('script');
+    themeInitJs3.setAttribute('src', `${this.publicPath}assets/javascripts/theme.init.js`);
+    document.body.appendChild(themeInitJs1);
+    document.body.appendChild(themeInitJs2);
+    document.body.appendChild(themeInitJs3);
+  }
+}
 </script>
 
-<style>
-/* 전역 css파일 가져오기 */
-/* Vendor CSS */
-@import './assets/vendor/bootstrap/css/bootstrap.css';
-@import './assets/vendor/font-awesome/css/font-awesome.css';
-@import './assets/vendor/magnific-popup/magnific-popup.css';
-@import './assets/vendor/bootstrap-datepicker/css/datepicker3.css';
-/* Theme CSS */
-@import './assets/stylesheets/theme.css';
-/* Skin CSS */
-@import './assets/stylesheets/skins/default.css';
-/* Theme Custom CSS */
-@import './assets/stylesheets/theme-custom.css';
-</style>
+<style></style>
