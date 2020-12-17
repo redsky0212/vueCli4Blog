@@ -9,9 +9,25 @@ module.exports = {
   publicPath: process.env.NODE_ENV === 'production' ? '/redsky/cli4/' : '/',
 }
 ```
+* publicPath가 설정되면 화면에서 경로 설정시 아래와 같이 publicPath를 사용하여 작업해줄 수 있다.
+```javascript
+export default class App extends Vue {
+  private publicPath = process.env.BASE_URL;
+  private mounted() {
+    const themeInitJs1 = document.createElement('script');
+    themeInitJs1.setAttribute('src', `${this.publicPath}assets/javascripts/theme.js`);
+    document.body.appendChild(themeInitJs1);
+  }
+}
+```
+* 또한 vue페이지에서 process를 사용할때 빨간줄이 뜰때가 있다. 이럴때는 ...... (추가설명 작성중...)
 
 ## Cannot find name 'process' 에러
 * js에서 process를 사용할때 "cannot find name process" 에러가 나면서 @types/node를 설치하라고 하면 설치해준다.
+* 가끔 vscode를 재시작 해야할때도 있다.
 ```
 npm i -D @types/node
 ```
+
+## eslint + prettier 의 [eslint] Delete 'cr' [prettier/prettier] 에러 대처
+* ..

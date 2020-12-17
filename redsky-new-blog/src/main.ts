@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import App from './App.vue';
+import router from './router';
 
 Vue.config.productionTip = false;
 
@@ -13,5 +14,6 @@ import '@/assets/vendor/magnific-popup/magnific-popup.js';
 import '@/assets/vendor/jquery-placeholder/jquery.placeholder.js';
 
 new Vue({
+  router,
   render: h => h(App),
 }).$mount('#app');
