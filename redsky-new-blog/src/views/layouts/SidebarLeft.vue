@@ -25,7 +25,8 @@
                 <span>Mailbox</span>
               </a>
             </li>
-            <li class="nav-parent nav-expanded nav-active">
+            <li class="nav-parent">
+              <!-- nav-expanded nav-active -->
               <a>
                 <i class="fa fa-copy" aria-hidden="true"></i>
                 <span>Pages</span>

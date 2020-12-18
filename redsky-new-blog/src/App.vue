@@ -29,6 +29,7 @@ import ContentBody from '@/views/layouts/ContentBody.vue';
 })
 export default class App extends Vue {
   private publicPath = process.env.BASE_URL;
+
   private mounted() {
     // Theme Base, Components and Settings
     const themeInitJs1 = document.createElement('script');

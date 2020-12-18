@@ -28,6 +28,8 @@ export default class App extends Vue {
 ```
 npm i -D @types/node
 ```
+* 또한 현재 프로젝트 실행 폴더가 vscode의 workspace의 루트인지 여부에 따라 vscode자체에서 editor 해당 라인에 빨간줄을 표시할때가 있다. 실행에는 문제가 없으나 거슬리면 루트를 다시 확인해보는게 좋음.
+  - `@/components/...` 이런 부분의 빨간줄도 같은 현상임.
 
 ## eslint + prettier 의 [eslint] Delete 'cr' [prettier/prettier] 에러 대처
 * ..
