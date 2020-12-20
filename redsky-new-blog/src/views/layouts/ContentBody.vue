@@ -1,7 +1,7 @@
 <template>
   <section role="main" class="content-body">
     <header class="page-header">
-      <h2>Blank Page</h2>
+      <h2>{{ pageName }}</h2>
       <div class="right-wrapper pull-right">
         <ol class="breadcrumbs">
           <li>
@@ -10,13 +10,13 @@
             </a>
           </li>
           <li><span>Pages</span></li>
-          <li><span>Blank Page</span></li>
+          <li><span>Main</span></li>
         </ol>
-        <a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
+        <a class="sidebar-right-toggle" data-open="sidebar-right"></a>
       </div>
     </header>
     <!-- start: page -->
-    fdsagf
+    <router-view />
     <!-- end: page -->
   </section>
 </template>
@@ -24,5 +24,12 @@
 import { Component, Vue } from 'vue-property-decorator';
 
 @Component
-export default class ContentBody extends Vue {}
+export default class ContentBody extends Vue {
+  private pageName: string | null | undefined = '';
+
+  private mounted() {
+    console.log(this.$route.name);
+    this.pageName = this.$route.name;
+  }
+}
 </script>
