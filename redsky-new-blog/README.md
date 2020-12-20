@@ -30,6 +30,9 @@ npm i -D @types/node
 ```
 * 또한 현재 프로젝트 실행 폴더가 vscode의 workspace의 루트인지 여부에 따라 vscode자체에서 editor 해당 라인에 빨간줄을 표시할때가 있다. 실행에는 문제가 없으나 거슬리면 루트를 다시 확인해보는게 좋음.
   - `@/components/...` 이런 부분의 빨간줄도 같은 현상임.
+* vscode상에 워크밴치 루트가 현재 프로젝트 폴더 이어야 한다. (모든 다른 프로젝트를 워크밴치에서 삭제하고 사용하는 프로젝트만 워크밴치에 포함하여 진행하니 해결되었다.)
 
+## vetur에러가 vscode우측 하단에 alert으로 뜰때
+* vscode의 File>Preferences>Settings의 Vetur.ignoreProjectWarning: true 로 셋팅하면 alert창이 뜨지 않는다.
 ## eslint + prettier 의 [eslint] Delete 'cr' [prettier/prettier] 에러 대처
 * ..
