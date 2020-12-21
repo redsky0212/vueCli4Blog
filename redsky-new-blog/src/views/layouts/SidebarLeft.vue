@@ -45,7 +45,7 @@
                   <ul class="nav nav-children">
                     <li>
                       <router-link to="/vue/tip/singlefilecomponent/data">
-                        Data
+                        Data(화면상태값)
                       </router-link>
                     </li>
                   </ul>
