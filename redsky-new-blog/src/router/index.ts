@@ -22,7 +22,8 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  console.log(to);
+  console.log(Vue.$myProperty);
+  Vue.$myProperty = to.name;
   next();
 });
 

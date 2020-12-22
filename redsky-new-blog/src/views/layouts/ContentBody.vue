@@ -21,15 +21,20 @@
   </section>
 </template>
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, Watch } from 'vue-property-decorator';
 
 @Component
 export default class ContentBody extends Vue {
-  private pageName: string | null | undefined = '';
+  [x: string]: any;
+  private pageName: string | null | undefined = Vue.$myProperty;
+
+  @Watch('$myProperty')
+  private changeMyProperty() {
+    console.log('============>Call Watch' + this.$myProperty);
+  }
 
   private mounted() {
     console.log(this.$route.name);
-    this.pageName = this.$route.name;
   }
 }
 </script>
