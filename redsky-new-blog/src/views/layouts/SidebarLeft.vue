@@ -50,10 +50,17 @@
                     </li>
                   </ul>
                 </li>
-                <li>
-                  <a href="pages-signin.html">
-                    Sign In
+                <li class="nav-parent">
+                  <a>
+                    기타 팁
                   </a>
+                  <ul class="nav nav-children">
+                    <li>
+                      <router-link to="/vue/tip/etc/globalproperty">
+                        전역 메소드 등록
+                      </router-link>
+                    </li>
+                  </ul>
                 </li>
                 <li>
                   <a href="pages-recover-password.html">
