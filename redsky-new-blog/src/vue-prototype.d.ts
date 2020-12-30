@@ -13,3 +13,7 @@ declare module 'vue/types/vue' {
     $myProperty: string | null | undefined,
   }
 }
+
+declare global {
+  interface Window { prettyPrint: any; }
+}

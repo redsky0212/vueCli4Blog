@@ -31,6 +31,9 @@ export default class App extends Vue {
   private publicPath = process.env.BASE_URL;
 
   private mounted() {
+    // code editor
+    //const themeInitJs0 = document.createElement('script');
+    //themeInitJs0.setAttribute('src', `${this.publicPath}assets/js/prettify.min.js`);
     // Theme Base, Components and Settings
     const themeInitJs1 = document.createElement('script');
     themeInitJs1.setAttribute('src', `${this.publicPath}assets/javascripts/theme.js`);
@@ -40,6 +43,7 @@ export default class App extends Vue {
     // Theme Initialization Files
     const themeInitJs3 = document.createElement('script');
     themeInitJs3.setAttribute('src', `${this.publicPath}assets/javascripts/theme.init.js`);
+    //document.body.appendChild(themeInitJs0);
     document.body.appendChild(themeInitJs1);
     document.body.appendChild(themeInitJs2);
     document.body.appendChild(themeInitJs3);

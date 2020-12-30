@@ -52,6 +52,18 @@
                 </li>
                 <li class="nav-parent">
                   <a>
+                    기능이해
+                  </a>
+                  <ul class="nav nav-children">
+                    <li>
+                      <router-link to="/vue/tip/skill/slot" @click.native="onRouterLink">
+                        Slot
+                      </router-link>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-parent">
+                  <a>
                     기타 팁
                   </a>
                   <ul class="nav nav-children">
