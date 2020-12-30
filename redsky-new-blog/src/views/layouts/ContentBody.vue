@@ -1,7 +1,7 @@
 <template>
   <section role="main" class="content-body">
     <header class="page-header">
-      <h2>{{ pageName }}</h2>
+      <h2>{{ pageTitle() }}</h2>
       <div class="right-wrapper pull-right">
         <ol class="breadcrumbs">
           <li>
@@ -25,16 +25,9 @@ import { Component, Vue, Watch } from 'vue-property-decorator';
 
 @Component
 export default class ContentBody extends Vue {
-  [x: string]: any;
-  private pageName: string | null | undefined = Vue.$myProperty;
-
-  @Watch('$myProperty')
-  private changeMyProperty() {
-    console.log('============>Call Watch' + this.$myProperty);
-  }
-
-  private mounted() {
-    console.log(this.$route.name);
+  @Watch('Vue.$pageTitle')
+  private pageTitle() {
+    return Vue.$pageTitle;
   }
 }
 </script>

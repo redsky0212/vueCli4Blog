@@ -9,7 +9,7 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: '/',
-    name: 'main',
+    name: 'Home',
     component: Main,
   },
   ...vue,
@@ -22,9 +22,9 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  console.log(Vue.$myProperty);
-  Vue.$myProperty = to.name;
-  next();
+  Vue.$pageTitle = to.name || '';
+  console.log(Vue.$pageTitle);
+  next({ params: { title: Vue.$pageTitle } });
 });
 
 export default router;

@@ -9,6 +9,7 @@ const common = {
     // 화면 제목
     Vue.prototype.$getPageTitle = () => {
       //console.log(this.$route.name);
+      return Vue.$pageTitle;
     };
     // 임시 프로퍼티
     Vue.prototype.$myProperty = '';

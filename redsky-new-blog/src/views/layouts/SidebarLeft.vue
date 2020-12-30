@@ -13,7 +13,7 @@
         <nav id="menu" class="nav-main" role="navigation">
           <ul class="nav nav-main">
             <li>
-              <router-link to="/">
+              <router-link to="/" @click.native="onRouterLink">
                 <i class="fa fa-home" aria-hidden="true"></i>
                 <span>Home</span>
               </router-link>
@@ -44,7 +44,7 @@
                   </a>
                   <ul class="nav nav-children">
                     <li>
-                      <router-link to="/vue/tip/singlefilecomponent/data">
+                      <router-link to="/vue/tip/singlefilecomponent/data" @click.native="onRouterLink">
                         Data(화면상태값)
                       </router-link>
                     </li>
@@ -56,7 +56,7 @@
                   </a>
                   <ul class="nav nav-children">
                     <li>
-                      <router-link to="/vue/tip/etc/globalproperty">
+                      <router-link to="/vue/tip/etc/globalproperty" @click.native="onRouterLink">
                         전역 메소드 등록
                       </router-link>
                     </li>
@@ -783,5 +783,20 @@
 import { Component, Vue } from 'vue-property-decorator';
 
 @Component
-export default class SidebarLeft extends Vue {}
+export default class SidebarLeft extends Vue {
+  private onRouterLink(event: Event) {
+    this.removeActiveClass();
+    // 클릭한 anchor태그의 부모li태그에 class명 넣기
+    const elem: HTMLElement = event.target as HTMLElement;
+    (elem.parentNode as HTMLElement).className = 'nav-active';
+  }
+
+  // 화면상의 특정 class명을 삭제하기.
+  private removeActiveClass() {
+    const elemArr: HTMLCollectionOf<Element> = document.getElementsByClassName('nav-active') as HTMLCollectionOf<Element>;
+    Array.from(elemArr).map(elem => {
+      elem.classList.remove('nav-active');
+    });
+  }
+}
 </script>
