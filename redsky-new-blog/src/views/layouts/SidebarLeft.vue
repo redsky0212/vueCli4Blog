@@ -677,35 +677,17 @@
                 <span>Project</span>
               </a>
               <ul class="nav nav-children">
-                <li>
-                  <a href="forms-basic.html">
-                    Basic
+                <li class="nav-parent">
+                  <a>
+                    2020
                   </a>
-                </li>
-                <li>
-                  <a href="forms-advanced.html">
-                    Advanced
-                  </a>
-                </li>
-                <li>
-                  <a href="forms-validation.html">
-                    Validation
-                  </a>
-                </li>
-                <li>
-                  <a href="forms-layouts.html">
-                    Layouts
-                  </a>
-                </li>
-                <li>
-                  <a href="forms-wizard.html">
-                    Wizard
-                  </a>
-                </li>
-                <li>
-                  <a href="forms-code-editor.html">
-                    Code Editor
-                  </a>
+                  <ul class="nav nav-children">
+                    <li>
+                      <router-link to="/project/2020/hyundaicard3" @click.native="onRouterLink">
+                        현대카드앱3.0
+                      </router-link>
+                    </li>
+                  </ul>
                 </li>
               </ul>
             </li>

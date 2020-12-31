@@ -289,7 +289,7 @@ export default class CurrentUser extends Vue {
     &lt;/template&gt;
 &lt;/<code class="text-success">current-user</code>&gt;</pre>
                       </li>
-                      <li><code>v-slot</code>의 데이터는 구조분해 해서 사용할 수도 있다. 예)<code>slot-scope="{ slotdata }"</code> (간결하고 좋음)</li>
+                      <li><code>v-slot</code>의 데이터는 구조분해 해서 사용할 수도 있다. 예)<code>v-slot="{ slotdata }"</code> (간결하고 좋음)</li>
                       <li>
                         slotdata데이터를 별칭으로 다시 정해서 사용할 수도 있다. 예)<code>v-slot="{ slotdata: person }"</code> 사용예)<code>&#10100;&#10100; person.firstName &#10101;&#10101;</code>
                       </li>
