@@ -74,71 +74,6 @@
                     </li>
                   </ul>
                 </li>
-                <li>
-                  <a href="pages-recover-password.html">
-                    Recover Password
-                  </a>
-                </li>
-                <li>
-                  <a href="pages-lock-screen.html">
-                    Locked Screen
-                  </a>
-                </li>
-                <li>
-                  <a href="pages-user-profile.html">
-                    User Profile
-                  </a>
-                </li>
-                <li>
-                  <a href="pages-session-timeout.html">
-                    Session Timeout
-                  </a>
-                </li>
-                <li>
-                  <a href="pages-calendar.html">
-                    Calendar
-                  </a>
-                </li>
-                <li>
-                  <a href="pages-timeline.html">
-                    Timeline
-                  </a>
-                </li>
-                <li>
-                  <a href="pages-media-gallery.html">
-                    Media Gallery
-                  </a>
-                </li>
-                <li>
-                  <a href="pages-invoice.html">
-                    Invoice
-                  </a>
-                </li>
-                <li class="nav-active">
-                  <a href="pages-blank.html">
-                    Blank Page
-                  </a>
-                </li>
-                <li>
-                  <a href="pages-404.html">
-                    404
-                  </a>
-                </li>
-                <li>
-                  <a href="pages-500.html">
-                    500
-                  </a>
-                </li>
-                <li>
-                  <a href="pages-log-viewer.html">
-                    Log Viewer
-                  </a>
-                </li>
-                <li>
-                  <a href="pages-search-results.html">
-                    Search Results
-                  </a>
-                </li>
               </ul>
             </li>
             <li class="nav-parent">
@@ -167,77 +102,7 @@
               <ul class="nav nav-children">
                 <li>
                   <a href="pages-signup.html">
-                    Sign Up
-                  </a>
-                </li>
-                <li>
-                  <a href="pages-signin.html">
-                    Sign In
-                  </a>
-                </li>
-                <li>
-                  <a href="pages-recover-password.html">
-                    Recover Password
-                  </a>
-                </li>
-                <li>
-                  <a href="pages-lock-screen.html">
-                    Locked Screen
-                  </a>
-                </li>
-                <li>
-                  <a href="pages-user-profile.html">
-                    User Profile
-                  </a>
-                </li>
-                <li>
-                  <a href="pages-session-timeout.html">
-                    Session Timeout
-                  </a>
-                </li>
-                <li>
-                  <a href="pages-calendar.html">
-                    Calendar
-                  </a>
-                </li>
-                <li>
-                  <a href="pages-timeline.html">
-                    Timeline
-                  </a>
-                </li>
-                <li>
-                  <a href="pages-media-gallery.html">
-                    Media Gallery
-                  </a>
-                </li>
-                <li>
-                  <a href="pages-invoice.html">
-                    Invoice
-                  </a>
-                </li>
-                <li class="nav-active">
-                  <a href="pages-blank.html">
-                    Blank Page
-                  </a>
-                </li>
-                <li>
-                  <a href="pages-404.html">
-                    404
-                  </a>
-                </li>
-                <li>
-                  <a href="pages-500.html">
-                    500
-                  </a>
-                </li>
-                <li>
-                  <a href="pages-log-viewer.html">
-                    Log Viewer
-                  </a>
-                </li>
-                <li>
-                  <a href="pages-search-results.html">
-                    Search Results
+                    ...
                   </a>
                 </li>
               </ul>
@@ -267,107 +132,7 @@
               <ul class="nav nav-children">
                 <li>
                   <a href="ui-elements-typography.html">
-                    Typography
-                  </a>
-                </li>
-                <li>
-                  <a href="ui-elements-icons.html">
-                    Icons
-                  </a>
-                </li>
-                <li>
-                  <a href="ui-elements-tabs.html">
-                    Tabs
-                  </a>
-                </li>
-                <li>
-                  <a href="ui-elements-panels.html">
-                    Panels
-                  </a>
-                </li>
-                <li>
-                  <a href="ui-elements-widgets.html">
-                    Widgets
-                  </a>
-                </li>
-                <li>
-                  <a href="ui-elements-portlets.html">
-                    Portlets
-                  </a>
-                </li>
-                <li>
-                  <a href="ui-elements-buttons.html">
-                    Buttons
-                  </a>
-                </li>
-                <li>
-                  <a href="ui-elements-alerts.html">
-                    Alerts
-                  </a>
-                </li>
-                <li>
-                  <a href="ui-elements-notifications.html">
-                    Notifications
-                  </a>
-                </li>
-                <li>
-                  <a href="ui-elements-modals.html">
-                    Modals
-                  </a>
-                </li>
-                <li>
-                  <a href="ui-elements-lightbox.html">
-                    Lightbox
-                  </a>
-                </li>
-                <li>
-                  <a href="ui-elements-progressbars.html">
-                    Progress Bars
-                  </a>
-                </li>
-                <li>
-                  <a href="ui-elements-sliders.html">
-                    Sliders
-                  </a>
-                </li>
-                <li>
-                  <a href="ui-elements-carousels.html">
-                    Carousels
-                  </a>
-                </li>
-                <li>
-                  <a href="ui-elements-accordions.html">
-                    Accordions
-                  </a>
-                </li>
-                <li>
-                  <a href="ui-elements-nestable.html">
-                    Nestable
-                  </a>
-                </li>
-                <li>
-                  <a href="ui-elements-tree-view.html">
-                    Tree View
-                  </a>
-                </li>
-                <li>
-                  <a href="ui-elements-grid-system.html">
-                    Grid System
-                  </a>
-                </li>
-                <li>
-                  <a href="ui-elements-charts.html">
-                    Charts
-                  </a>
-                </li>
-                <li>
-                  <a href="ui-elements-animations.html">
-                    Animations
-                  </a>
-                </li>
-                <li>
-                  <a href="ui-elements-extra.html">
-                    Extra
+                    ...
                   </a>
                 </li>
               </ul>
@@ -397,32 +162,7 @@
               <ul class="nav nav-children">
                 <li>
                   <a href="forms-basic.html">
-                    Basic
-                  </a>
-                </li>
-                <li>
-                  <a href="forms-advanced.html">
-                    Advanced
-                  </a>
-                </li>
-                <li>
-                  <a href="forms-validation.html">
-                    Validation
-                  </a>
-                </li>
-                <li>
-                  <a href="forms-layouts.html">
-                    Layouts
-                  </a>
-                </li>
-                <li>
-                  <a href="forms-wizard.html">
-                    Wizard
-                  </a>
-                </li>
-                <li>
-                  <a href="forms-code-editor.html">
-                    Code Editor
+                    ...
                   </a>
                 </li>
               </ul>
@@ -434,33 +174,8 @@
               </a>
               <ul class="nav nav-children">
                 <li>
-                  <a href="forms-basic.html">
+                  <a>
                     Basic
-                  </a>
-                </li>
-                <li>
-                  <a href="forms-advanced.html">
-                    Advanced
-                  </a>
-                </li>
-                <li>
-                  <a href="forms-validation.html">
-                    Validation
-                  </a>
-                </li>
-                <li>
-                  <a href="forms-layouts.html">
-                    Layouts
-                  </a>
-                </li>
-                <li>
-                  <a href="forms-wizard.html">
-                    Wizard
-                  </a>
-                </li>
-                <li>
-                  <a href="forms-code-editor.html">
-                    Code Editor
                   </a>
                 </li>
               </ul>
@@ -472,33 +187,8 @@
               </a>
               <ul class="nav nav-children">
                 <li>
-                  <a href="forms-basic.html">
+                  <a>
                     Basic
-                  </a>
-                </li>
-                <li>
-                  <a href="forms-advanced.html">
-                    Advanced
-                  </a>
-                </li>
-                <li>
-                  <a href="forms-validation.html">
-                    Validation
-                  </a>
-                </li>
-                <li>
-                  <a href="forms-layouts.html">
-                    Layouts
-                  </a>
-                </li>
-                <li>
-                  <a href="forms-wizard.html">
-                    Wizard
-                  </a>
-                </li>
-                <li>
-                  <a href="forms-code-editor.html">
-                    Code Editor
                   </a>
                 </li>
               </ul>
@@ -527,33 +217,8 @@
               </a>
               <ul class="nav nav-children">
                 <li>
-                  <a href="forms-basic.html">
+                  <a>
                     Basic
-                  </a>
-                </li>
-                <li>
-                  <a href="forms-advanced.html">
-                    Advanced
-                  </a>
-                </li>
-                <li>
-                  <a href="forms-validation.html">
-                    Validation
-                  </a>
-                </li>
-                <li>
-                  <a href="forms-layouts.html">
-                    Layouts
-                  </a>
-                </li>
-                <li>
-                  <a href="forms-wizard.html">
-                    Wizard
-                  </a>
-                </li>
-                <li>
-                  <a href="forms-code-editor.html">
-                    Code Editor
                   </a>
                 </li>
               </ul>
@@ -565,108 +230,8 @@
               </a>
               <ul class="nav nav-children">
                 <li>
-                  <a href="ui-elements-typography.html">
-                    Typography
-                  </a>
-                </li>
-                <li>
-                  <a href="ui-elements-icons.html">
-                    Icons
-                  </a>
-                </li>
-                <li>
-                  <a href="ui-elements-tabs.html">
-                    Tabs
-                  </a>
-                </li>
-                <li>
-                  <a href="ui-elements-panels.html">
-                    Panels
-                  </a>
-                </li>
-                <li>
-                  <a href="ui-elements-widgets.html">
-                    Widgets
-                  </a>
-                </li>
-                <li>
-                  <a href="ui-elements-portlets.html">
-                    Portlets
-                  </a>
-                </li>
-                <li>
-                  <a href="ui-elements-buttons.html">
-                    Buttons
-                  </a>
-                </li>
-                <li>
-                  <a href="ui-elements-alerts.html">
-                    Alerts
-                  </a>
-                </li>
-                <li>
-                  <a href="ui-elements-notifications.html">
-                    Notifications
-                  </a>
-                </li>
-                <li>
-                  <a href="ui-elements-modals.html">
-                    Modals
-                  </a>
-                </li>
-                <li>
-                  <a href="ui-elements-lightbox.html">
-                    Lightbox
-                  </a>
-                </li>
-                <li>
-                  <a href="ui-elements-progressbars.html">
-                    Progress Bars
-                  </a>
-                </li>
-                <li>
-                  <a href="ui-elements-sliders.html">
-                    Sliders
-                  </a>
-                </li>
-                <li>
-                  <a href="ui-elements-carousels.html">
-                    Carousels
-                  </a>
-                </li>
-                <li>
-                  <a href="ui-elements-accordions.html">
-                    Accordions
-                  </a>
-                </li>
-                <li>
-                  <a href="ui-elements-nestable.html">
-                    Nestable
-                  </a>
-                </li>
-                <li>
-                  <a href="ui-elements-tree-view.html">
-                    Tree View
-                  </a>
-                </li>
-                <li>
-                  <a href="ui-elements-grid-system.html">
-                    Grid System
-                  </a>
-                </li>
-                <li>
-                  <a href="ui-elements-charts.html">
-                    Charts
-                  </a>
-                </li>
-                <li>
-                  <a href="ui-elements-animations.html">
-                    Animations
-                  </a>
-                </li>
-                <li>
-                  <a href="ui-elements-extra.html">
-                    Extra
+                  <a>
+                    ...
                   </a>
                 </li>
               </ul>
@@ -687,6 +252,28 @@
                         현대카드앱3.0
                       </router-link>
                     </li>
+                    <li>
+                      <router-link to="/project/2020/VueUI" @click.native="onRouterLink">
+                        Redsky UI개발
+                      </router-link>
+                    </li>
+                    <li>
+                      <router-link to="/project/2020/NHNonghyupBank" @click.native="onRouterLink">
+                        NH농협은행 개인종합 자산관리(PFM)
+                      </router-link>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-parent">
+                  <a>
+                    2021
+                  </a>
+                  <ul class="nav nav-children">
+                    <li>
+                      <router-link to="/project/2021/hyundaicardadvancement" @click.native="onRouterLink">
+                        현대카드앱 고도화
+                      </router-link>
+                    </li>
                   </ul>
                 </li>
               </ul>
@@ -698,33 +285,8 @@
               </a>
               <ul class="nav nav-children">
                 <li>
-                  <a href="forms-basic.html">
-                    Basic
-                  </a>
-                </li>
-                <li>
-                  <a href="forms-advanced.html">
-                    Advanced
-                  </a>
-                </li>
-                <li>
-                  <a href="forms-validation.html">
-                    Validation
-                  </a>
-                </li>
-                <li>
-                  <a href="forms-layouts.html">
-                    Layouts
-                  </a>
-                </li>
-                <li>
-                  <a href="forms-wizard.html">
-                    Wizard
-                  </a>
-                </li>
-                <li>
-                  <a href="forms-code-editor.html">
-                    Code Editor
+                  <a>
+                    ...
                   </a>
                 </li>
               </ul>
@@ -737,32 +299,7 @@
               <ul class="nav nav-children">
                 <li>
                   <a href="forms-basic.html">
-                    Basic
-                  </a>
-                </li>
-                <li>
-                  <a href="forms-advanced.html">
-                    Advanced
-                  </a>
-                </li>
-                <li>
-                  <a href="forms-validation.html">
-                    Validation
-                  </a>
-                </li>
-                <li>
-                  <a href="forms-layouts.html">
-                    Layouts
-                  </a>
-                </li>
-                <li>
-                  <a href="forms-wizard.html">
-                    Wizard
-                  </a>
-                </li>
-                <li>
-                  <a href="forms-code-editor.html">
-                    Code Editor
+                    ...
                   </a>
                 </li>
               </ul>
