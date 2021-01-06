@@ -1,5 +1,9 @@
 import Vue from 'vue';
-
+export interface ILog {
+  error: function,
+  success: function,
+  log: function,
+}
 declare module 'vue/types/vue' {
   // 전역 속성 type설정
   interface VueConstructor {
@@ -11,6 +15,7 @@ declare module 'vue/types/vue' {
   interface Vue {
     $initTheme: Function,
     $myProperty: string | null | undefined,
+    $log: ILog,
   }
 }
 

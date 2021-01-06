@@ -2,6 +2,7 @@ import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
 import common from './plugins/common';
+import MyPlugin from './plugins/MyPlugin';
 
 Vue.config.productionTip = false;
 
@@ -15,6 +16,7 @@ import '@/assets/vendor/magnific-popup/magnific-popup.js';
 import '@/assets/vendor/jquery-placeholder/jquery.placeholder.js';
 
 Vue.use(common);
+Vue.use(MyPlugin);
 
 new Vue({
   router,

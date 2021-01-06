@@ -4,6 +4,7 @@ import VueRouter from 'vue-router';
 import Main from '@/views/TheHome.vue';
 import vue from './vue';
 import project from './project';
+import test from './test';
 
 Vue.use(VueRouter);
 
@@ -15,6 +16,7 @@ const routes = [
   },
   ...vue,
   ...project,
+  ...test,
 ];
 
 const router = new VueRouter({

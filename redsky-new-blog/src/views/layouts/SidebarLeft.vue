@@ -298,9 +298,9 @@
               </a>
               <ul class="nav nav-children">
                 <li>
-                  <a href="forms-basic.html">
-                    ...
-                  </a>
+                  <router-link to="/vue/test/plugintest" @click.native="onRouterLink">
+                    Plugin 테스트
+                  </router-link>
                 </li>
               </ul>
             </li>
