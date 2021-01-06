@@ -1,7 +1,7 @@
 import Vue from 'vue';
 export interface ILog {
-  error: function,
-  success: function,
+  error(title: string, text?: string): void,
+  success(title: string, text?: string): void,
   log: function,
 }
 declare module 'vue/types/vue' {

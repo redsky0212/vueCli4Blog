@@ -7,10 +7,10 @@ export default {
     }
 
     Vue.prototype.$log = {
-      error(title: string, text: string) {
+      error(title: string, text: string): void {
         log('danger', title, text);
       },
-      success(title: string, text: string) {
+      success(title: string, text: string): void {
         log('success', title, text);
       },
       log,
