@@ -1,5 +1,5 @@
 import Vue from 'vue';
-export interface ILog {
+export interface I$Log {
   error(title: string, text?: string): void,
   success(title: string, text?: string): void,
   log: function,
@@ -15,7 +15,7 @@ declare module 'vue/types/vue' {
   interface Vue {
     $initTheme: Function,
     $myProperty: string | null | undefined,
-    $log: ILog,
+    $log: I$Log,
   }
 }
 
