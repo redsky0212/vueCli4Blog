@@ -76,6 +76,18 @@
                 </li>
                 <li class="nav-parent">
                   <a>
+                    UI Component 개발
+                  </a>
+                  <ul class="nav nav-children">
+                    <li>
+                      <router-link to="/vue/tip/etc/globalproperty" @click.native="onRouterLink">
+                        ...
+                      </router-link>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-parent">
+                  <a>
                     기타 팁
                   </a>
                   <ul class="nav nav-children">

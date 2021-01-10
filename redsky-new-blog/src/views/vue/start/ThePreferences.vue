@@ -27,6 +27,9 @@
                 <pre class="prettyprint">npm i @vue/cli -g</pre>
               </li>
               <li>
+                vue 설치 (vue가 있어야 디버그시 DebTools에서 보이기 됨), global로 설치해도 되지만 해당 프로젝트에 설치해도 됨.
+              </li>
+              <li>
                 <span>프로젝트 Root폴더를 생성하고 Vue CLI로 프로젝트를 생성한다.</span><br />
                 <span class="text-warning">현대카드는 vue2.X 사용</span><br />
                 <span class="text-warning">프로젝트를 vue3.X으로 생성하면 새로운 api와 코딩방식이 좀 달라지므로 유의한다.</span>
