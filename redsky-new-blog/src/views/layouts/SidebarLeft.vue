@@ -40,6 +40,18 @@
               <ul class="nav nav-children">
                 <li class="nav-parent">
                   <a>
+                    시작하기
+                  </a>
+                  <ul class="nav nav-children">
+                    <li>
+                      <router-link to="/vue/start/preferences" @click.native="onRouterLink">
+                        작업환경 셋팅
+                      </router-link>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-parent">
+                  <a>
                     SingleFileComponent
                   </a>
                   <ul class="nav nav-children">

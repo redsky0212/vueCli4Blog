@@ -1,5 +1,10 @@
 export default [
   {
+    path: '/vue/start/preferences',
+    name: '환경설정',
+    component: () => import('@/views/vue/start/ThePreferences.vue'),
+  },
+  {
     path: '/vue/tip/singlefilecomponent/data',
     name: '컴포넌트 Data',
     component: () => import('@/views/vue/tip/singleFileComponent/TheData.vue'),
