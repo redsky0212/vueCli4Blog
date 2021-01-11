@@ -5,14 +5,19 @@ export default [
     component: () => import('@/views/vue/start/ThePreferences.vue'),
   },
   {
-    path: '/vue/tip/singlefilecomponent/data',
+    path: '/vue/singlefilecomponent/data',
     name: '컴포넌트 Data',
     component: () => import('@/views/vue/tip/singleFileComponent/TheData.vue'),
   },
   {
-    path: '/vue/tip/skill/slot',
+    path: '/vue/skill/slot',
     name: 'Slot',
     component: () => import('@/views/vue/skill/TheSlot.vue'),
+  },
+  {
+    path: '/vue/skill/classAndStyle',
+    name: 'class 와 style 적용',
+    component: () => import('@/views/vue/skill/ClassAndStyle.vue'),
   },
   {
     path: '/vue/tip/etc/globalproperty',

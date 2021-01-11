@@ -56,7 +56,7 @@
                   </a>
                   <ul class="nav nav-children">
                     <li>
-                      <router-link to="/vue/tip/singlefilecomponent/data" @click.native="onRouterLink">
+                      <router-link to="/vue/singlefilecomponent/data" @click.native="onRouterLink">
                         Data(화면상태값)
                       </router-link>
                     </li>
@@ -68,8 +68,13 @@
                   </a>
                   <ul class="nav nav-children">
                     <li>
-                      <router-link to="/vue/tip/skill/slot" @click.native="onRouterLink">
+                      <router-link to="/vue/skill/slot" @click.native="onRouterLink">
                         Slot
+                      </router-link>
+                    </li>
+                    <li>
+                      <router-link to="/vue/skill/classAndStyle" @click.native="onRouterLink">
+                        class와 style 적용
                       </router-link>
                     </li>
                   </ul>
