@@ -77,6 +77,11 @@
                         class와 style 적용
                       </router-link>
                     </li>
+                    <li>
+                      <router-link to="/vue/skill/computedAndWatch" @click.native="onRouterLink">
+                        computed와 watch
+                      </router-link>
+                    </li>
                   </ul>
                 </li>
                 <li class="nav-parent">
