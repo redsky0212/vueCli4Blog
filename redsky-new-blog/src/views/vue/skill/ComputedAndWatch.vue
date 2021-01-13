@@ -211,6 +211,7 @@ export default class MyClass extends Vue {
   private firstName: string = '';
   private lastName: string = '';
 
+  // computed
   private get fullName(): string {
     return this.firstName + ' ' + this.lastName;
   }
@@ -245,16 +246,66 @@ export default class MyClass extends Vue {
 
             <h2 class="panel-title"><strong>watch</strong> 속성</h2>
             <p class="panel-subtitle">
-              정리 필요.....
+              주로 거의 모두 <code>computed</code>를 사용하는게 좋고 그 외 비동기 호출결과 같은 경우에 <code>watch</code>를 사용하면 좋다.<br />
+              공식문서 api :
               <a href="https://kr.vuejs.org/v2/api/#vm-watch" target="_blank">https://kr.vuejs.org/v2/api/#vm-watch</a>
             </p>
           </header>
           <div class="panel-body">
             <ul>
               <li>
-                ....
+                vue 컴포넌트 객체에서 사용할때
+                <ul>
+                  <li><code>'message'</code>가 감시할 대상.</li>
+                  <li><code>'message' 뒤 익명함수</code>가 변경됬을때 처리할 콜백 함수. 인자로는 'newVal':변경된값, 'oldVal':이전값 이다.</li>
+                  <li><code>deep 옵션</code>: 감시 대상이 객체이거나 Array일경우 내부의 값이 변경이 되면 감지 하지 못한다. 그럴때 내부까지 모두 감시할 수 있는 옵션.</li>
+                  <li><code>immediate 옵션</code>: 최초 초기화 시점에도 한번 실행할지 여부.</li>
+                </ul>
+                <pre class="prettyprint linenums">
+&lt;script&gt;
+export default {
+  name: 'test',
+  data(){
+    return {
+      message: '안녕하세요',
+      reversedMessage: ''
+    }
+  },
+  watch: {
+    // message를 감시하는 watch의 단축 사용법.
+    message: function (newVal, oldVal) {
+      this.reversedMessage = newVal.split('').reverse().join('');
+    },
+    // 옵션을 사용하기 위한 방법
+    message: {
+      deep: true,
+      immediate: true,
+      handler(newVal, oldVal) {
+        this.reversedMessage = newVal.split('').reverse().join('');
+      },
+    },
+  }
+}
+&lt;/script&gt;</pre
+                >
+              </li>
+              <li>
+                <strong>vue-property-decorator</strong>를 사용했을때 <strong>watch</strong>적용 방법
                 <pre class="prettyprint linenums">
 // ...
+import { Vue, Component, Watch } from 'vue-property-decorator';
+
+@Component
+export default class MyClass extends Vue {
+  private message: string = '안녕하세요';
+  private reversedMessage: string = '';
+
+  // watch
+  @Watch('message', {immediate: true, deep: true})
+  private changeMessage(newVal: string, oldVal: string): void {
+    this.reversedMessage = newVal.split('').reverse().join('');
+  }
+}
 // ...</pre
                 >
               </li>
@@ -267,7 +318,7 @@ export default class MyClass extends Vue {
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, Watch } from 'vue-property-decorator';
 
 @Component({
   name: 'computedAndWatch',
@@ -296,6 +347,11 @@ export default class ComputedAndWatch extends Vue {
 
   private callSetterFn() {
     this.fullName = 'John Doe';
+  }
+
+  @Watch('lastName')
+  private changeLastName(newVal: string, oldVal: string): void {
+    console.log(`call watch ------> ${newVal}_${oldVal}`);
   }
 
   private mounted() {
