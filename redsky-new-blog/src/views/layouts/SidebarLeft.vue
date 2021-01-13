@@ -82,6 +82,11 @@
                         computed와 watch
                       </router-link>
                     </li>
+                    <li>
+                      <router-link to="/vue/skill/ifElseShow" @click.native="onRouterLink">
+                        조건문(v-if, v-show)
+                      </router-link>
+                    </li>
                   </ul>
                 </li>
                 <li class="nav-parent">

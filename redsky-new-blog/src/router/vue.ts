@@ -25,6 +25,11 @@ export default [
     component: () => import('@/views/vue/skill/ComputedAndWatch.vue'),
   },
   {
+    path: '/vue/skill/ifElseShow',
+    name: '조건문(v-if, v-show)',
+    component: () => import('@/views/vue/skill/IfElseShow.vue'),
+  },
+  {
     path: '/vue/tip/etc/globalproperty',
     name: '전역 메소드 및 속성',
     component: () => import('@/views/vue/tip/etc/전역메소드변수.vue'),
