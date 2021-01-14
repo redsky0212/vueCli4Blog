@@ -87,6 +87,11 @@
                         조건문(v-if, v-show)
                       </router-link>
                     </li>
+                    <li>
+                      <router-link to="/vue/skill/for" @click.native="onRouterLink">
+                        반복문(v-for)
+                      </router-link>
+                    </li>
                   </ul>
                 </li>
                 <li class="nav-parent">

@@ -214,9 +214,9 @@ var vm = new Vue({
 import { Component, Vue, Watch } from 'vue-property-decorator';
 
 @Component({
-  name: 'computedAndWatch',
+  name: 'ifElseShow',
 })
-export default class ComputedAndWatch extends Vue {
+export default class IfElseShow extends Vue {
   private message = '안녕하세요';
   private firstName = 'first';
   private lastName = 'last';
