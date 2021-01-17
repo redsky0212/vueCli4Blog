@@ -18,6 +18,7 @@ module.exports = {
     "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
     "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
     "vue/valid-v-slot": "off",
+    "@typescript-eslint/interface-name-prefix": "off",  // eslint : interface는 'I'로 시작하지 않아야한다는 것 off
     "prettier/prettier": [
       "error",
       {
