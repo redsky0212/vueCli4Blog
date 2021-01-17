@@ -39,4 +39,9 @@ export default [
     name: '전역 메소드 및 속성',
     component: () => import('@/views/vue/tip/etc/전역메소드변수.vue'),
   },
+  {
+    path: '/vue/test/asyncAwait',
+    name: 'async await 테스트',
+    component: () => import('@/views/vue/test/AsyncAwaitTest.vue'),
+  },
 ];

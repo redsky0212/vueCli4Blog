@@ -118,6 +118,18 @@
                     </li>
                   </ul>
                 </li>
+                <li class="nav-parent">
+                  <a>
+                    테스트
+                  </a>
+                  <ul class="nav nav-children">
+                    <li>
+                      <router-link to="/vue/test/asyncAwait" @click.native="onRouterLink">
+                        async await 테스트
+                      </router-link>
+                    </li>
+                  </ul>
+                </li>
               </ul>
             </li>
             <li class="nav-parent">
