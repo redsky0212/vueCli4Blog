@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 
 import Main from '@/views/TheHome.vue';
 import vue from './vue';
+import javascript from './javascript';
 import project from './project';
 import test from './test';
 
@@ -15,6 +16,7 @@ const routes = [
     component: Main,
   },
   ...vue,
+  ...javascript,
   ...project,
   ...test,
 ];

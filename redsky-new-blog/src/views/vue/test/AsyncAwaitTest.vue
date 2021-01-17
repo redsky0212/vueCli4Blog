@@ -13,6 +13,10 @@ export default class AsyncAwaitTest extends Vue {
     console.log('시작!');
     await this.call();
     console.log('끝!');
+
+    console.log('window.alert 시작!');
+    window.alert('window alert 시작!');
+    console.log('window.alert 끝!');
   }
 
   private async call() {

@@ -272,10 +272,17 @@
                 <span>JavaScript</span>
               </a>
               <ul class="nav nav-children">
-                <li>
+                <li class="nav-parent">
                   <a>
-                    Basic
+                    표준 내장 객체
                   </a>
+                  <ul class="nav nav-children">
+                    <li>
+                      <router-link to="/javascript/standard/array" @click.native="onRouterLink">
+                        Array
+                      </router-link>
+                    </li>
+                  </ul>
                 </li>
               </ul>
             </li>
