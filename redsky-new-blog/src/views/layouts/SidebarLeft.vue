@@ -100,8 +100,13 @@
                   </a>
                   <ul class="nav nav-children">
                     <li>
-                      <router-link to="/vue/tip/etc/globalproperty" @click.native="onRouterLink">
-                        ...
+                      <router-link to="/vue/ui/dialog/alert" @click.native="onRouterLink">
+                        Dialog / Alert
+                      </router-link>
+                    </li>
+                    <li>
+                      <router-link to="/vue/ui/dialog/confirm" @click.native="onRouterLink">
+                        Dialog / Confirm
                       </router-link>
                     </li>
                   </ul>

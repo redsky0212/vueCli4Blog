@@ -36,3 +36,62 @@
     </div>
   </fnc-modal>
 </template>
+
+<script lang="ts">
+import { Vue, Component } from 'vue-property-decorator';
+
+@Component
+export default class GmwPopup extends Vue {}
+
+// import _ from 'lodash';
+// import { Vue, Component, Prop, Mixins, Watch } from 'vue-property-decorator';
+// import UiBase from '@/compoents/Ui/UiBase';
+// import { IGmwPopupParams, IGmwPopup } from '@/types';
+// import FncModal, { IFncModal } from './FncModal.vue';
+// import { VNode } from 'vue';
+// import { Primitive } from 'lodash';
+
+// @Component({
+//   components: {
+//     FncModal,
+//   },
+//   mixins: {
+//     AriaAttributeMixin,
+//   },
+// })
+// export default class GmwPopup extends Mixins(UiBase, AriaAttributeMixin) implements IGmwPopup {
+//   public readonly $refs!: {
+//     modal: IFncModal;
+//     popupWrapper: HTMLElement;
+//     contents: HTMLElement;
+//     linkBtn: HTMLElement;
+//     closeBtn: HTMLElement;
+//   }
+
+//   private popuCn: string = '';
+//   private popuTitl: string = '';
+//   private btnFrmType: string = '';
+//   private imgUrl: string = '';
+//   private endBtnNm: string = '';
+//   private endBtnLnkUrl: string = '';
+//   private mvmtBtnNm?: string = '';
+//   private btnLnkType?: string = '';
+//   private btnLnkUrl?: string = '';
+
+//   // BodyScrollLock에서 스크롤 핸들링 할 엘리먼트
+//   private scrollTarget?: HTMLElement;
+//   private promiseResolve!: any;
+
+//   protected created() {
+//     this.link = _.debounce(this.link, 1000, { leading: true, trailing: false });
+//     this.close = _.debounce(this.close, 1000, { leading: true, trailing: false });
+//   }
+
+//   public isShown(): boolean {
+//     const modal = this.$refs.modal;
+//     return modal.isShown();
+//   }
+
+//   public async show( params: IGmwPopupParams ): Promise<boolean | string> {}
+// }
+</script>

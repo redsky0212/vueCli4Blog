@@ -40,6 +40,16 @@ export default [
     component: () => import('@/views/vue/tip/etc/전역메소드변수.vue'),
   },
   {
+    path: '/vue/ui/dialog/alert',
+    name: 'Ui Component : Alert',
+    component: () => import('@/views/vue/uiComponent/dialog/AlertEx.vue'),
+  },
+  {
+    path: '/vue/ui/dialog/confirm',
+    name: 'Ui Component : confirm',
+    component: () => import('@/views/vue/uiComponent/dialog/ConfirmEx.vue'),
+  },
+  {
     path: '/vue/test/asyncAwait',
     name: 'async await 테스트',
     component: () => import('@/views/vue/test/AsyncAwaitTest.vue'),

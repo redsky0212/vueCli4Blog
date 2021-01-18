@@ -19,7 +19,7 @@
             </div -->
 
             <h2 class="panel-title">
-              Method
+              <strong>Method</strong>정리
               <!-- span class="text-danger">(사라질 예정)</span -->
             </h2>
             <p class="panel-subtitle">여러가지 <strong>Method</strong>의 사용법 정리.</p>
@@ -27,7 +27,9 @@
           <div class="panel-body">
             <ul>
               <li>
-                Array.<code><strong>from()</strong></code>
+                <h4>
+                  <strong>Array.<code>from()</code></strong>
+                </h4>
                 <ul>
                   <li>Array.from() 메서드는 <strong>유사 배열 객체</strong>나 <strong>반복 가능한 객체</strong>를 얕게 복사해 새로운<code>Array</code>로 만든다.</li>
                   <li>
@@ -69,7 +71,9 @@ f(1, 2, 3);</pre
                 >
               </li>
               <li>
-                Array.<code><strong>isArray()</strong></code>
+                <h4>
+                  <strong>Array.<code>isArray()</code></strong>
+                </h4>
                 <ul>
                   <li>Array.isArray() 메서드는 인자가 Array인지 판별.</li>
                   <li>
@@ -79,14 +83,18 @@ f(1, 2, 3);</pre
                 </ul>
               </li>
               <li>
-                Array.<code><strong>of()</strong></code>
+                <h4>
+                  <strong>Array.<code>of()</code></strong>
+                </h4>
                 <pre class="prettyprint linenums">
 // ...
 // ...</pre
                 >
               </li>
               <li>
-                Array.prototype<code><strong>concat()</strong></code>
+                <h4>
+                  <strong>Array.prototype.<code>concat()</code></strong>
+                </h4>
                 <pre class="prettyprint linenums">
 // ...
 // ...</pre
