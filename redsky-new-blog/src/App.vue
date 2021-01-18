@@ -11,6 +11,7 @@
       <content-body />
       <!-- end: content body -->
     </div>
+    <popup-container />
   </section>
 </template>
 
