@@ -92,6 +92,11 @@
                         반복문(v-for)
                       </router-link>
                     </li>
+                    <li>
+                      <router-link to="/vue/skill/plugin" @click.native="onRouterLink">
+                        전역 기능(Plugin)
+                      </router-link>
+                    </li>
                   </ul>
                 </li>
                 <li class="nav-parent">

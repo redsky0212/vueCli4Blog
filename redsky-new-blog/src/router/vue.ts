@@ -35,6 +35,11 @@ export default [
     component: () => import('@/views/vue/skill/For.vue'),
   },
   {
+    path: '/vue/skill/plugin',
+    name: '전역기능 만들기(Plugin)',
+    component: () => import('@/views/vue/skill/ThePlugin.vue'),
+  },
+  {
     path: '/vue/tip/etc/globalproperty',
     name: '전역 메소드 및 속성',
     component: () => import('@/views/vue/tip/etc/전역메소드변수.vue'),
