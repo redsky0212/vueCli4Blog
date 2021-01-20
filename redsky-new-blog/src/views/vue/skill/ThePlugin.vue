@@ -354,7 +354,7 @@ module.exports = {
     // 전역 플러그인 사용
     this.$rayui.alert();
     // 또는
-    window.$nuxt.$rayui.alert();
+    Vue.$rayui.alert();
   }
 }</pre
                 >
