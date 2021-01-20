@@ -250,6 +250,190 @@ var arr = Array(3).fill({}); // [{}, {}, {}]
 arr[0].hi = "hi"; // [{ hi: "hi" }, { hi: "hi" }, { hi: "hi" }]</pre
                 >
               </li>
+              <li>
+                <h4>
+                  <strong>Array.prototype.<code>filter()</code></strong>
+                </h4>
+                <ul>
+                  <li>원본 배열에서 인자로 주어진 함수의 테스트를 통과한 것만 모아서 <code>새 배열</code>로 반환한다.</li>
+                  <li>
+                    <span>구문 : </span><span class="text-success">array.filter(callback(element[, index[, array]])[, thisArg])</span>, <strong>반환값: 새로운 배열</strong>.<br />
+                    * <span class="text-primary">callback</span> : 테스트할 함수. 인자값 element[현재요소], index[현재index], array[호출한 배열]<br />
+                    * <span class="text-primary">thisArg</span> : callback함수 안에서 this로 사용할 값.<br />
+                  </li>
+                </ul>
+                <pre class="prettyprint linenums">
+function isBigEnough(value) {
+  return value >= 10;
+}
+
+var filtered = [12, 5, 8, 130, 44].filter(isBigEnough);
+// filtered 는 [12, 130, 44]
+
+/**
+ * 검색 조건에 따른 배열 필터링(쿼리)
+ */
+var fruits = ['apple', 'banana', 'grapes', 'mango', 'orange'];
+function filterItems(query) {
+  return fruits.filter(function(el) {
+      return el.toLowerCase().indexOf(query.toLowerCase()) > -1;
+  })
+}
+
+console.log(filterItems('ap')); // ['apple', 'grapes']
+console.log(filterItems('an')); // ['banana', 'mango', 'orange']</pre
+                >
+              </li>
+              <li>
+                <h4>
+                  <strong>Array.prototype.<code>find()</code></strong>
+                </h4>
+                <ul>
+                  <li>원본 배열에서 인자로 주어진 함수의 테스트를 통과한 것 중에서 첫번째 요소만 반환.</li>
+                  <li>
+                    <span>구문 : </span><span class="text-success">array.find(callback(element[, index[, array]]) [, thisArg])</span>, <strong>반환값: 첫번째 요소 하나</strong>.<br />
+                    * <span class="text-primary">callback</span> : 테스트할 함수. 인자값 element[현재요소], index[현재index], array[호출한 배열]<br />
+                    * <span class="text-primary">thisArg</span> : callback함수 안에서 this로 사용할 값.<br />
+                  </li>
+                  <li>특징 : callback함수에 만족하는 첫번째 요소 하나만 반환한다.</li>
+                  <li><strong>비슷한 메소드1</strong> : <code>Array.prototype.findIndex()</code> [find()와 똑같으나 반환값이, 찾은 요소의 index값]</li>
+                </ul>
+                <pre class="prettyprint linenums">
+var inventory = [
+    {name: 'apples', quantity: 2},
+    {name: 'bananas', quantity: 0},
+    {name: 'cherries', quantity: 5}
+];
+
+function findCherries(fruit) {
+    return fruit.name === 'cherries';
+}
+
+console.log(inventory.find(findCherries)); // { name: 'cherries', quantity: 5 }</pre
+                >
+              </li>
+              <li>
+                <h4>
+                  <strong>Array.prototype.<code>findIndex()</code></strong>
+                </h4>
+                <ul>
+                  <li><code>Array.prototype.find()</code>와 똑같지만 반환값이 찾은 요소의 index값. 만족 index가 없으면 -1 반환.</li>
+                </ul>
+                <pre class="prettyprint linenums">
+const array1 = [5, 12, 8, 130, 44];
+
+const isLargeNumber = (element) => element > 13;
+
+console.log(array1.findIndex(isLargeNumber));
+// expected output: 3</pre
+                >
+              </li>
+              <li>
+                <h4>
+                  <strong>Array.prototype.<code>flat()</code></strong>
+                </h4>
+                <ul>
+                  <li>원본 배열이 하위가 깊은 중첩 배열일 경우 평탄화 시켜서 <code>새 배열</code>을 반환 해주는 메소드.</li>
+                  <li>
+                    <span>구문 : </span><span class="text-success">array.flat([depth])</span>, <strong>반환값: 새 배열</strong>.<br />
+                    * <span class="text-primary">depth</span> : 중첩 배열의 깊이 값. 기본은 1.<br />
+                  </li>
+                </ul>
+                <pre class="prettyprint linenums">
+const arr1 = [1, 2, [3, 4]];
+arr1.flat();
+// [1, 2, 3, 4]
+
+const arr2 = [1, 2, [3, 4, [5, 6]]];
+arr2.flat();
+// [1, 2, 3, 4, [5, 6]]
+
+const arr3 = [1, 2, [3, 4, [5, 6]]];
+arr3.flat(2);
+// [1, 2, 3, 4, 5, 6]
+
+const arr4 = [1, 2, [3, 4, [5, 6, [7, 8, [9, 10]]]]];
+arr4.flat(Infinity);
+// [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+// 배열 구멍 제거
+const arr5 = [1, 2, , 4, 5];
+arr5.flat();
+// [1, 2, 4, 5]
+
+// flat()메서드를 사용하지 않고 reduce와 concat으로 똑같은 로직 구현한 로직.
+arr.reduce((acc, val) => acc.concat(val), []);
+// [1, 2, 3, 4]</pre
+                >
+              </li>
+              <li>
+                <h4>
+                  <strong>Array.prototype.<code>flatMap()</code></strong>
+                </h4>
+                <ul>
+                  <li>원본 배열이 하위가 깊은 중첩 배열일 경우 평탄화 시켜서 <code>새 배열</code>을 반환 해주는 메소드.</li>
+                  <li><code>flat()</code>메소드와 똑같으나 depth대신 map함수 실행 결과 반환값을 평탄화 값에 넣는다.</li>
+                  <li>
+                    <span>구문 : </span><span class="text-success">array.flatMap(callback(element[, index[, array]]) [, thisArg])</span>, <strong>반환값: 새 배열</strong>.<br />
+                    * <span class="text-primary">callback</span> : 테스트할 함수. 인자값 element[현재요소], index[현재index], array[호출한 배열]<br />
+                    * <span class="text-primary">thisArg</span> : callback함수 안에서 this로 사용할 값.<br />
+                  </li>
+                  <li>특징 : <code>flat()</code>과 <code>map()</code>를 합쳐놓은 메소드라고 생각하면 됨.</li>
+                </ul>
+                <pre class="prettyprint linenums">
+let arr1 = [1, 2, 3, 4];
+
+arr1.map(x => [x * 2]);
+// [[2], [4], [6], [8]]
+
+// flatMap은 모든 depth를 평탄화 시키므로 아래와 같이 값이 들어감.
+arr1.flatMap(x => [x * 2]);
+// [2, 4, 6, 8]
+
+// return값을 배열로 감싸면 한 레벨만 평탄화 됨.
+arr1.flatMap(x => [[x * 2]]);
+// [[2], [4], [6], [8]]</pre
+                >
+              </li>
+              <li>
+                <h4>
+                  <strong>Array.prototype.<code>forEach()</code></strong>
+                </h4>
+                <ul>
+                  <li>원본 배열 각각의 요소를 모두 순회하여 callback함수를 실행한다.</li>
+                  <li>
+                    <span>구문 : </span><span class="text-success">array.forEach(callback(element[, index[, array]]) [, thisArg])</span>, <strong>반환값: undefined</strong>.<br />
+                    * <span class="text-primary">callback</span> : 각 요소에 대해 실행할 함수. 인자값 element[현재요소], index[현재index], array[호출한 배열]<br />
+                    * <span class="text-primary">thisArg</span> : callback함수 안에서 this로 사용할 값.<br />
+                  </li>
+                  <li>특징 : 초기화 되지 않은 값요소는 반복callback을 생략한다.</li>
+                  <li>특징 : <code>forEach()</code>메소드는 중간에 멈출 수 없다.</li>
+                  <li>
+                    중간에 멈출 수 있는 반복문 :
+                    <code>일반 for문</code>
+                    <code>Array.prototype.every()</code>
+                    <code>Array.prototype.some()</code>
+                    <code>Array.prototype.find()</code>
+                    <code>Array.prototype.findIndex()</code>
+                  </li>
+                </ul>
+                <pre class="prettyprint linenums">
+// 3과7 사이값은 값이 없기때문에 반복에서 제외 되었다.
+const arraySparse = [1,3,,7]
+let numCallbackRuns = 0
+
+arraySparse.forEach(function(element){
+  console.log(element)
+  numCallbackRuns++
+})
+
+console.log("numCallbackRuns: ", numCallbackRuns)
+// 1
+// 3
+// 7
+// numCallbackRuns: 3</pre
+                >
+              </li>
             </ul>
           </div>
         </section>
