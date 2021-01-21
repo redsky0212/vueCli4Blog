@@ -225,7 +225,7 @@ function isBigEnough(element, index, array) {
                   <strong>Array.prototype.<code>fill()</code></strong>
                 </h4>
                 <ul>
-                  <li>원본 배열에 첫번째 인자로 주어진 값으로 바꾸는것.</li>
+                  <li>원본 배열에 <strong>첫번째 인자 값</strong>을 특정위치에 바꾸는것.</li>
                   <li>
                     <span>구문 : </span><span class="text-success">array.fill(value[, start[, end]])</span>, <strong>반환값: 수정된 원본 배열</strong>.<br />
                     * <span class="text-primary">value</span> : 변경할 값<br />
@@ -433,6 +433,393 @@ console.log("numCallbackRuns: ", numCallbackRuns)
 // 7
 // numCallbackRuns: 3</pre
                 >
+              </li>
+              <li>
+                <h4>
+                  <strong>Array.prototype.<code>includes()</code></strong>
+                </h4>
+                <ul>
+                  <li>배열이 특정 요소를 포함하고 있는지 여부를 판별.</li>
+                  <li>
+                    <span>구문 : </span><span class="text-success">array.includes(value[, fromIndex])</span>, <strong>반환값: boolean</strong>.<br />
+                    * <span class="text-primary">value</span> : 찾을 값 (문자일때는 대소문자 구분한다.)<br />
+                    * <span class="text-primary">fromIndex</span> : 검색 시작할 index값<br />
+                  </li>
+                </ul>
+                <pre class="prettyprint linenums">
+[1, 2, 3].includes(2);     // true
+[1, 2, 3].includes(4);     // false
+[1, 2, 3].includes(3, 3);  // false
+[1, 2, 3].includes(3, -1); // true
+[1, 2, NaN].includes(NaN); // true</pre
+                >
+              </li>
+              <li>
+                <h4>
+                  <strong>Array.prototype.<code>indexOf()</code></strong>
+                </h4>
+                <ul>
+                  <li>배열에서 지정된요소를 찾고(찾은 첫번째것만), index값을 반환한다. 없으면 -1을 반환한다.</li>
+                  <li>
+                    <span>구문 : </span><span class="text-success">array.indexOf(searchElement[, fromIndex])</span>, <strong>반환값: 배열 index값</strong>.<br />
+                    * <span class="text-primary">searchElement</span> : 찾을 값<br />
+                    * <span class="text-primary">fromIndex</span> : 검색 시작할 index값<br />
+                  </li>
+                </ul>
+                <pre class="prettyprint linenums">
+var array = [2, 9, 9];
+array.indexOf(2);     // 0
+array.indexOf(7);     // -1
+array.indexOf(9, 2);  // 2
+array.indexOf(2, -1); // -1
+array.indexOf(2, -3); // 0</pre
+                >
+              </li>
+              <li>
+                <h4>
+                  <strong>Array.prototype.<code>join()</code></strong>
+                </h4>
+                <ul>
+                  <li>배열의 모든 요소를 연결해서 문자열로 만든다.</li>
+                  <li>
+                    <span>구문 : </span><span class="text-success">array.join([separator])</span>, <strong>반환값: 문자열</strong>.<br />
+                    * <span class="text-primary">separator</span> : 각 요소를 합칠때 연결할 구분자<br />
+                  </li>
+                </ul>
+                <pre class="prettyprint linenums">
+var a = ['바람', '비', '불'];
+var myVar1 = a.join();      // myVar1에 '바람,비,불'을 대입
+var myVar2 = a.join(', ');  // myVar2에 '바람, 비, 불'을 대입
+var myVar3 = a.join(' + '); // myVar3에 '바람 + 비 + 불'을 대입
+var myVar4 = a.join('');    // myVar4에 '바람비불'을 대입</pre
+                >
+              </li>
+              <li>
+                <h4>
+                  <strong>Array.prototype.<code>keys()</code></strong>
+                </h4>
+                <ul>
+                  <li>배열의 index값을 가지는 <code>새 배열</code>을 만든다.</li>
+                  <li><span>구문 : </span><span class="text-success">array.keys()</span>, <strong>반환값: Array Iterator</strong></li>
+                </ul>
+                <pre class="prettyprint linenums">
+var arr = ['a', , 'c'];
+var sparseKeys = Object.keys(arr);
+var denseKeys = [...arr.keys()];
+console.log(sparseKeys); // ['0', '2'] // Object는 빈값을 무시한다.
+console.log(denseKeys);  // [0, 1, 2] // Array는 빈값을 무시하지 않는다.</pre
+                >
+              </li>
+              <li>
+                <h4>
+                  <strong>Array.prototype.<code>lastIndexOf()</code></strong>
+                </h4>
+                <ul>
+                  <li>배열에서 지정된요소를 찾고(찾은 마지막것만), index값을 반환한다. 없으면 -1을 반환한다.</li>
+                  <li>
+                    <span>구문 : </span><span class="text-success">array.lastIndexOf(searchElement[, fromIndex])</span>, <strong>반환값: index값</strong>.<br />
+                    * <span class="text-primary">searchElement</span> : 찾을 값<br />
+                    * <span class="text-primary">fromIndex</span> : 검색 시작할 index값<br />
+                  </li>
+                </ul>
+                <pre class="prettyprint linenums">
+var array = [2, 5, 9, 2];
+array.lastIndexOf(2);     // 3
+array.lastIndexOf(7);     // -1
+array.lastIndexOf(2, 3);  // 3
+array.lastIndexOf(2, 2);  // 0
+array.lastIndexOf(2, -2); // 0
+array.lastIndexOf(2, -1); // 3
+
+// 검색값을 모두 찾기 예제
+var indices = [];
+var array = ['a', 'b', 'a', 'c', 'a', 'd'];
+var element = 'a';
+var idx = array.lastIndexOf(element);
+while (idx != -1) {
+  indices.push(idx);
+  idx = (idx > 0 ? array.lastIndexOf(element, idx - 1) : -1);
+}
+
+console.log(indices);
+// [4, 2, 0]</pre
+                >
+              </li>
+              <li>
+                <h4>
+                  <strong>Array.prototype.<code>map()</code></strong>
+                </h4>
+                <ul>
+                  <li>원본 배열 각각의 요소를 모두 순회하여 callback함수를 실행해서 얻은 값을 반환하고 모아서<code>새 배열</code>을 만든다.</li>
+                  <li>
+                    <span>구문 : </span><span class="text-success">array.map(callback(element[, index[, array]]) [, thisArg])</span>, <strong>반환값: 새 배열</strong>.<br />
+                    * <span class="text-primary">callback</span> : 각 요소에 대해 실행할 함수. 인자값 element[현재요소], index[현재index], array[호출한 배열]<br />
+                    * <span class="text-primary">thisArg</span> : callback함수 안에서 this로 사용할 값.<br />
+                  </li>
+                  <li>특징1 : <code>forEach</code>와 다른점은 새 배열을 만든다는 점이다.</li>
+                  <li>특징2 : 원본 배열을 손상하지 않는다.</li>
+                </ul>
+                <pre class="prettyprint linenums">
+// 값을 제곱근 해서 새배열 만들기
+var numbers = [1, 4, 9];
+var roots = numbers.map(Math.sqrt);
+// roots는 [1, 2, 3]
+// numbers는 그대로 [1, 4, 9]
+
+// 배열 속 객체를 재구성 하기
+var kvArray = [{key:1, value:10},
+               {key:2, value:20},
+               {key:3, value: 30}];
+
+var reformattedArray = kvArray.map(function(obj){
+   var rObj = {};
+   rObj[obj.key] = obj.value;
+   return rObj;
+});
+// reformattedArray는 [{1:10}, {2:20}, {3:30}]
+// kvArray는 그대로
+// [{key:1, value:10},
+//  {key:2, value:20},
+//  {key:3, value: 30}]</pre
+                >
+              </li>
+              <li>
+                <h4>
+                  <strong>Array.prototype.<code>pop()</code></strong>
+                </h4>
+                <ul>
+                  <li>원본 배열의 <strong>마지막 값</strong>을 제거한다(원본배열손상). 반환값은 제거한 값을 반환.</li>
+                  <li><span>구문 : </span><span class="text-success">array.pop()</span>, <strong>반환값: 제거한 값</strong>.<br /></li>
+                  <li>특징 : 빈배열은 undefined반환</li>
+                </ul>
+                <pre class="prettyprint linenums">
+var myFish = ['angel', 'clown', 'mandarin', 'sturgeon'];
+var popped = myFish.pop();
+console.log(myFish); // ['angel', 'clown', 'mandarin' ]
+console.log(popped); // 'sturgeon'</pre
+                >
+              </li>
+              <li>
+                <h4>
+                  <strong>Array.prototype.<code>push()</code></strong>
+                </h4>
+                <ul>
+                  <li>원본 배열 맨 뒤에 요소를 추가.</li>
+                  <li>
+                    <span>구문 : </span><span class="text-success">array.push(element1[, ...[, elementN]])</span>, <strong>반환값: length값</strong>.<br />
+                    * <span class="text-primary">elementN</span> : 배열에 추가할 요소<br />
+                  </li>
+                </ul>
+                <pre class="prettyprint linenums">
+var sports = ['축구', '야구'];
+var total = sports.push('미식축구', '수영');
+
+console.log(sports); // ['축구', '야구', '미식축구', '수영']
+console.log(total);  // 4</pre
+                >
+              </li>
+              <li>
+                <h4>
+                  <strong>Array.prototype.<code>reduce()</code></strong>
+                </h4>
+                <ul>
+                  <li>배열에 <strong>리듀서함수</strong>를 실행하여 하나의 결과값을 반환한다.</li>
+                  <li>
+                    <span>구문 : </span><span class="text-success">array.reduce(callback[, initialValue])</span>, <strong>반환값: 누적계산의 결과값</strong>.<br />
+                    * <span class="text-primary">callback(리듀서함수)</span> : 각 요소에 대해 실행할 함수. 인자값 accumulator[누적된값], currentValue[현재값], currentIndex[현재index],
+                    array[원본배열]<br />
+                    * <span class="text-primary">initialValue</span> : callback처음 호출할때 accumulator에 제공되는 시작값<br />
+                  </li>
+                </ul>
+                <pre class="prettyprint linenums">
+const array1 = [1, 2, 3, 4];
+const reducer = (accumulator, currentValue) => accumulator + currentValue;
+// 1 + 2 + 3 + 4
+console.log(array1.reduce(reducer));
+// expected output: 10
+// 5 + 1 + 2 + 3 + 4
+console.log(array1.reduce(reducer, 5));
+// expected output: 15</pre
+                >
+              </li>
+              <li>
+                <h4>
+                  <strong>Array.prototype.<code>reduceRight()</code></strong>
+                </h4>
+                <ul>
+                  <li>배열에 <strong>리듀서함수</strong>를 실행하여 하나의 결과값을 반환한다.(오른쪽에서 왼쪽으로)</li>
+                </ul>
+              </li>
+              <li>
+                <h4>
+                  <strong>Array.prototype.<code>reverse()</code></strong>
+                </h4>
+                <ul>
+                  <li>원본 배열의 순서를 반전시킨다. 원본배열손상</li>
+                  <li><span>구문 : </span><span class="text-success">array.reverse()</span>, <strong>반환값: 순서가 반전된 배열</strong>.<br /></li>
+                </ul>
+                <pre class="prettyprint linenums">
+const a = [1, 2, 3];
+console.log(a); // [1, 2, 3]
+
+a.reverse();
+console.log(a); // [3, 2, 1]</pre
+                >
+              </li>
+              <li>
+                <h4>
+                  <strong>Array.prototype.<code>shift()</code></strong>
+                </h4>
+                <ul>
+                  <li>원본 배열의 <strong>첫번째 값</strong>을 제거한다(원본배열손상). 반환값은 제거한 값을 반환.</li>
+                  <li><span>구문 : </span><span class="text-success">array.shift()</span>, <strong>반환값: 제거한 값</strong>.<br /></li>
+                  <li>특징 : 빈배열은 undefined반환</li>
+                </ul>
+                <pre class="prettyprint linenums">
+var myFish = ['angel', 'clown', 'mandarin', 'surgeon'];
+
+console.log('myFish before: ' + myFish);
+// "제거전 myFish 배열: angel,clown,mandarin,surgeon"
+
+var shifted = myFish.shift();
+
+console.log('myFish after: ' + myFish);
+// "제거후 myFish 배열: clown,mandarin,surgeon"
+
+console.log('Removed this element: ' + shifted);
+// "제거된 배열 요소: angel"</pre
+                >
+              </li>
+              <li>
+                <h4>
+                  <strong>Array.prototype.<code>slice()</code></strong>
+                </h4>
+                <ul>
+                  <li>배열의 시작index부터 끝index까지 얕은복사를 해서 <code>새로운배열</code>로 반환한다.</li>
+                  <li><span>구문 : </span><span class="text-success">array.slice(begin[, end])</span>, <strong>반환값: 추출한 새 배열</strong>.<br /></li>
+                  <li>특징1 : 끝index는 포함하지 않는다.</li>
+                  <li>특징2 : 끝index를 셋팅하지 않으면 배열의 마지막까지 복사한다.</li>
+                </ul>
+                <pre class="prettyprint linenums">
+const animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
+
+console.log(animals.slice(2));
+// expected output: Array ["camel", "duck", "elephant"]
+
+console.log(animals.slice(2, 4));
+// expected output: Array ["camel", "duck"]
+
+console.log(animals.slice(1, 5));
+// expected output: Array ["bison", "camel", "duck", "elephant"]</pre
+                >
+              </li>
+              <li>
+                <h4>
+                  <strong>Array.prototype.<code>some()</code></strong>
+                </h4>
+                <ul>
+                  <li>배열의 순회하면서 callback함수의 판별결과에 따라 true, false를 반환한다.</li>
+                  <li>
+                    <span>구문 : </span><span class="text-success">array.some(callback(element[, index[, array]]) [, thisArg])</span>, <strong>반환값: boolean</strong>.<br />
+                    * <span class="text-primary">callback</span> : 각 요소에 대해 실행할 함수. 인자값 element[현재요소], index[현재index], array[호출한 배열]<br />
+                    * <span class="text-primary">thisArg</span> : callback함수 안에서 this로 사용할 값.<br />
+                  </li>
+                  <li>특징 : callback함수 결과가 모두 만족되면 true, 하나라도 아니면 false를 반환한다.</li>
+                </ul>
+                <pre class="prettyprint linenums">
+function isBiggerThan10(element, index, array) {
+  return element > 10;
+}
+[2, 5, 8, 1, 4].some(isBiggerThan10);  // false
+[12, 5, 8, 1, 4].some(isBiggerThan10); // true</pre
+                >
+              </li>
+              <li>
+                <h4>
+                  <strong>Array.prototype.<code>sort()</code></strong>
+                </h4>
+                <ul>
+                  <li>배열의 순회하면서 적절한 위치에 정렬하여 그 배열을 반환한다. 기본정렬방식은 유니코드 코드 포인트를 따른다.(원본배열손상)</li>
+                  <li>
+                    <span>구문 : </span><span class="text-success">array.sort([compareFunction])</span>, <strong>반환값: 정렬되어진 배열</strong>.<br />
+                    * <span class="text-primary">compareFunction</span> : 정렬 순서를 정의하는 함수<br />
+                  </li>
+                  <li>특징 : compareFunction이 없으면 문자열로 변환하여 유니코드 코드 포인트 순서로 문자열을 비교하여 정렬한다.</li>
+                  <li>
+                    compareFunction
+                    <a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/sort" target="_blank">[Array Sort메서드 참조]</a>
+                    <ul>
+                      <li>compareFunction(a, b)이 0보다 작은 경우 a를 b보다 낮은 색인으로 정렬합니다. 즉, a가 먼저옵니다.</li>
+                      <li>
+                        compareFunction(a, b)이 0을 반환하면 a와 b를 서로에 대해 변경하지 않고 모든 다른 요소에 대해 정렬합니다. 참고 : ECMAscript 표준은 이러한 동작을 보장하지 않으므로 모든
+                        브라우저(예 : Mozilla 버전은 적어도 2003 년 이후 버전 임)가 이를 존중하지는 않습니다.
+                      </li>
+                      <li>compareFunction(a, b)이 0보다 큰 경우, b를 a보다 낮은 인덱스로 소트합니다.</li>
+                      <li>compareFunction(a, b)은 요소 a와 b의 특정 쌍이 두 개의 인수로 주어질 때 항상 동일한 값을 반환해야합니다. 일치하지 않는 결과가 반환되면 정렬 순서는 정의되지 않습니다.</li>
+                    </ul>
+                  </li>
+                </ul>
+                <pre class="prettyprint linenums">
+var numbers = [4, 2, 5, 1, 3];
+numbers.sort(function(a, b) {
+  return a - b;
+});
+console.log(numbers);
+
+// [1, 2, 3, 4, 5]</pre
+                >
+              </li>
+              <li>
+                <h4>
+                  <strong>Array.prototype.<code>splice()</code></strong>
+                </h4>
+                <ul>
+                  <li>기존 배열에 값을 삭제, 추가 교체 를 하여 변경한다.</li>
+                  <li>
+                    <span>구문 : </span><span class="text-success">array.splice(start[, deleteCount[, item1[, item2[, ...]]]])</span>, <strong>반환값: 제거된 요소를 가지고있는 배열</strong>.<br />
+                    * <span class="text-primary">start</span> : 변경을 시작할 index값<br />
+                    * <span class="text-primary">deleteCount</span> : 시작index에서 부터 제거할 요소의 수.<br />
+                    * <span class="text-primary">item1, item2...</span> : 배열에 추가할 요소. 아무것도 없으면 제거만 한다.<br />
+                  </li>
+                </ul>
+                <pre class="prettyprint linenums">
+// 사이에 'drum' 끼워넣기
+var myFish = ['angel', 'clown', 'mandarin', 'sturgeon'];
+var removed = myFish.splice(2, 0, 'drum');
+// myFish is ["angel", "clown", "drum", "mandarin", "sturgeon"]
+// removed is [], no elements removed
+
+// 3번째 한개 제거
+var myFish = ['angel', 'clown', 'drum', 'mandarin', 'sturgeon'];
+var removed = myFish.splice(3, 1);
+// removed is ["mandarin"]
+// myFish is ["angel", "clown", "drum", "sturgeon"]</pre
+                >
+              </li>
+              <li>
+                <h4>
+                  <strong>Array.prototype.<code>toLocaleString()</code></strong>
+                </h4>
+              </li>
+              <li>
+                <h4>
+                  <strong>Array.prototype.<code>toSource()</code></strong>
+                </h4>
+              </li>
+              <li>
+                <h4>
+                  <strong>Array.prototype.<code>toString()</code></strong>
+                </h4>
+              </li>
+              <li>
+                <h4>
+                  <strong>Array.prototype.<code>unshift()</code></strong>
+                </h4>
+              </li>
+              <li>
+                <h4>
+                  <strong>Array.prototype.<code>values()</code></strong>
+                </h4>
               </li>
             </ul>
           </div>
