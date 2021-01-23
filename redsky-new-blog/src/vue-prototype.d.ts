@@ -26,5 +26,8 @@ declare module 'vue/types/vue' {
 }
 
 declare global {
-  interface Window { prettyPrint: any; }
+  interface Window {
+    prettyPrint: any;
+    kakao: any;
+  }
 }
