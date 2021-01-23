@@ -819,40 +819,108 @@ var removed = myFish.splice(3, 1);
                   <strong>Array.prototype.<code>toLocaleString()</code></strong>
                 </h4>
                 <ul>
-                  <li class="arr_desc">...</li>
+                  <li class="arr_desc">배열의 요소들을 모두 합쳐서 문자열 하나로 만들어 반환한다.</li>
+                  <li>
+                    <span>구문 : </span><span class="text-success">array.toLocaleString([locales[, option]])</span>, <strong>반환값: 합쳐진 문자열</strong>.<br />
+                    * <span class="text-primary">locales</span> : BCP 47 언어태그 문자열 (참조:
+                    <a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Intl" target="_blank"
+                      >https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Intl</a
+                    >)<br />
+                    (참조: <a href="https://wiki.aha00a.com/w/BCP%2047" target="_blank">https://wiki.aha00a.com/w/BCP%2047</a>)<br />
+                    * <span class="text-primary">option</span> : 언어태그 문자열의 옵션<br />
+                  </li>
                 </ul>
+                <pre class="prettyprint linenums">
+var number = 1337;
+var date = new Date();
+var myArr = [number, date, 'foo'];
+
+var str = myArr.toLocaleString();
+
+console.log(str);
+// '1337,6.12.2013 19:37:35,foo' 출력(log)
+// Europe/Berlin 시간대로 German (de-DE) locale에서 실행하는 경우</pre
+                >
               </li>
               <li>
                 <h4>
                   <strong>Array.prototype.<code>toSource()</code></strong>
                 </h4>
                 <ul>
-                  <li class="arr_desc">...</li>
+                  <li class="arr_desc"><code>비표준★★★</code>: 해당 배열의 소스코드를 문자열로 반환.</li>
+                  <li><span>구문 : </span><span class="text-success">array.toSource()</span>, <strong>반환값: 문자열</strong>.<br /></li>
                 </ul>
+                <pre class="prettyprint linenums">
+var alpha = new Array('a', 'b', 'c');
+
+alpha.toSource();
+//returns ['a', 'b', 'c']</pre
+                >
               </li>
               <li>
                 <h4>
                   <strong>Array.prototype.<code>toString()</code></strong>
                 </h4>
                 <ul>
-                  <li class="arr_desc">...</li>
+                  <li class="arr_desc">배열을 문자열로 반환</li>
+                  <li><span>구문 : </span><span class="text-success">array.toString()</span>, <strong>반환값: 문자열</strong>.<br /></li>
                 </ul>
+                <pre class="prettyprint linenums">
+var monthNames = ['Jan', 'Feb', 'Mar', 'Apr'];
+var myVar = monthNames.toString(); // 'Jan,Feb,Mar,Apr'을 myVar에 할당.</pre
+                >
               </li>
               <li>
                 <h4>
                   <strong>Array.prototype.<code>unshift()</code></strong>
                 </h4>
                 <ul>
-                  <li class="arr_desc">...</li>
+                  <li class="arr_desc">새로운 요소를 배열의 맨 앞쪽에 추가.</li>
+                  <li>
+                    <span>구문 : </span><span class="text-success">array.unshift([...elementN])</span>, <strong>반환값: 최종 배열의 length</strong>.<br />
+                    * <span class="text-primary">elementN</span> : 배열 맨 앞에 추가할 요소.<br />
+                  </li>
                 </ul>
+                <pre class="prettyprint linenums">
+var arr = [1, 2];
+
+arr.unshift(0); // result of call is 3, the new array length
+// arr is [0, 1, 2]
+
+arr.unshift(-2, -1); // = 5
+// arr is [-2, -1, 0, 1, 2]
+
+arr.unshift([-3]);
+// arr is [[-3], -2, -1, 0, 1, 2]</pre
+                >
               </li>
               <li>
                 <h4>
                   <strong>Array.prototype.<code>values()</code></strong>
                 </h4>
                 <ul>
-                  <li class="arr_desc">...</li>
+                  <li class="arr_desc">각 index에 해당하는 값의 <code>Array Iterator</code>를 반환.</li>
+                  <li><span>구문 : </span><span class="text-success">array.values()</span>, <strong>반환값: 새로운 배열 반복객체</strong>.<br /></li>
                 </ul>
+                <pre class="prettyprint linenums">
+// for문을 통한 반복
+var arr = ['w', 'y', 'k', 'o', 'p'];
+var eArr = arr.values();
+// your browser must support for..of loop
+// and let-scoped variables in for loops
+for (let letter of eArr) {
+  console.log(letter);
+}
+
+// 다른 반복법 사용
+var arr = ['w', 'y', 'k', 'o', 'p'];
+var eArr = arr.values();
+console.log(eArr.next().value); // w
+console.log(eArr.next().value); // y
+console.log(eArr.next().value); // k
+console.log(eArr.next().value); // o
+console.log(eArr.next().value); // p</pre
+                >
               </li>
             </ul>
           </div>
