@@ -13,6 +13,24 @@
       <div class="col-md-12">
         <section class="panel">
           <header class="panel-heading">
+            <h2 class="panel-title">
+              <strong>Array Method</strong> 요약
+              <!-- <span class="text-danger">(사라질 예정)</span> -->
+            </h2>
+          </header>
+          <div class="panel-body">
+            <div id="treeBasic">
+              <ul>
+                <li class="colored-icon" v-for="(menu, index) in menuList" :key="index">
+                  <button @click="moveContents" type="button" class="mb-xs mt-xs mr-xs btn btn-xs btn-default" v-html="menu[0]"></button>
+                  : {{ menu[1] }}
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section class="panel">
+          <header class="panel-heading">
             <!-- div class="panel-actions">
               <a href="#" class="fa fa-caret-down"></a>
               <a href="#" class="fa fa-times"></a>
@@ -31,7 +49,7 @@
                   <strong>Array.<code>from()</code></strong>
                 </h4>
                 <ul>
-                  <li>Array.from() 메서드는 <strong>유사 배열 객체</strong>나 <strong>반복 가능한 객체</strong>를 얕게 복사해 새로운<code>Array</code>로 만든다.</li>
+                  <li class="arr_desc">Array.from() 메서드는 <strong>유사 배열 객체</strong>나 <strong>반복 가능한 객체</strong>를 얕게 복사해 새로운<code>Array</code>로 만든다.</li>
                   <li>
                     <span>구문 : </span><span class="text-success">Array.from( arrayLike[, mapFn[, thisArg]] )</span>, <strong>반환값: 새로운배열</strong>.<br />
                     * <span class="text-primary">arrayLike</span> : 유사배열객체<br />
@@ -75,7 +93,7 @@ f(1, 2, 3);</pre
                   <strong>Array.<code>isArray()</code></strong>
                 </h4>
                 <ul>
-                  <li>Array.isArray() 메서드는 인자가 Array인지 판별.</li>
+                  <li class="arr_desc">Array.isArray() 메서드는 인자가 Array인지 판별.</li>
                   <li>
                     <span>구문 : </span><span class="text-success">Array.isArray( obj )</span>, <strong>반환값: boolean값</strong>.<br />
                     * <span class="text-primary">obj</span> : 체크할 객체
@@ -87,7 +105,7 @@ f(1, 2, 3);</pre
                   <strong>Array.<code>of()</code></strong>
                 </h4>
                 <ul>
-                  <li>Array.of() 메서드는 입력한 인자로 새로운 배열을 생성한다.</li>
+                  <li class="arr_desc">Array.of() 메서드는 입력한 인자로 새로운 배열을 생성한다.</li>
                   <li>
                     <span>구문 : </span><span class="text-success">Array.of( element0[, element1[, ...[, elementN]]] )</span>, <strong>반환값: 새로운배열</strong>.<br />
                     * <span class="text-primary">element0...N</span> : 배열의 값.
@@ -106,7 +124,7 @@ Array(1, 2, 3);    // [1, 2, 3]</pre
                   <strong>Array.prototype.<code>concat()</code></strong>
                 </h4>
                 <ul>
-                  <li>원본 배열에 인자로 넘겨준 배열을 서로 합쳐서 <code>새 배열</code>을 반환한다.</li>
+                  <li class="arr_desc">원본 배열에 인자로 넘겨준 배열을 서로 합쳐서 <code>새 배열</code>을 반환한다.</li>
                   <li>
                     <span>구문 : </span><span class="text-success">array.concat( value1[, value1[, ...[, valueN]]] )</span>, <strong>반환값: 새로운배열</strong>.<br />
                     * <span class="text-primary">value0...N</span> : 합쳐질 (배열 또는 값)들.
@@ -130,7 +148,7 @@ alpha2.concat(1, [2, 3]);
                   <strong>Array.prototype.<code>copyWithin()</code></strong>
                 </h4>
                 <ul>
-                  <li>원본 배열에 특정 index 위치의 값을 다른 index 위치에 복사해서 넣을때 사용</li>
+                  <li class="arr_desc">원본 배열에 특정 index 위치의 값을 다른 index 위치에 복사해서 넣을때 사용</li>
                   <li>
                     <span>구문 : </span><span class="text-success">array.copyWithin( target[, start[, end]] )</span>, <strong>반환값: 수정된 원본배열</strong>.<br />
                     * <span class="text-primary">target</span> : 수정될 대상 위치 index값.(음수값을 입력하면 배열 끝에서부터 계산 )<br />
@@ -172,7 +190,7 @@ i32a.copyWithin(0, 2);
                   <strong>Array.prototype.<code>entries()</code></strong>
                 </h4>
                 <ul>
-                  <li>원본 배열에 대한 키/값 쌍을 가지는 새로운 <code>Array Iterator</code>객체를 반환한다.</li>
+                  <li class="arr_desc">원본 배열에 대한 키/값 쌍을 가지는 새로운 <code>Array Iterator</code>객체를 반환한다.</li>
                   <li><span>구문 : </span><span class="text-success">array.entries()</span>, <strong>반환값: 새 Iterator객체</strong>.</li>
                   <li>특징 : 반환된 Iterator객체는 <code>for문</code>에서 유용하게 사용할 수 있음</li>
                 </ul>
@@ -203,7 +221,7 @@ for (let e of iterator) {
                   <strong>Array.prototype.<code>every()</code></strong>
                 </h4>
                 <ul>
-                  <li>원본배열이 인자로 넘겨준 함수를 통과하는지 테스트</li>
+                  <li class="arr_desc">원본배열이 인자로 넘겨준 함수를 통과하는지 테스트</li>
                   <li>
                     <span>구문 : </span><span class="text-success">array.every(callback[, thisArg])</span>, <strong>반환값: boolean</strong>.<br />
                     * <span class="text-primary">callback</span> : 배열 모든요소를 테스트 할 함수. 세가지 인수 받음(currentValue[처리할 현재요소], index[현재index값], array[원본배열])<br />
@@ -225,7 +243,7 @@ function isBigEnough(element, index, array) {
                   <strong>Array.prototype.<code>fill()</code></strong>
                 </h4>
                 <ul>
-                  <li>원본 배열에 <strong>첫번째 인자 값</strong>을 특정위치에 바꾸는것.</li>
+                  <li class="arr_desc">원본 배열에 <strong>첫번째 인자 값</strong>을 특정위치에 바꾸는것.</li>
                   <li>
                     <span>구문 : </span><span class="text-success">array.fill(value[, start[, end]])</span>, <strong>반환값: 수정된 원본 배열</strong>.<br />
                     * <span class="text-primary">value</span> : 변경할 값<br />
@@ -255,7 +273,7 @@ arr[0].hi = "hi"; // [{ hi: "hi" }, { hi: "hi" }, { hi: "hi" }]</pre
                   <strong>Array.prototype.<code>filter()</code></strong>
                 </h4>
                 <ul>
-                  <li>원본 배열에서 인자로 주어진 함수의 테스트를 통과한 것만 모아서 <code>새 배열</code>로 반환한다.</li>
+                  <li class="arr_desc">원본 배열에서 인자로 주어진 함수의 테스트를 통과한 것만 모아서 <code>새 배열</code>로 반환한다.</li>
                   <li>
                     <span>구문 : </span><span class="text-success">array.filter(callback(element[, index[, array]])[, thisArg])</span>, <strong>반환값: 새로운 배열</strong>.<br />
                     * <span class="text-primary">callback</span> : 테스트할 함수. 인자값 element[현재요소], index[현재index], array[호출한 배열]<br />
@@ -289,7 +307,7 @@ console.log(filterItems('an')); // ['banana', 'mango', 'orange']</pre
                   <strong>Array.prototype.<code>find()</code></strong>
                 </h4>
                 <ul>
-                  <li>원본 배열에서 인자로 주어진 함수의 테스트를 통과한 것 중에서 첫번째 요소만 반환.</li>
+                  <li class="arr_desc">원본 배열에서 인자로 주어진 함수의 테스트를 통과한 것 중에서 첫번째 요소만 반환.</li>
                   <li>
                     <span>구문 : </span><span class="text-success">array.find(callback(element[, index[, array]]) [, thisArg])</span>, <strong>반환값: 첫번째 요소 하나</strong>.<br />
                     * <span class="text-primary">callback</span> : 테스트할 함수. 인자값 element[현재요소], index[현재index], array[호출한 배열]<br />
@@ -317,7 +335,7 @@ console.log(inventory.find(findCherries)); // { name: 'cherries', quantity: 5 }<
                   <strong>Array.prototype.<code>findIndex()</code></strong>
                 </h4>
                 <ul>
-                  <li><code>Array.prototype.find()</code>와 똑같지만 반환값이 찾은 요소의 index값. 만족 index가 없으면 -1 반환.</li>
+                  <li class="arr_desc"><code>Array.prototype.find()</code>와 똑같지만 반환값이 찾은 요소의 index값. 만족 index가 없으면 -1 반환.</li>
                 </ul>
                 <pre class="prettyprint linenums">
 const array1 = [5, 12, 8, 130, 44];
@@ -333,7 +351,7 @@ console.log(array1.findIndex(isLargeNumber));
                   <strong>Array.prototype.<code>flat()</code></strong>
                 </h4>
                 <ul>
-                  <li>원본 배열이 하위가 깊은 중첩 배열일 경우 평탄화 시켜서 <code>새 배열</code>을 반환 해주는 메소드.</li>
+                  <li class="arr_desc">원본 배열이 하위가 깊은 중첩 배열일 경우 평탄화 시켜서 <code>새 배열</code>을 반환 해주는 메소드.</li>
                   <li>
                     <span>구문 : </span><span class="text-success">array.flat([depth])</span>, <strong>반환값: 새 배열</strong>.<br />
                     * <span class="text-primary">depth</span> : 중첩 배열의 깊이 값. 기본은 1.<br />
@@ -371,7 +389,7 @@ arr.reduce((acc, val) => acc.concat(val), []);
                   <strong>Array.prototype.<code>flatMap()</code></strong>
                 </h4>
                 <ul>
-                  <li>원본 배열이 하위가 깊은 중첩 배열일 경우 평탄화 시켜서 <code>새 배열</code>을 반환 해주는 메소드.</li>
+                  <li class="arr_desc">원본 배열이 하위가 깊은 중첩 배열일 경우 평탄화 시켜서 <code>새 배열</code>을 반환 해주는 메소드.</li>
                   <li><code>flat()</code>메소드와 똑같으나 depth대신 map함수 실행 결과 반환값을 평탄화 값에 넣는다.</li>
                   <li>
                     <span>구문 : </span><span class="text-success">array.flatMap(callback(element[, index[, array]]) [, thisArg])</span>, <strong>반환값: 새 배열</strong>.<br />
@@ -400,7 +418,7 @@ arr1.flatMap(x => [[x * 2]]);
                   <strong>Array.prototype.<code>forEach()</code></strong>
                 </h4>
                 <ul>
-                  <li>원본 배열 각각의 요소를 모두 순회하여 callback함수를 실행한다.</li>
+                  <li class="arr_desc">원본 배열 각각의 요소를 모두 순회하여 callback함수를 실행한다.</li>
                   <li>
                     <span>구문 : </span><span class="text-success">array.forEach(callback(element[, index[, array]]) [, thisArg])</span>, <strong>반환값: undefined</strong>.<br />
                     * <span class="text-primary">callback</span> : 각 요소에 대해 실행할 함수. 인자값 element[현재요소], index[현재index], array[호출한 배열]<br />
@@ -439,7 +457,7 @@ console.log("numCallbackRuns: ", numCallbackRuns)
                   <strong>Array.prototype.<code>includes()</code></strong>
                 </h4>
                 <ul>
-                  <li>배열이 특정 요소를 포함하고 있는지 여부를 판별.</li>
+                  <li class="arr_desc">배열이 특정 요소를 포함하고 있는지 여부를 판별.</li>
                   <li>
                     <span>구문 : </span><span class="text-success">array.includes(value[, fromIndex])</span>, <strong>반환값: boolean</strong>.<br />
                     * <span class="text-primary">value</span> : 찾을 값 (문자일때는 대소문자 구분한다.)<br />
@@ -459,7 +477,7 @@ console.log("numCallbackRuns: ", numCallbackRuns)
                   <strong>Array.prototype.<code>indexOf()</code></strong>
                 </h4>
                 <ul>
-                  <li>배열에서 지정된요소를 찾고(찾은 첫번째것만), index값을 반환한다. 없으면 -1을 반환한다.</li>
+                  <li class="arr_desc">배열에서 지정된요소를 찾고(찾은 첫번째것만), index값을 반환한다. 없으면 -1을 반환한다.</li>
                   <li>
                     <span>구문 : </span><span class="text-success">array.indexOf(searchElement[, fromIndex])</span>, <strong>반환값: 배열 index값</strong>.<br />
                     * <span class="text-primary">searchElement</span> : 찾을 값<br />
@@ -480,7 +498,7 @@ array.indexOf(2, -3); // 0</pre
                   <strong>Array.prototype.<code>join()</code></strong>
                 </h4>
                 <ul>
-                  <li>배열의 모든 요소를 연결해서 문자열로 만든다.</li>
+                  <li class="arr_desc">배열의 모든 요소를 연결해서 문자열로 만든다.</li>
                   <li>
                     <span>구문 : </span><span class="text-success">array.join([separator])</span>, <strong>반환값: 문자열</strong>.<br />
                     * <span class="text-primary">separator</span> : 각 요소를 합칠때 연결할 구분자<br />
@@ -499,7 +517,7 @@ var myVar4 = a.join('');    // myVar4에 '바람비불'을 대입</pre
                   <strong>Array.prototype.<code>keys()</code></strong>
                 </h4>
                 <ul>
-                  <li>배열의 index값을 가지는 <code>새 배열</code>을 만든다.</li>
+                  <li class="arr_desc">배열의 index값을 가지는 <code>새 배열</code>을 만든다.</li>
                   <li><span>구문 : </span><span class="text-success">array.keys()</span>, <strong>반환값: Array Iterator</strong></li>
                 </ul>
                 <pre class="prettyprint linenums">
@@ -515,7 +533,7 @@ console.log(denseKeys);  // [0, 1, 2] // Array는 빈값을 무시하지 않는�
                   <strong>Array.prototype.<code>lastIndexOf()</code></strong>
                 </h4>
                 <ul>
-                  <li>배열에서 지정된요소를 찾고(찾은 마지막것만), index값을 반환한다. 없으면 -1을 반환한다.</li>
+                  <li class="arr_desc">배열에서 지정된요소를 찾고(찾은 마지막것만), index값을 반환한다. 없으면 -1을 반환한다.</li>
                   <li>
                     <span>구문 : </span><span class="text-success">array.lastIndexOf(searchElement[, fromIndex])</span>, <strong>반환값: index값</strong>.<br />
                     * <span class="text-primary">searchElement</span> : 찾을 값<br />
@@ -550,7 +568,7 @@ console.log(indices);
                   <strong>Array.prototype.<code>map()</code></strong>
                 </h4>
                 <ul>
-                  <li>원본 배열 각각의 요소를 모두 순회하여 callback함수를 실행해서 얻은 값을 반환하고 모아서<code>새 배열</code>을 만든다.</li>
+                  <li class="arr_desc">원본 배열 각각의 요소를 모두 순회하여 callback함수를 실행해서 얻은 값을 반환하고 모아서<code>새 배열</code>을 만든다.</li>
                   <li>
                     <span>구문 : </span><span class="text-success">array.map(callback(element[, index[, array]]) [, thisArg])</span>, <strong>반환값: 새 배열</strong>.<br />
                     * <span class="text-primary">callback</span> : 각 요소에 대해 실행할 함수. 인자값 element[현재요소], index[현재index], array[호출한 배열]<br />
@@ -588,7 +606,7 @@ var reformattedArray = kvArray.map(function(obj){
                   <strong>Array.prototype.<code>pop()</code></strong>
                 </h4>
                 <ul>
-                  <li>원본 배열의 <strong>마지막 값</strong>을 제거한다(원본배열손상). 반환값은 제거한 값을 반환.</li>
+                  <li class="arr_desc">원본 배열의 <strong>마지막 값</strong>을 제거한다(원본배열손상). 반환값은 제거한 값을 반환.</li>
                   <li><span>구문 : </span><span class="text-success">array.pop()</span>, <strong>반환값: 제거한 값</strong>.<br /></li>
                   <li>특징 : 빈배열은 undefined반환</li>
                 </ul>
@@ -604,7 +622,7 @@ console.log(popped); // 'sturgeon'</pre
                   <strong>Array.prototype.<code>push()</code></strong>
                 </h4>
                 <ul>
-                  <li>원본 배열 맨 뒤에 요소를 추가.</li>
+                  <li class="arr_desc">원본 배열 맨 뒤에 요소를 추가.</li>
                   <li>
                     <span>구문 : </span><span class="text-success">array.push(element1[, ...[, elementN]])</span>, <strong>반환값: length값</strong>.<br />
                     * <span class="text-primary">elementN</span> : 배열에 추가할 요소<br />
@@ -623,7 +641,7 @@ console.log(total);  // 4</pre
                   <strong>Array.prototype.<code>reduce()</code></strong>
                 </h4>
                 <ul>
-                  <li>배열에 <strong>리듀서함수</strong>를 실행하여 하나의 결과값을 반환한다.</li>
+                  <li class="arr_desc">배열에 <strong>리듀서함수</strong>를 실행하여 하나의 결과값을 반환한다.</li>
                   <li>
                     <span>구문 : </span><span class="text-success">array.reduce(callback[, initialValue])</span>, <strong>반환값: 누적계산의 결과값</strong>.<br />
                     * <span class="text-primary">callback(리듀서함수)</span> : 각 요소에 대해 실행할 함수. 인자값 accumulator[누적된값], currentValue[현재값], currentIndex[현재index],
@@ -647,7 +665,7 @@ console.log(array1.reduce(reducer, 5));
                   <strong>Array.prototype.<code>reduceRight()</code></strong>
                 </h4>
                 <ul>
-                  <li>배열에 <strong>리듀서함수</strong>를 실행하여 하나의 결과값을 반환한다.(오른쪽에서 왼쪽으로)</li>
+                  <li class="arr_desc">배열에 <strong>리듀서함수</strong>를 실행하여 하나의 결과값을 반환한다.(오른쪽에서 왼쪽으로)</li>
                 </ul>
               </li>
               <li>
@@ -655,7 +673,7 @@ console.log(array1.reduce(reducer, 5));
                   <strong>Array.prototype.<code>reverse()</code></strong>
                 </h4>
                 <ul>
-                  <li>원본 배열의 순서를 반전시킨다. 원본배열손상</li>
+                  <li class="arr_desc">원본 배열의 순서를 반전시킨다. 원본배열손상</li>
                   <li><span>구문 : </span><span class="text-success">array.reverse()</span>, <strong>반환값: 순서가 반전된 배열</strong>.<br /></li>
                 </ul>
                 <pre class="prettyprint linenums">
@@ -671,7 +689,7 @@ console.log(a); // [3, 2, 1]</pre
                   <strong>Array.prototype.<code>shift()</code></strong>
                 </h4>
                 <ul>
-                  <li>원본 배열의 <strong>첫번째 값</strong>을 제거한다(원본배열손상). 반환값은 제거한 값을 반환.</li>
+                  <li class="arr_desc">원본 배열의 <strong>첫번째 값</strong>을 제거한다(원본배열손상). 반환값은 제거한 값을 반환.</li>
                   <li><span>구문 : </span><span class="text-success">array.shift()</span>, <strong>반환값: 제거한 값</strong>.<br /></li>
                   <li>특징 : 빈배열은 undefined반환</li>
                 </ul>
@@ -695,7 +713,7 @@ console.log('Removed this element: ' + shifted);
                   <strong>Array.prototype.<code>slice()</code></strong>
                 </h4>
                 <ul>
-                  <li>배열의 시작index부터 끝index까지 얕은복사를 해서 <code>새로운배열</code>로 반환한다.</li>
+                  <li class="arr_desc">배열의 시작index부터 끝index까지 얕은복사를 해서 <code>새로운배열</code>로 반환한다.</li>
                   <li><span>구문 : </span><span class="text-success">array.slice(begin[, end])</span>, <strong>반환값: 추출한 새 배열</strong>.<br /></li>
                   <li>특징1 : 끝index는 포함하지 않는다.</li>
                   <li>특징2 : 끝index를 셋팅하지 않으면 배열의 마지막까지 복사한다.</li>
@@ -718,7 +736,7 @@ console.log(animals.slice(1, 5));
                   <strong>Array.prototype.<code>some()</code></strong>
                 </h4>
                 <ul>
-                  <li>배열의 순회하면서 callback함수의 판별결과에 따라 true, false를 반환한다.</li>
+                  <li class="arr_desc">배열의 순회하면서 callback함수의 판별결과에 따라 true, false를 반환한다.</li>
                   <li>
                     <span>구문 : </span><span class="text-success">array.some(callback(element[, index[, array]]) [, thisArg])</span>, <strong>반환값: boolean</strong>.<br />
                     * <span class="text-primary">callback</span> : 각 요소에 대해 실행할 함수. 인자값 element[현재요소], index[현재index], array[호출한 배열]<br />
@@ -739,7 +757,7 @@ function isBiggerThan10(element, index, array) {
                   <strong>Array.prototype.<code>sort()</code></strong>
                 </h4>
                 <ul>
-                  <li>배열의 순회하면서 적절한 위치에 정렬하여 그 배열을 반환한다. 기본정렬방식은 유니코드 코드 포인트를 따른다.(원본배열손상)</li>
+                  <li class="arr_desc">배열의 순회하면서 적절한 위치에 정렬하여 그 배열을 반환한다. 기본정렬방식은 유니코드 코드 포인트를 따른다.(원본배열손상)</li>
                   <li>
                     <span>구문 : </span><span class="text-success">array.sort([compareFunction])</span>, <strong>반환값: 정렬되어진 배열</strong>.<br />
                     * <span class="text-primary">compareFunction</span> : 정렬 순서를 정의하는 함수<br />
@@ -774,7 +792,7 @@ console.log(numbers);
                   <strong>Array.prototype.<code>splice()</code></strong>
                 </h4>
                 <ul>
-                  <li>기존 배열에 값을 삭제, 추가 교체 를 하여 변경한다.</li>
+                  <li class="arr_desc">기존 배열에 값을 삭제, 추가 교체 를 하여 변경한다.</li>
                   <li>
                     <span>구문 : </span><span class="text-success">array.splice(start[, deleteCount[, item1[, item2[, ...]]]])</span>, <strong>반환값: 제거된 요소를 가지고있는 배열</strong>.<br />
                     * <span class="text-primary">start</span> : 변경을 시작할 index값<br />
@@ -800,26 +818,41 @@ var removed = myFish.splice(3, 1);
                 <h4>
                   <strong>Array.prototype.<code>toLocaleString()</code></strong>
                 </h4>
+                <ul>
+                  <li class="arr_desc">...</li>
+                </ul>
               </li>
               <li>
                 <h4>
                   <strong>Array.prototype.<code>toSource()</code></strong>
                 </h4>
+                <ul>
+                  <li class="arr_desc">...</li>
+                </ul>
               </li>
               <li>
                 <h4>
                   <strong>Array.prototype.<code>toString()</code></strong>
                 </h4>
+                <ul>
+                  <li class="arr_desc">...</li>
+                </ul>
               </li>
               <li>
                 <h4>
                   <strong>Array.prototype.<code>unshift()</code></strong>
                 </h4>
+                <ul>
+                  <li class="arr_desc">...</li>
+                </ul>
               </li>
               <li>
                 <h4>
                   <strong>Array.prototype.<code>values()</code></strong>
                 </h4>
+                <ul>
+                  <li class="arr_desc">...</li>
+                </ul>
               </li>
             </ul>
           </div>
@@ -834,7 +867,10 @@ import { Vue, Component } from 'vue-property-decorator';
 
 @Component
 export default class TheSlot extends Vue {
+  private menuList = [];
+
   private mounted() {
+    this.getArrayMethodList();
     this.arrayFromTest();
     window.prettyPrint();
   }
@@ -849,5 +885,51 @@ export default class TheSlot extends Vue {
       s
     );
   }
+
+  private getArrayMethodList() {
+    const elem: HTMLElement[] = Array.from(document.querySelectorAll('li>h4>strong'));
+    const elemDesc: HTMLElement[] = Array.from(document.querySelectorAll('.arr_desc'));
+    const returnArr: any[] = [];
+    elem.forEach((el: HTMLElement, index) => {
+      const str = el.textContent as string;
+      const idx: number = str.lastIndexOf('.');
+      const first = str.substr(0, idx + 1);
+      const last = str.substr(idx + 1);
+      returnArr.push([`${first}<strong><code>${last}</code></strong>`, elemDesc[index].textContent as string]);
+    });
+    this.$set(this, 'menuList', returnArr);
+  }
+
+  private moveContents(e: Event) {
+    const elem: HTMLElement[] = Array.from(document.getElementsByTagName('h4'));
+    const contents: string = (e.currentTarget as HTMLElement).textContent as string;
+    const arr = elem.filter((el: HTMLElement) => {
+      if ((el.textContent as string).trim() === contents.trim()) {
+        return el;
+      }
+    });
+
+    if (arr.length > 0) {
+      const element: HTMLElement = arr[0];
+      const y = element.getBoundingClientRect().top + window.scrollY - 130;
+      window.scroll({
+        top: y,
+        behavior: 'smooth',
+      });
+    }
+  }
 }
 </script>
+<style>
+html {
+  scroll-behavior: smooth;
+}
+@media screen and (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+div.panel-body {
+  scroll-margin-top: 300px;
+}
+</style>
