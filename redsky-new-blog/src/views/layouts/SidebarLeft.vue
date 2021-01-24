@@ -138,6 +138,11 @@
                         async await 테스트
                       </router-link>
                     </li>
+                    <li>
+                      <router-link to="/vue/test/kakaoMap" @click.native="onRouterLink">
+                        카카오맵 테스트
+                      </router-link>
+                    </li>
                   </ul>
                 </li>
               </ul>

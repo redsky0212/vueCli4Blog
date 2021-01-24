@@ -59,4 +59,9 @@ export default [
     name: 'async await 테스트',
     component: () => import('@/views/vue/test/AsyncAwaitTest.vue'),
   },
+  {
+    path: '/vue/test/kakaoMap',
+    name: '카카오 맵 테스트',
+    component: () => import('@/views/vue/test/KakaoMapTest.vue'),
+  },
 ];
