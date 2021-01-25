@@ -114,6 +114,11 @@
                         Dialog / Confirm
                       </router-link>
                     </li>
+                    <li>
+                      <router-link to="/vue/ui/notification/toast" @click.native="onRouterLink">
+                        notifications / Toast
+                      </router-link>
+                    </li>
                   </ul>
                 </li>
                 <li class="nav-parent">
@@ -402,6 +407,9 @@ export default class SidebarLeft extends Vue {
 
   // 화면상의 특정 class명을 삭제하기.
   private removeActiveClass() {
+    // 좌측메뉴 닫기
+    (document.getElementsByTagName('html') as HTMLCollectionOf<HTMLHtmlElement>)[0].classList.remove('sidebar-left-opened');
+    //
     const elemArr: HTMLCollectionOf<Element> = document.getElementsByClassName('nav-active') as HTMLCollectionOf<Element>;
     Array.from(elemArr).map(elem => {
       elem.classList.remove('nav-active');

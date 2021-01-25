@@ -11,7 +11,9 @@ import { Vue, Component } from 'vue-property-decorator';
 })
 export default class AlertEx extends Vue {
   private mounted() {
-    this.$rayui.alert('aaaaaa');
+    // this.$rayui.alert('aaaaaa');
+    // alert(Vue.$getPageTitle());
+    // this.$rayui.alert('aaaa');
   }
 }
 </script>

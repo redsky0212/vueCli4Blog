@@ -40,11 +40,11 @@ const common = {
       const themeInitJs1 = document.createElement('script');
     };
     // 화면 제목
-    Vue.prototype.$getPageTitle = () => {
+    Vue.$getPageTitle = function() {
       //console.log(this.$route.name);
       return Vue.$pageTitle;
     };
-    // 임시 프로퍼티
+    // vue rayui 프로퍼티
     Vue.prototype.$rayui = {
       alert,
     };

@@ -12,9 +12,10 @@ export interface I$Rayui {
 declare module 'vue/types/vue' {
   // 전역 속성 type설정
   interface VueConstructor {
-    $getPageTitle: Function,
-    $initTheme: Function,
-    $pageTitle: string | null | undefined,
+    $getPageTitle: Function;
+    $initTheme: Function;
+    $pageTitle: string | null | undefined;
+    $rayui: I$Rayui;
   }
   // vue 내부 type설정 (예제이니 global과 똑같이 설정할 필요없음)
   interface Vue {
@@ -22,6 +23,7 @@ declare module 'vue/types/vue' {
     $myProperty: string | null | undefined;
     $log: I$Log;
     $rayui: I$Rayui;
+    $getPageTitle: Function;
   }
 }
 

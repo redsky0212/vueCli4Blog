@@ -55,6 +55,11 @@ export default [
     component: () => import('@/views/vue/uiComponent/dialog/ConfirmEx.vue'),
   },
   {
+    path: '/vue/ui/notification/toast',
+    name: 'Ui Component : toast',
+    component: () => import('@/views/vue/uiComponent/notification/ToastEx.vue'),
+  },
+  {
     path: '/vue/test/asyncAwait',
     name: 'async await 테스트',
     component: () => import('@/views/vue/test/AsyncAwaitTest.vue'),
