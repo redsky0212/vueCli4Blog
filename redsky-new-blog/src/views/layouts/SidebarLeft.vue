@@ -148,6 +148,11 @@
                         카카오맵 테스트
                       </router-link>
                     </li>
+                    <li>
+                      <router-link to="/vue/test/shortUrl" @click.native="onRouterLink">
+                        Short Url 테스트
+                      </router-link>
+                    </li>
                   </ul>
                 </li>
               </ul>
