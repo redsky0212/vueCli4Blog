@@ -131,6 +131,11 @@
                         전역 메소드 등록
                       </router-link>
                     </li>
+                    <li>
+                      <router-link to="/vue/tip/etc/buildtip" @click.native="onRouterLink">
+                        프로젝트 빌드
+                      </router-link>
+                    </li>
                   </ul>
                 </li>
                 <li class="nav-parent">

@@ -45,6 +45,11 @@ export default [
     component: () => import('@/views/vue/tip/etc/전역메소드변수.vue'),
   },
   {
+    path: '/vue/tip/etc/buildtip',
+    name: 'Vue 프로젝트 빌드',
+    component: () => import('@/views/vue/tip/etc/BuildTip.vue'),
+  },
+  {
     path: '/vue/ui/dialog/alert',
     name: 'Ui Component : Alert',
     component: () => import('@/views/vue/uiComponent/dialog/AlertEx.vue'),
