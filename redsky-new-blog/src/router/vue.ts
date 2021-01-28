@@ -50,6 +50,11 @@ export default [
     component: () => import('@/views/vue/tip/etc/BuildTip.vue'),
   },
   {
+    path: '/vue/tip/etc/ajaxDeduplication',
+    name: 'Ajax 중복요청 대처방법',
+    component: () => import('@/views/vue/tip/etc/AjaxDeduplication.vue'),
+  },
+  {
     path: '/vue/ui/dialog/alert',
     name: 'Ui Component : Alert',
     component: () => import('@/views/vue/uiComponent/dialog/AlertEx.vue'),

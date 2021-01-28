@@ -136,6 +136,11 @@
                         프로젝트 빌드
                       </router-link>
                     </li>
+                    <li>
+                      <router-link to="/vue/tip/etc/ajaxDeduplication" @click.native="onRouterLink">
+                        ajax중복요청 대처방법
+                      </router-link>
+                    </li>
                   </ul>
                 </li>
                 <li class="nav-parent">
