@@ -1,5 +1,6 @@
 <template>
   <div>
+    <iframe src="http://hyun0238.dothome.co.kr/redsky/cli4" style="border:none;" width="100%" height="400px"></iframe>
     <blockquote class="b-thick primary">
       <p><strong>Short Url 여러가지 테스트</strong></p>
     </blockquote>
