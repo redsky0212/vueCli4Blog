@@ -97,6 +97,11 @@
                         전역 기능(Plugin)
                       </router-link>
                     </li>
+                    <li>
+                      <router-link to="/vue/skill/vmodel" @click.native="onRouterLink">
+                        v-model 사용
+                      </router-link>
+                    </li>
                   </ul>
                 </li>
                 <li class="nav-parent">
