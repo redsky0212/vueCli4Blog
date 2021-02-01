@@ -1,11 +1,11 @@
 <template>
   <div>
     <blockquote class="b-thick primary">
-      <p>현대카드 앱 고도화 (2021.01.04 ~ ) 6개월</p>
+      <p><strong>현대카드 앱 Next App (고도화, 고메위크, 파인다이닝위크) (2021.01.04 ~ ) 6개월</strong></p>
     </blockquote>
     <div class="alert alert-success">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-      <strong>Vue.js</strong>
+      <strong>Vue.js, Typescript</strong>
     </div>
     <div class="row">
       <div class="col-md-12">
@@ -23,7 +23,15 @@
           </header>
           <div class="panel-body">
             <ul>
-              <li><strong>...</strong></li>
+              <li>
+                개발계 : https://dmyms3.hyundaicard.com:9443<br />
+                검증계 : https://dmyms3.hyundaicard.com:9443<br /><br />
+                https://dmyms3.hyundaicard.com:9443/index.html<br />
+                https://dmyms3.hyundaicard.com:9443/index.html#/info<br />
+                https://dmyms3.hyundaicard.com:9443/index.html#/storeList<br />
+                https://dmyms3.hyundaicard.com:9443/index.html#/storeDetail<br />
+                https://dmyms3.hyundaicard.com:9443/index.html#/myGourmet<br />
+              </li>
             </ul>
           </div>
         </section>

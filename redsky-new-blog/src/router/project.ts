@@ -16,7 +16,7 @@ export default [
   },
   {
     path: '/project/2021/hyundaicardadvancement',
-    name: '현대카드 고도화',
+    name: '현대카드앱 NextApp (고도화, 고메위크)',
     component: () => import('@/views/project/2021/HyundaiCardAdvancement.vue'),
   },
 ];

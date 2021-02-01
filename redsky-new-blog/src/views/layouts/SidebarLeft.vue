@@ -146,6 +146,11 @@
                         ajax중복요청 대처방법
                       </router-link>
                     </li>
+                    <li>
+                      <router-link to="/vue/tip/etc/..." @click.native="onRouterLink">
+                        router이동시 로그인체크 관련
+                      </router-link>
+                    </li>
                   </ul>
                 </li>
                 <li class="nav-parent">
@@ -374,7 +379,7 @@
                   <ul class="nav nav-children">
                     <li>
                       <router-link to="/project/2021/hyundaicardadvancement" @click.native="onRouterLink">
-                        현대카드앱 고도화
+                        현대카드앱 Next App
                       </router-link>
                     </li>
                   </ul>
