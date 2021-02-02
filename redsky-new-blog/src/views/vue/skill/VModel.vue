@@ -378,47 +378,73 @@ new Vue({
             <ul>
               <li>
                 <h4>
-                  <strong>...</strong>
+                  <strong>v-model을 사용하지 않고 props와 event로 양방향 데이터 연결 적용 방법.</strong>
                 </h4>
                 <ul>
                   <li>
-                    <span class="text-dark"><code>...</code>...</span>
+                    <span class="text-dark">자식 콤포넌트가 아닌 현재 콤포넌트 내부에서 사용할때는 <code>연결data</code>와 <code>event</code>로 적용한다.</span>
+                  </li>
+                  <li>
+                    <span class="text-dark">자식 콤포넌트에서 사용할때는 연결 data를 자식쪽으로 <code>props</code>로 넘겨주고 <code>event</code>로 부모쪽에서 받는다.</span>
                   </li>
                 </ul>
                 <pre class="prettyprint linenums">
-// ...
-&lt;input ...&gt;</pre
+// &lt;!-- v-model을 사용하지 않은 소스 --&gt;
+&lt;template&gt;
+  &lt;input type="text" :value="inputVal" @input="changeValue" /&gt;
+&lt;/template&gt;
+&lt;script lang="ts"&gt;
+export default class Test extends vue {
+  private inputVal = '';
+
+  private changeValue(event: any) {
+    const elem: HTMLInputElement = event.target as HTMLInputElement;
+    const val: string = elem.value;
+    this.inputVal = val;
+  }
+}
+&lt;/script&gt;</pre
                 >
               </li>
-            </ul>
-          </div>
-        </section>
-        <section class="panel">
-          <header class="panel-heading">
-            <!-- <div class="panel-actions"> -->
-            <!-- <a href="javascript:void(0)" class="fa fa-caret-up"></a> -->
-            <!-- </div> -->
-
-            <h2 class="panel-title">
-              <strong>v-model 사용 시 각 Form요소의 기본 props, event</strong>
-            </h2>
-            <p class="panel-subtitle">...</p>
-          </header>
-          <div class="panel-body">
-            <ul>
               <li>
                 <h4>
-                  <strong>...</strong>
+                  <strong>v-model을 사용하여 양방향 데이터 연결 적용 방법.</strong>
                 </h4>
                 <ul>
                   <li>
-                    <span class="text-dark"><code>...</code>...</span>
+                    <span class="text-dark">자식 콤포넌트가 아닌 현재 콤포넌트 내부에서 사용할때는 <code>연결data</code>를 <code>v-model</code>로 연결한다.</span>
+                  </li>
+                  <li>
+                    <span class="text-dark">자식 콤포넌트에서 사용할때는 연결 data를 자식쪽으로 <code>v-model</code>로 연결하고 넘겨주고 <code>event</code>로 부모쪽에서 받는다.</span>
                   </li>
                 </ul>
                 <pre class="prettyprint linenums">
-// ...
-&lt;input ...&gt;</pre
+// &lt;!-- v-model로 사용한 소스 --&gt;
+&lt;template&gt;
+  &lt;input type="text" v-model="inputVal" /&gt;
+&lt;/template&gt;
+&lt;script lang="ts"&gt;
+export default class Test extends vue {
+  private inputVal = '';
+}
+&lt;/script&gt;</pre
                 >
+              </li>
+              <li>
+                <h4>
+                  <strong>Form요소(text, textarea, checkbox, radio, select)의 v-model사용 시 <code>기본</code> 적용되는 <code>속성</code>과 <code>event</code>는 아래와 같다.</strong>
+                </h4>
+                <ul>
+                  <li>
+                    <span class="text-dark"><strong>text, textarea</strong>는 <code>value</code>속성과 <code>input</code>이벤트를 사용.</span>
+                  </li>
+                  <li>
+                    <span class="text-dark"><strong>체크박스, 라디오박스</strong>는 <code>checked</code>속성과 <code>change</code>이벤트를 사용.</span>
+                  </li>
+                  <li>
+                    <span class="text-dark"><strong>select</strong>는 <code>value</code>속성과 <code>change</code>이벤트를 사용.</span>
+                  </li>
+                </ul>
               </li>
             </ul>
           </div>
@@ -432,23 +458,58 @@ new Vue({
             <h2 class="panel-title">
               <strong>v-model 사용 시 문제점</strong>
             </h2>
-            <p class="panel-subtitle">...</p>
+            <p class="panel-subtitle"></p>
           </header>
           <div class="panel-body">
             <ul>
               <li>
                 <h4>
-                  <strong>...</strong>
+                  <strong>IME입력(한글) 문제점</strong>
                 </h4>
                 <ul>
                   <li>
-                    <span class="text-dark"><code>...</code>...</span>
+                    <span class="text-dark">
+                      <code>IME입력(한글) 시</code> 한글자 입력이 완료되어야 데이타에 적용되어서 한타임씩 늦게 적용되는듯한 현상이 있다.(이런경우에는v-model을 사용하지 않고 props, event를 직접연결해서
+                      사용하기를 권고한다.)
+                    </span>
+                  </li>
+                  <li>
+                    <span class="text-dark">그래도 <code>v-model</code>을 사용하고자 한다면 콤포넌트로 따로 만들어서 하는 방법이 있다.</span>
                   </li>
                 </ul>
                 <pre class="prettyprint linenums">
-// ...
-&lt;input ...&gt;</pre
+// &lt;!-- CustomInput.vue --&gt;
+&lt;template&gt;
+  &lt;input :value="value" @input="onInput"&gt;
+&lt;/template&gt;
+&lt;script lang="ts"&gt;
+export default class Test extends vue {
+  @Prop() value: string
+
+  @Emit('input')
+  private onInput(event: any) {
+    const elem: HTMLInputElement = event.target as HTMLInputElement;
+    const val: string = elem.value;
+    return val;
+  }
+}
+&lt;/script&gt;
+
+// &lt;!-- 부모컴포넌트에서 사용하는 예제 --&gt;
+&lt;template&gt;
+  &lt;CustomInput v-model="inputVal" /&gt;
+&lt;/template&gt;</pre
                 >
+              </li>
+              <li>
+                <h4>
+                  <strong>input태그의 value값 변경으로 인하여 무한루프 또는 props변경관련 에러가 발생하는 경우</strong>
+                </h4>
+                <ul>
+                  <li>
+                    <span class="text-dark"><code>.sync</code>수식어를 넘겨주는 데이타에 적용하여 양방향 데이터 바인딩을 할 수도 있다.</span>
+                  </li>
+                </ul>
               </li>
             </ul>
           </div>
@@ -462,22 +523,44 @@ new Vue({
             <h2 class="panel-title">
               <strong>v-model을 컴포넌트에 사용하기</strong>
             </h2>
-            <p class="panel-subtitle">...</p>
+            <p class="panel-subtitle">이미 위에서 사용방법을 알아 보았지만 다시 한번 더 확인해보자.</p>
           </header>
           <div class="panel-body">
             <ul>
               <li>
                 <h4>
-                  <strong>...</strong>
+                  <strong>콤포넌트의 <code>v-model</code>은 <code>value</code>변수와 <code>input</code>이벤트를 기본 사용한다.</strong>
                 </h4>
                 <ul>
                   <li>
-                    <span class="text-dark"><code>...</code>...</span>
+                    <span class="text-dark">콤포넌트 내부의 checkbox, radiobox등은 <code>value</code>속성을 다른 목적으로 일부 사용하기도 하므로 <code>v-model과 충돌</code>이 발생한다.</span>
+                  </li>
+                  <li>
+                    <span class="text-dark">그리하여 아래와 같이 명시적으로 <code>model</code>을 다른이름으로 선언해 주면 충돌을 피할 수 있다.</span>
                   </li>
                 </ul>
                 <pre class="prettyprint linenums">
-// ...
-&lt;input ...&gt;</pre
+Vue.component('my-checkbox', {
+  model: {
+    prop: 'checked',
+    event: 'change'
+  },
+  props: {
+    // 다른 목적을 위해 `value` prop를 사용할 수 있습니다.
+    checked: Boolean,
+    value: String
+  },
+  // ...
+})
+
+// 콤포넌트의 value를 다른용도로 사용한 모습
+&lt;my-checkbox v-model="foo" value="some value"&gt;&lt;/my-checkbox&gt;
+// 위 사용법과 같은 v-model을 사용하지 않은 방법
+&lt;my-checkbox
+  :checked="foo"
+  @change="val =&gt; { foo = val }"
+  value="some value"&gt;
+&lt;/my-checkbox&gt;</pre
                 >
               </li>
             </ul>
@@ -498,16 +581,60 @@ new Vue({
             <ul>
               <li>
                 <h4>
-                  <strong>...</strong>
+                  <strong>콤포넌트에서 <code>@Model데코레이터</code>를 사용한 방법</strong>
                 </h4>
                 <ul>
                   <li>
-                    <span class="text-dark"><code>...</code>...</span>
+                    <span class="text-dark">api : <code>@Model(event?: string, options:(PropOptions | Constructor[] | Constructor) = {})</code></span>
                   </li>
                 </ul>
                 <pre class="prettyprint linenums">
-// ...
-&lt;input ...&gt;</pre
+// 예제
+@Model('change', {type: Boolean}) checked!: boolean;
+// 위 예제는 아래 소스와 같은 의미이다
+export default {
+  model: {
+    prop: 'checked',
+    event: 'change',
+  },
+  props: {
+    checked: {
+      type: Boolean,
+    }
+  }
+}</pre
+                >
+                <ul>
+                  <li>
+                    <span class="text-dark">콤포넌트 내부의 사용한 코드 예제</span>
+                  </li>
+                </ul>
+                <pre class="prettyprint linenums">
+&lt;template&gt;
+ &lt;div&gt;
+   &lt;button @click="onClick"&gt;값변경&lt;/button&gt;
+ &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script lang="ts"&gt;
+import { Component, Emit, Model, Vue } from "vue-property-decorator";
+
+@Component
+export default class ModelTest extends Vue {
+ // 일반적으로 input, select태그에서 기본 설정되는 props, event는 있으나 아래와 같이 직접 이벤트를 설정해주면 그것을 사용한다.
+ @Model("change", { type: Number }) private value!: number;
+
+ @Emit("change")
+ private onChange(num: number) {
+   return num;
+ }
+
+ private onClick(event: Event): void {
+   const num: number = this.value;
+   this.onChange(num + 1);
+ }
+}
+&lt;/script&gt;</pre
                 >
               </li>
             </ul>
