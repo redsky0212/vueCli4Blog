@@ -138,17 +138,17 @@
                     </li>
                     <li>
                       <router-link to="/vue/tip/etc/buildtip" @click.native="onRouterLink">
-                        프로젝트 빌드
+                        프로젝트 빌드(일부완성)
                       </router-link>
                     </li>
                     <li>
                       <router-link to="/vue/tip/etc/ajaxDeduplication" @click.native="onRouterLink">
-                        ajax중복요청 대처방법
+                        ajax중복요청 대처방법(작업중)
                       </router-link>
                     </li>
                     <li>
                       <router-link to="/vue/tip/etc/..." @click.native="onRouterLink">
-                        router이동시 로그인체크 관련
+                        router이동시 로그인체크 관련(작업중)
                       </router-link>
                     </li>
                   </ul>
