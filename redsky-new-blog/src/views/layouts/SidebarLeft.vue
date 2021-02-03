@@ -57,7 +57,7 @@
                   <ul class="nav nav-children">
                     <li>
                       <router-link to="/vue/singlefilecomponent/data" @click.native="onRouterLink">
-                        Data(화면상태값)
+                        Data(화면상태값)(미완료)
                       </router-link>
                     </li>
                   </ul>
@@ -102,6 +102,11 @@
                         v-model 사용
                       </router-link>
                     </li>
+                    <li>
+                      <router-link to="/vue/skill/dynamicComponent" @click.native="onRouterLink">
+                        동적, 비동기 콤포넌트(작업중)
+                      </router-link>
+                    </li>
                   </ul>
                 </li>
                 <li class="nav-parent">
@@ -111,17 +116,17 @@
                   <ul class="nav nav-children">
                     <li>
                       <router-link to="/vue/ui/dialog/alert" @click.native="onRouterLink">
-                        Dialog / Alert
+                        Dialog / Alert(미완료)
                       </router-link>
                     </li>
                     <li>
                       <router-link to="/vue/ui/dialog/confirm" @click.native="onRouterLink">
-                        Dialog / Confirm
+                        Dialog / Confirm(미완료)
                       </router-link>
                     </li>
                     <li>
                       <router-link to="/vue/ui/notification/toast" @click.native="onRouterLink">
-                        notifications / Toast
+                        notifications / Toast(미완료)
                       </router-link>
                     </li>
                   </ul>

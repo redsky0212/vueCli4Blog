@@ -45,6 +45,11 @@ export default [
     component: () => import('@/views/vue/skill/VModel.vue'),
   },
   {
+    path: '/vue/skill/dynamicComponent',
+    name: '동적, 비동기 콤포넌트',
+    component: () => import('@/views/vue/skill/DynamicComponent.vue'),
+  },
+  {
     path: '/vue/tip/etc/globalproperty',
     name: '전역 메소드 및 속성',
     component: () => import('@/views/vue/tip/etc/전역메소드변수.vue'),
