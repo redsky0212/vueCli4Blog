@@ -334,6 +334,28 @@
                     </li>
                   </ul>
                 </li>
+                <li class="nav-parent">
+                  <a>
+                    Events
+                  </a>
+                  <ul class="nav nav-children">
+                    <li>
+                      <router-link to="/javascript/events/standardevent" @click.native="onRouterLink">
+                        표준이벤트 종류(미완료)
+                      </router-link>
+                    </li>
+                    <li>
+                      <router-link to="/javascript/events/bubbling" @click.native="onRouterLink">
+                        버블링과 캡처링(미완료)
+                      </router-link>
+                    </li>
+                    <li>
+                      <router-link to="/javascript/events/touchevent" @click.native="onRouterLink">
+                        터치 이벤트 관련(미완료)
+                      </router-link>
+                    </li>
+                  </ul>
+                </li>
               </ul>
             </li>
             <li class="nav-parent">
