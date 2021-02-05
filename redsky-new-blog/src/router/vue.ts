@@ -94,4 +94,9 @@ export default [
     name: 'Short Url 사용 테스트',
     component: () => import('@/views/vue/test/ShortUrlTest.vue'),
   },
+  {
+    path: '/vue/test/swiperCssEffectTest',
+    name: 'Swiper Css 효과 테스트',
+    component: () => import('@/views/vue/test/SwiperCssEffectTest.vue'),
+  },
 ];

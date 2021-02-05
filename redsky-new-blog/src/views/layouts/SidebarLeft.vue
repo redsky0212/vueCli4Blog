@@ -178,6 +178,11 @@
                         Short Url 테스트
                       </router-link>
                     </li>
+                    <li>
+                      <router-link to="/vue/test/swiperCssEffectTest" @click.native="onRouterLink">
+                        swiperjs css 효과 테스트
+                      </router-link>
+                    </li>
                   </ul>
                 </li>
               </ul>
