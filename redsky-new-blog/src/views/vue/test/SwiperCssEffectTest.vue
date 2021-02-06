@@ -202,10 +202,49 @@ import 'swiper/swiper-bundle.css';
   name: 'SwiperCssEffectTest',
 })
 export default class SwiperCssEffectTest extends Vue {
+  // Datas ====================================================================
   private _swiper: Swiper | null = null;
-  private mounted() {
-    window.prettyPrint();
 
+  // Life Cycle ===============================================================
+  private mounted() {
+    this.setPrettyPrint();
+    this.initSwiper();
+    // document에 scroll이벤트를 등록
+    this.documentScrollEvent(true, this._bodyScrollHandler);
+  }
+  private destroyed() {
+    // document에 scroll이벤트를 해제
+    this.documentScrollEvent(false, this._bodyScrollHandler);
+  }
+
+  // Methods ======================================================================
+  // 스크롤 시 swiper 이미지 zoom효과 관련 처리를 위한 함수
+  private documentScrollEvent(type: boolean, handler: (event: Event) => void) {
+    if (type) {
+      document.addEventListener('scroll', handler, true);
+    } else {
+      document.removeEventListener('scroll', handler, true);
+    }
+  }
+  // 스크롤 이벤트 핸들러
+  private _bodyScrollHandler(event: Event) {
+    // 캡처링으로 스크롤 대상을 찾음.
+    if (document.scrollingElement && document.scrollingElement.scrollTop) {
+      const sTop: number = document.scrollingElement.scrollTop;
+      const target: HTMLElement = document.querySelector('.swiper-slide.swiper-slide-active') as HTMLElement;
+      if (sTop < 40) {
+        target.classList.remove('scaleUp');
+      } else {
+        target.classList.add('scaleUp');
+      }
+    }
+  }
+  // PrettyPrint
+  private setPrettyPrint() {
+    window.prettyPrint();
+  }
+  // Swiper초기화
+  private initSwiper() {
     this._swiper = new Swiper('.swiper-container', {
       // Optional parameters
       direction: 'horizontal',
@@ -237,6 +276,7 @@ export default class SwiperCssEffectTest extends Vue {
       }
     });
   }
+  // 모바일인지 여부 체크
   private isMobile() {
     const UserAgent = navigator.userAgent;
     if (
@@ -259,5 +299,14 @@ export default class SwiperCssEffectTest extends Vue {
     width: 400px;
     height: 400px;
   }
+}
+.scaleUp {
+  -moz-transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  -o-transform: scale(1.2);
+  transform: scale(1.2);
+}
+.swiper-slide-active {
+  transition: all 0.5s;
 }
 </style>
