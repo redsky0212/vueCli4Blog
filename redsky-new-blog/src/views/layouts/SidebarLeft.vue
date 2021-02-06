@@ -156,6 +156,11 @@
                         router이동시 로그인체크 관련(작업중)
                       </router-link>
                     </li>
+                    <li>
+                      <router-link to="/vue/tip/etc/setScss" @click.native="onRouterLink">
+                        VueCli4, SCSS 오류관련
+                      </router-link>
+                    </li>
                   </ul>
                 </li>
                 <li class="nav-parent">

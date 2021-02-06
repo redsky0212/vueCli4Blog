@@ -65,6 +65,11 @@ export default [
     component: () => import('@/views/vue/tip/etc/AjaxDeduplication.vue'),
   },
   {
+    path: '/vue/tip/etc/setScss',
+    name: 'VueCLI4에서 SCSS설치 과정중 에러 관련',
+    component: () => import('@/views/vue/tip/etc/SetScssError.vue'),
+  },
+  {
     path: '/vue/ui/dialog/alert',
     name: 'Ui Component : Alert',
     component: () => import('@/views/vue/uiComponent/dialog/AlertEx.vue'),

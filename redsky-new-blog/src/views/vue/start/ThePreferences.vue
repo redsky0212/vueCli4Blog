@@ -2,6 +2,7 @@
   <div>
     <blockquote class="b-thick primary">
       <p><strong>Vue.js를 사용한 프로젝트의 다양한 초기 셋팅 방법에 대하여 정리.</strong></p>
+      <pre class="prettyprint">npm ls | grep 'webpack@'  // 웹팩 버전 확인</pre>
     </blockquote>
     <div class="row">
       <div class="col-md-12">

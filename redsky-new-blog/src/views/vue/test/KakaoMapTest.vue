@@ -66,7 +66,7 @@ marker.setMap(this.mapInst2);</pre
 </template>
 
 <script lang="ts">
-import { Vue, Component, Ref } from 'vue-property-decorator';
+import { Vue, Component } from 'vue-property-decorator';
 
 @Component
 export default class AsyncAwaitTest extends Vue {

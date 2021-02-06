@@ -19,6 +19,34 @@
             <p class="panel-subtitle"><a href="https://www.npmjs.com/package/swiper" target="_blank">https://www.npmjs.com/package/swiper</a></p>
           </header>
           <div class="panel-body">
+            <div class="well well-sm">
+              <p>Swiper 사용예제</p>
+              <div class="swiper-container">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                  <!-- Slides -->
+                  <div class="swiper-slide">
+                    <img :src="require('@/assets/images/projects/food1.jpg')" alt="음식사진1" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img :src="require('@/assets/images/projects/food2.jpg')" alt="음식사진2" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img :src="require('@/assets/images/projects/food3.jpg')" alt="음식사진3" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img :src="require('@/assets/images/projects/food4.jpg')" alt="음식사진4" />
+                  </div>
+                </div>
+                <!-- If we need pagination -->
+                <div class="swiper-pagination"></div>
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+                <!-- If we need scrollbar -->
+                <div class="swiper-scrollbar"></div>
+              </div>
+            </div>
             <ul>
               <li>
                 <h4>
@@ -105,9 +133,6 @@ const swiper = new Swiper(...);</pre
   &lt;div class="swiper-scrollbar"&gt;&lt;/div&gt;
 &lt;/div&gt;</pre
                 >
-                <div class="well well-sm">
-                  <p>...</p>
-                </div>
               </li>
               <li>
                 <h4>
@@ -170,19 +195,69 @@ const swiper = new Swiper('.swiper-container', {
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
+import Swiper from 'swiper/bundle';
+import 'swiper/swiper-bundle.css';
 
 @Component({
   name: 'SwiperCssEffectTest',
 })
 export default class SwiperCssEffectTest extends Vue {
+  private _swiper: Swiper | null = null;
   private mounted() {
     window.prettyPrint();
+
+    this._swiper = new Swiper('.swiper-container', {
+      // Optional parameters
+      direction: 'horizontal',
+      loop: true,
+      // If we need pagination
+      pagination: {
+        el: '.swiper-pagination',
+      },
+      // Navigation arrows
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      // And if we need scrollbar
+      scrollbar: {
+        el: '.swiper-scrollbar',
+      },
+    });
+
+    this.$nextTick(() => {
+      if (this.isMobile()) {
+        if (document.querySelector('.swiper-container')) {
+          (document.querySelector('.swiper-container') as HTMLElement).style.width = '100%';
+        }
+        const elemArr = (document.querySelectorAll('.swiper-container img') as unknown) as HTMLElement[];
+        elemArr.forEach((elem: HTMLElement) => {
+          elem.style.width = '100%';
+        });
+      }
+    });
+  }
+  private isMobile() {
+    const UserAgent = navigator.userAgent;
+    if (
+      UserAgent.match(/iPhone|iPod|Android|Windows CE|BlackBerry|Symbian|Windows Phone|webOS|Opera Mini|Opera Mobi|POLARIS|IEMobile|lgtelecom|nokia|SonyEricsson/i) != null ||
+      UserAgent.match(/LG|SAMSUNG|Samsung/) != null
+    ) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
 </script>
 
-<style>
-.a {
-  font-size: 1px;
+<style lang="scss" scoped>
+.swiper-container {
+  width: 400px;
+  height: 400px;
+  img {
+    width: 400px;
+    height: 400px;
+  }
 }
 </style>
