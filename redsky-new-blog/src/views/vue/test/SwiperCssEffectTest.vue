@@ -10,36 +10,22 @@
       <div class="col-md-12">
         <section class="panel">
           <header class="panel-heading">
-            <!-- <div class="panel-actions"> -->
-            <!-- <a href="javascript:void(0)" class="fa fa-caret-up"></a> -->
-            <!-- <a href="#" class="fa fa-times"></a> -->
-            <!-- </div> -->
-
             <h2 class="panel-title"><strong>Swiper</strong></h2>
             <p class="panel-subtitle"><a href="https://www.npmjs.com/package/swiper" target="_blank">https://www.npmjs.com/package/swiper</a></p>
           </header>
           <div class="panel-body">
             <div class="well well-sm">
               <p>Swiper 사용예제</p>
-              <div class="swiper-container">
+              <div id="swiperId1" class="swiper-container">
                 <!-- Additional required wrapper -->
                 <div class="swiper-wrapper">
                   <!-- Slides -->
-                  <div class="swiper-slide">
-                    <img :src="require('@/assets/images/projects/food1.jpg')" alt="음식사진1" />
-                  </div>
-                  <div class="swiper-slide">
-                    <img :src="require('@/assets/images/projects/food2.jpg')" alt="음식사진2" />
-                  </div>
-                  <div class="swiper-slide">
-                    <img :src="require('@/assets/images/projects/food3.jpg')" alt="음식사진3" />
-                  </div>
-                  <div class="swiper-slide">
-                    <img :src="require('@/assets/images/projects/food4.jpg')" alt="음식사진4" />
+                  <div class="swiper-slide" v-for="(img, index) in imgList" :key="index">
+                    <img :src="img.src" :alt="img.alt" />
                   </div>
                 </div>
                 <!-- If we need pagination -->
-                <div class="swiper-pagination"></div>
+                <div id="swiper1_pagination" class="swiper-pagination"></div>
                 <!-- If we need navigation buttons -->
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-button-next"></div>
@@ -190,20 +176,33 @@ const swiper = new Swiper('.swiper-container', {
         </section>
       </div>
     </div>
+    <show-image ref="refShowImage" :imageList="imgList" />
   </div>
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'vue-property-decorator';
+import { Vue, Component, Ref } from 'vue-property-decorator';
 import Swiper from 'swiper/bundle';
 import 'swiper/swiper-bundle.css';
 
+import ShowImage from '@/views/vue/test/popup/ShowImage.vue';
+
 @Component({
   name: 'SwiperCssEffectTest',
+  components: {
+    ShowImage,
+  },
 })
 export default class SwiperCssEffectTest extends Vue {
+  @Ref('refShowImage') private refShowImage!: ShowImage;
   // Datas ====================================================================
   private _swiper: Swiper | null = null;
+  private imgList = [
+    { src: require('@/assets/images/projects/food1.jpg'), alt: '음식사진1' },
+    { src: require('@/assets/images/projects/food2.jpg'), alt: '음식사진2' },
+    { src: require('@/assets/images/projects/food3.jpg'), alt: '음식사진3' },
+    { src: require('@/assets/images/projects/food4.jpg'), alt: '음식사진4' },
+  ];
 
   // Life Cycle ===============================================================
   private mounted() {
@@ -245,13 +244,13 @@ export default class SwiperCssEffectTest extends Vue {
   }
   // Swiper초기화
   private initSwiper() {
-    this._swiper = new Swiper('.swiper-container', {
+    this._swiper = new Swiper('#swiperId1', {
       // Optional parameters
       direction: 'horizontal',
       loop: true,
       // If we need pagination
       pagination: {
-        el: '.swiper-pagination',
+        el: '#swiper1_pagination',
       },
       // Navigation arrows
       navigation: {
@@ -262,6 +261,17 @@ export default class SwiperCssEffectTest extends Vue {
       scrollbar: {
         el: '.swiper-scrollbar',
       },
+    });
+
+    // set Swiper event
+    this._swiper.on('slideChangeTransitionStart', () => {
+      const elemArr = (document.querySelectorAll('.swiper-container .swiper-slide') as unknown) as HTMLElement[];
+      elemArr.forEach((elem: HTMLElement) => {
+        elem.classList.remove('scaleUp');
+      });
+    });
+    this._swiper.on('click', () => {
+      this.refShowImage.show();
     });
 
     this.$nextTick(() => {
@@ -306,7 +316,7 @@ export default class SwiperCssEffectTest extends Vue {
   -o-transform: scale(1.2);
   transform: scale(1.2);
 }
-.swiper-slide-active {
+.swiper-slide {
   transition: all 0.5s;
 }
 </style>

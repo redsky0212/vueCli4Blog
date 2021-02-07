@@ -20,24 +20,24 @@
 </template>
 <script lang="ts">
 import { Vue, Component, Mixins, Ref, Watch } from 'vue-property-decorator';
-import BaseViewMixin from '@/mixins/BaseViewMixin';
+// import BaseViewMixin from '@/mixins/BaseViewMixin';
 
 // Ui Component
 import Swiper from 'swiper';
-import UiSwiper, { LocalOptions } from '@/components/Ui/UiSwiper/swiper.vue';
-import UiToast, { IUiToast } from '@/components/Ui/Popup/UiToast.vue';
+// import UiSwiper, { LocalOptions } from '@/components/Ui/UiSwiper/swiper.vue';
+// import UiToast, { IUiToast } from '@/components/Ui/Popup/UiToast.vue';
 
 // api관련
-import { Action, State, namespace } from 'vuex-class';
-const storeDetail = namespace('storeDetail');
-import { IResPonseError } from '@/API/commonInterface';
-import { StoreDetailActions } from '@/store/storeDetail/actionConstructor';
-import { storeItem } from '@/API/storeDetail/interface';
-import { IDATA } from '@/API/storeDetail/interface/storeItem';
-import { StoreDetailMutations } from '@/store/storeDetail/mutations';
+// import { Action, State, namespace } from 'vuex-class';
+// const storeDetail = namespace('storeDetail');
+// import { IResPonseError } from '@/API/commonInterface';
+// import { StoreDetailActions } from '@/store/storeDetail/actionConstructor';
+// import { storeItem } from '@/API/storeDetail/interface';
+// import { IDATA } from '@/API/storeDetail/interface/storeItem';
+// import { StoreDetailMutations } from '@/store/storeDetail/mutations';
 
-import { ActionList } from '@/store/actionConstructor';
-import { updateBookmark } from '@/API/interface';
+// import { ActionList } from '@/store/actionConstructor';
+// import { updateBookmark } from '@/API/interface';
 
 // 하위 컴포넌트
 import GmwkMenuList from '@/views/storeDetail/components/GmwkMenuList.vue';
@@ -45,29 +45,30 @@ import GmwkMenuList from '@/views/storeDetail/components/GmwkMenuList.vue';
 @Component({
   name: 'SwiperOldSource',
   components: {
-    UiSwiper,
+    // UiSwiper,
     GmwkMenuList,
-    UiToast,
+    // UiToast,
   },
 })
-export default class SwiperOldSource extends Mixins(BaseViewMixin) {
+// export default class SwiperOldSource extends Mixins(BaseViewMixin) {
+export default class SwiperOldSource extends Vue {
   // refs =========================================================
-  @Ref('refToast') private readonly refToast!: IUiToast;
-  @Ref('swiperRef') private readonly swiperRef!: Vue & LocalOptions;
+  // @Ref('refToast') private readonly refToast!: IUiToast;
+  // @Ref('swiperRef') private readonly swiperRef!: Vue & LocalOptions;
   @Ref('btnZoomClose') private readonly btnZoomClose!: HTMLElement;
 
   // store data ===================================================
-  @storeDetail.State('storeItem') private storeItem!: IDATA; // 가맹점 상세 데이타
+  // @storeDetail.State('storeItem') private storeItem!: IDATA; // 가맹점 상세 데이타
 
   // Mutations ====================================================
-  @storeDetail.Mutation(StoreDetailMutations.setStoreItem)
+  // @storeDetail.Mutation(StoreDetailMutations.setStoreItem)
   private setStoreItem!: (data: any) => void;
 
   // action api ===================================================
-  @storeDetail.Action(StoreDetailActions.storeItem)
-  private getStoreItemApi!: (data: storeItem.IRequest) => Promise<storeItem.IResponse>;
-  @Action(ActionList.updateBookmark)
-  private updateBookmark!: (data: updateBookmark.IRequest) => Promise<updateBookmark.IResponse>;
+  // @storeDetail.Action(StoreDetailActions.storeItem)
+  // private getStoreItemApi!: (data: storeItem.IRequest) => Promise<storeItem.IResponse>;
+  // @Action(ActionList.updateBookmark)
+  // private updateBookmark!: (data: updateBookmark.IRequest) => Promise<updateBookmark.IResponse>;
 
   // 중간 생략 ........
 
@@ -87,13 +88,13 @@ export default class SwiperOldSource extends Mixins(BaseViewMixin) {
   // swiper클릭 핸들러
   private zoomGallery() {
     this.galleryState = true;
-    this.swiperRef.swiper.params.pagination.type = 'fraction'; // 숫자형태 페이징
+    // this.swiperRef.swiper.params.pagination.type = 'fraction'; // 숫자형태 페이징
   }
 
   // swiper 이미지 더보기 닫기 클릭 핸들러
   private closeGallery() {
     this.galleryState = false;
-    this.swiperRef.swiper.params.pagination.type = 'bullets';
+    // this.swiperRef.swiper.params.pagination.type = 'bullets';
     (document.querySelector('.swiper-slide.swiper-slide-active img') as HTMLElement).style.transform = `translateY(0)`;
   }
 
@@ -430,7 +431,7 @@ export default class SwiperOldSource extends Mixins(BaseViewMixin) {
         opacity: 1;
         z-index: 1001;
         transition-delay: 1s;
-        transition: opacity 1s, z-index: 1s;
+        transition: opacity 1s, z-index 1s;
         /deep/ svg {
           width: 32px;
           height: 32px;
@@ -456,7 +457,7 @@ export default class SwiperOldSource extends Mixins(BaseViewMixin) {
     transform: scale(1.2);
   }
   .swiper-slide-active {
-    transition: all 0.5s
+    transition: all 0.5s;
   }
   .g-transition {
     transition: transform 0.2s cubic-bezier(0.6, 0.1, 0.2, 1);

@@ -294,6 +294,18 @@
                     Basic
                   </a>
                 </li>
+                <li class="nav-parent">
+                  <a>
+                    참조소스
+                  </a>
+                  <ul class="nav nav-children">
+                    <li>
+                      <router-link to="/css/reference/sktdcss" @click.native="onRouterLink">
+                        SKTD.css
+                      </router-link>
+                    </li>
+                  </ul>
+                </li>
               </ul>
             </li>
             <li class="nav-parent">

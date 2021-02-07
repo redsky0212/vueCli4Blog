@@ -6,6 +6,7 @@ import vue from './vue';
 import javascript from './javascript';
 import project from './project';
 import test from './test';
+import css from './css';
 
 Vue.use(VueRouter);
 
@@ -16,6 +17,7 @@ const routes = [
     component: Main,
   },
   ...vue,
+  ...css,
   ...javascript,
   ...project,
   ...test,
