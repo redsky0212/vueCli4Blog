@@ -234,6 +234,8 @@ import TheSlotChild from '@/views/vue/skill/slotEx/TheSlotChild.vue';
 import BaseLayout from '@/views/vue/skill/slotEx/BaseLayout.vue';
 import CurrentUser from '@/views/vue/skill/slotEx/CurrentUser.vue';
 
+Component.registerHooks(['beforeRouteEnter', 'beforeRouteUpdate', 'beforeRouteLeave']);
+
 @Component({
   components: {
     TheSlotChild,
@@ -245,6 +247,11 @@ export default class TheSlot extends Vue {
   private slotName = 'footer';
   private mounted() {
     window.prettyPrint();
+  }
+
+  private beforeRouteLeave(to: any, from: any, next: any) {
+    history.replaceState({}, '', to.path);
+    next();
   }
 }
 </script>

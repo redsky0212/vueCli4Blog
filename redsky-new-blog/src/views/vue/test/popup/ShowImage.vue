@@ -1,6 +1,6 @@
 <template>
   <div class="g-popup-container">
-    <div class="modal-mask g-popup-mask" :class="[!modalAnimate]">
+    <div class="modal-mask g-popup-mask" :class="[modalAnimate]">
       <i class="fa fa-times btn-modal-close" @click="close"></i>
       <div class="modal-wrapper g-popup-centered">
         <div class="modal-container shadow border-none radius-2" :class="[modalAnimate]" @animationend="animationend">
