@@ -7,6 +7,7 @@ import javascript from './javascript';
 import project from './project';
 import test from './test';
 import css from './css';
+import htmldom from './htmldom';
 
 Vue.use(VueRouter);
 
@@ -18,6 +19,7 @@ const routes = [
   },
   ...vue,
   ...css,
+  ...htmldom,
   ...javascript,
   ...project,
   ...test,

@@ -323,6 +323,26 @@
             </li>
             <li class="nav-parent">
               <a>
+                <i class="fa fa-html5" aria-hidden="true"></i>
+                <span>HTML &amp; DOM 객체</span>
+              </a>
+              <ul class="nav nav-children">
+                <li class="nav-parent">
+                  <a>
+                    history 객체
+                  </a>
+                  <ul class="nav nav-children">
+                    <li>
+                      <router-link to="/htmlDom/history/api" @click.native="onRouterLink">
+                        HTML5 History API(미완료)
+                      </router-link>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-parent">
+              <a>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   aria-hidden="true"
