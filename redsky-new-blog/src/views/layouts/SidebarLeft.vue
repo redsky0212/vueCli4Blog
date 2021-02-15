@@ -111,6 +111,18 @@
                 </li>
                 <li class="nav-parent">
                   <a>
+                    Vue Router
+                  </a>
+                  <ul class="nav nav-children">
+                    <li>
+                      <router-link to="/vue/router/navigationGuards" @click.native="onRouterLink">
+                        네비게이션 가드
+                      </router-link>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-parent">
+                  <a>
                     UI Component 개발
                   </a>
                   <ul class="nav nav-children">

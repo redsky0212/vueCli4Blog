@@ -60,6 +60,36 @@ marker.setMap(this.mapInst2);</pre
             </div>
           </div>
         </section>
+        <section class="panel">
+          <header class="panel-heading">
+            <h2 class="panel-title">
+              이미지 지도에 마커 생성하기
+            </h2>
+          </header>
+          <div class="panel-body">
+            카카오맵의 지도 이미지를 이용하여 기본 핀 모양의 마커 이미지 표시 테스트<br />
+            <div id="map3" style="width:100%;height:100px;"></div>
+            <div style="padding-top:10px;">
+              <pre class="prettyprint linenums">
+const container = document.getElementById('map3'); //지도를 담을 영역의 DOM 레퍼런스
+
+// 마커가 표시될 위치입니다
+const markerPosition = new window.kakao.maps.LatLng(33.450701, 126.570667);
+// 마커를 생성합니다
+const marker = new window.kakao.maps.Marker({
+  position: markerPosition,
+});
+//지도를 생성할 때 필요한 기본 옵션
+const options = {
+  marker,
+  center: new window.kakao.maps.LatLng(33.450701, 126.570667), //지도의 중심좌표.
+  level: 3, //지도의 레벨(확대, 축소 정도)
+};
+this.mapInst3 = new window.kakao.maps.StaticMap(container, options); //이미지 지도 생성 및 객체 리턴</pre
+              >
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   </div>
@@ -72,11 +102,13 @@ import { Vue, Component } from 'vue-property-decorator';
 export default class AsyncAwaitTest extends Vue {
   private mapInst: any;
   private mapInst2: any;
+  private mapInst3: any;
 
   private mounted() {
     // 지도 테스트
     this.map1Test();
     this.map2Test();
+    this.map3Test();
 
     window.addEventListener('resize', this.onResizePanel);
 
@@ -114,6 +146,24 @@ export default class AsyncAwaitTest extends Vue {
     });
     // 마커가 지도 위에 표시되도록 설정합니다
     marker.setMap(this.mapInst2);
+  }
+
+  private map3Test() {
+    const container = document.getElementById('map3'); //지도를 담을 영역의 DOM 레퍼런스
+
+    // 마커가 표시될 위치입니다
+    const markerPosition = new window.kakao.maps.LatLng(33.450701, 126.570667);
+    // 마커를 생성합니다
+    const marker = new window.kakao.maps.Marker({
+      position: markerPosition,
+    });
+    //지도를 생성할 때 필요한 기본 옵션
+    const options = {
+      marker,
+      center: new window.kakao.maps.LatLng(33.450701, 126.570667), //지도의 중심좌표.
+      level: 3, //지도의 레벨(확대, 축소 정도)
+    };
+    this.mapInst3 = new window.kakao.maps.StaticMap(container, options); //이미지 지도 생성 및 객체 리턴
   }
 
   private onResizePanel() {
