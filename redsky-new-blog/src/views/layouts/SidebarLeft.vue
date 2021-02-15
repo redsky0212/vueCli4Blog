@@ -116,7 +116,7 @@
                   <ul class="nav nav-children">
                     <li>
                       <router-link to="/vue/router/navigationGuards" @click.native="onRouterLink">
-                        네비게이션 가드
+                        네비게이션 가드(미완료)
                       </router-link>
                     </li>
                   </ul>
