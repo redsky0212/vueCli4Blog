@@ -123,6 +123,23 @@
                 </li>
                 <li class="nav-parent">
                   <a>
+                    Vue에서 axios사용
+                  </a>
+                  <ul class="nav nav-children">
+                    <li>
+                      <router-link to="/vue/axios/howToUse" @click.native="onRouterLink">
+                        vue에서 기본 사용법(미완료)
+                      </router-link>
+                    </li>
+                    <li>
+                      <router-link to="/vue/axios/interceptors" title="interceptors 사용(미완료) headers에 Authorization에 토큰 넣어보기 추가필요" @click.native="onRouterLink">
+                        interceptors 사용(미완료) headers에 Authorization에 토큰 넣어보기 추가필요
+                      </router-link>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-parent">
+                  <a>
                     UI Component 개발
                   </a>
                   <ul class="nav nav-children">
