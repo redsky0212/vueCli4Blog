@@ -116,7 +116,12 @@
                   <ul class="nav nav-children">
                     <li>
                       <router-link to="/vue/router/navigationGuards" @click.native="onRouterLink">
-                        네비게이션 가드(미완료)
+                        네비게이션 가드
+                      </router-link>
+                    </li>
+                    <li>
+                      <router-link to="/vue/router/meta" @click.native="onRouterLink">
+                        라우트 메타(meta)필드(작업중)
                       </router-link>
                     </li>
                   </ul>
