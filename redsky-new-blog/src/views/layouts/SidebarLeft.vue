@@ -432,6 +432,18 @@
                     </li>
                   </ul>
                 </li>
+                <li class="nav-parent">
+                  <a>
+                    Network
+                  </a>
+                  <ul class="nav nav-children">
+                    <li>
+                      <router-link to="/javascript/network/ajax" title="ajax request, response(CORS, proxy, 응답코드)" @click.native="onRouterLink">
+                        ajax request, response(CORS, proxy, 응답코드)
+                      </router-link>
+                    </li>
+                  </ul>
+                </li>
               </ul>
             </li>
             <li class="nav-parent">
