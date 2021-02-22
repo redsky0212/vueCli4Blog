@@ -171,41 +171,74 @@ window.kakao.maps.event.addListener(this.mapInst4, 'bounds_changed', () => {
             <div id="result5"></div>
             <div style="padding-top:10px;">
               <pre class="prettyprint linenums">
-const container = document.getElementById('map5'); //지도를 담을 영역의 DOM 레퍼런스
-//지도를 생성할 때 필요한 기본 옵션
-const options = {
-  center: new window.kakao.maps.LatLng(37.498004414546934, 127.02770621963765), // 지도의 중심좌표
-  level: 3, // 지도의 확대 레벨
-};
-this.mapInst5 = new window.kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+private map5Test() {
+  const container = document.getElementById('map5'); //지도를 담을 영역의 DOM 레퍼런스
+  //지도를 생성할 때 필요한 기본 옵션
+  const options = {
+    center: new window.kakao.maps.LatLng(37.498004414546934, 127.02770621963765), // 지도의 중심좌표
+    level: 3, // 지도의 확대 레벨
+  };
+  this.mapInst5 = new window.kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
 
-// 커피숍 마커가 표시될 좌표 배열입니다
-const coffeePositions = [
-  new window.kakao.maps.LatLng(37.499590490909185, 127.0263723554437),
-  new window.kakao.maps.LatLng(37.499427948430814, 127.02794423197847),
-  new window.kakao.maps.LatLng(37.498553760499505, 127.02882598822454),
-  new window.kakao.maps.LatLng(37.497625593121384, 127.02935713582038),
-  new window.kakao.maps.LatLng(37.49646391248451, 127.02675574250912),
-  new window.kakao.maps.LatLng(37.49629291770947, 127.02587362608637),
-  new window.kakao.maps.LatLng(37.49754540521486, 127.02546694890695),
-];
+  // 커피숍 마커가 표시될 좌표 배열입니다
+  const coffeePositions = [
+    new window.kakao.maps.LatLng(37.499590490909185, 127.0263723554437),
+    new window.kakao.maps.LatLng(37.499427948430814, 127.02794423197847),
+    new window.kakao.maps.LatLng(37.498553760499505, 127.02882598822454),
+    new window.kakao.maps.LatLng(37.497625593121384, 127.02935713582038),
+    new window.kakao.maps.LatLng(37.49646391248451, 127.02675574250912),
+    new window.kakao.maps.LatLng(37.49629291770947, 127.02587362608637),
+    new window.kakao.maps.LatLng(37.49754540521486, 127.02546694890695),
+  ];
 
-const imageSize = new window.kakao.maps.Size(42, 42);
-const imageOptions = {
-  spriteOrigin: new window.kakao.maps.Point(0, 0),
-  spriteSize: new window.kakao.maps.Size(36, 46),
-};
+  coffeePositions.forEach((item, index) => {
+    if (index === 0) {
+      this.setImgMarker('marker', item);
+    } else {
+      this.setImgMarker('dot', item);
+    }
+  });
+}
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const markerImageSrc = require('@/assets/marker/pngwing.com.png');
+private setImgMarker(type: string, latLng: any) {
+  let w = 35;
+  let h = 44;
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  let markerImg = require('@/assets/marker/marker1.png');
+  if (type === 'dot') {
+    w = 16;
+    h = 16;
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    markerImg = require('@/assets/marker/marker2.png');
+  }
+  const imageSize = new window.kakao.maps.Size(w, h);
+  let imageOptions = {
+    spriteOrigin: new window.kakao.maps.Point(0, 0),
+    spriteSize: new window.kakao.maps.Size(w, h),
+    offset: null,
+  };
+  if (type === 'dot') {
+    imageOptions = {
+      spriteOrigin: new window.kakao.maps.Point(0, 0),
+      spriteSize: new window.kakao.maps.Size(w, h),
+      offset: new window.kakao.maps.Point(8, 8),
+    };
+  }
 
-const markerImage = new window.kakao.maps.MarkerImage(markerImageSrc, imageSize, imageOptions);
-const marker = new window.kakao.maps.Marker({
-  position: new window.kakao.maps.LatLng(37.497625593121384, 127.02935713582038),
-  image: markerImage,
-});
-
-marker.setMap(this.mapInst5);</pre
+  const markerImageSrc = markerImg;
+  const markerImage = new window.kakao.maps.MarkerImage(markerImageSrc, imageSize, imageOptions);
+  const marker = new window.kakao.maps.Marker({
+    position: latLng,
+    image: markerImage,
+  });
+  marker.setMap(this.mapInst5);
+  // 이미지 마커 클릭 이벤트
+  window.kakao.maps.event.addListener(marker, 'click', (event: any) => {
+    alert(latLng);
+    // const latLng = event.latLng;
+    // alert(JSON.stringify(latLng));
+  });
+}</pre
               >
             </div>
           </div>
@@ -366,28 +399,54 @@ export default class AsyncAwaitTest extends Vue {
       new window.kakao.maps.LatLng(37.49754540521486, 127.02546694890695),
     ];
 
-    const imageSize = new window.kakao.maps.Size(42, 42);
-    const imageOptions = {
-      spriteOrigin: new window.kakao.maps.Point(0, 0),
-      spriteSize: new window.kakao.maps.Size(36, 46),
-    };
+    coffeePositions.forEach((item, index) => {
+      if (index === 0) {
+        this.setImgMarker('marker', item);
+      } else {
+        this.setImgMarker('dot', item);
+      }
+    });
+  }
 
+  private setImgMarker(type: string, latLng: any) {
+    let w = 35;
+    let h = 44;
     // eslint-disable-next-line @typescript-eslint/no-var-requires
-    const markerImageSrc = require('@/assets/marker/pngwing.com.png');
+    let markerImg = require('@/assets/marker/marker1.png');
+    if (type === 'dot') {
+      w = 16;
+      h = 16;
+      // eslint-disable-next-line @typescript-eslint/no-var-requires
+      markerImg = require('@/assets/marker/marker2.png');
+    }
+    const imageSize = new window.kakao.maps.Size(w, h);
+    let imageOptions = {
+      spriteOrigin: new window.kakao.maps.Point(0, 0),
+      spriteSize: new window.kakao.maps.Size(w, h),
+      offset: null,
+    };
+    if (type === 'dot') {
+      imageOptions = {
+        spriteOrigin: new window.kakao.maps.Point(0, 0),
+        spriteSize: new window.kakao.maps.Size(w, h),
+        offset: new window.kakao.maps.Point(8, 8),
+      };
+    }
 
+    const markerImageSrc = markerImg;
     const markerImage = new window.kakao.maps.MarkerImage(markerImageSrc, imageSize, imageOptions);
     const marker = new window.kakao.maps.Marker({
-      position: new window.kakao.maps.LatLng(37.497625593121384, 127.02935713582038),
+      position: latLng,
       image: markerImage,
     });
-
-    // // 마커가 표시될 위치입니다
-    // const markerPosition = new window.kakao.maps.LatLng(37.499590490909185, 127.0263723554437);
-    // // 마커를 생성합니다
-    // const marker = new window.kakao.maps.Marker({
-    //   position: markerPosition,
-    // });
     marker.setMap(this.mapInst5);
+
+    // 이미지 마커 클릭 이벤트
+    window.kakao.maps.event.addListener(marker, 'click', (event: any) => {
+      alert(latLng);
+      // const latLng = event.latLng;
+      // alert(JSON.stringify(latLng));
+    });
   }
 
   private onResizePanel() {
