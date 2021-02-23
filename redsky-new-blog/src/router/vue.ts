@@ -80,6 +80,11 @@ export default [
     component: () => import('@/views/vue/tip/etc/SetScssError.vue'),
   },
   {
+    path: '/vue/tip/etc/vue_i18n',
+    name: 'Vue에서 다국어 처리',
+    component: () => import('@/views/vue/tip/etc/VueI18n.vue'),
+  },
+  {
     path: '/vue/ui/dialog/alert',
     name: 'Ui Component : Alert',
     component: () => import('@/views/vue/uiComponent/dialog/AlertEx.vue'),

@@ -195,6 +195,11 @@
                         VueCli4, SCSS 오류관련
                       </router-link>
                     </li>
+                    <li>
+                      <router-link to="/vue/tip/etc/vue_i18n" @click.native="onRouterLink">
+                        Vue 다국어처리
+                      </router-link>
+                    </li>
                   </ul>
                 </li>
                 <li class="nav-parent">
