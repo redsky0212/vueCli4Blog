@@ -110,6 +110,11 @@ export default [
     component: () => import('@/views/vue/test/KakaoMapTest.vue'),
   },
   {
+    path: '/vue/test/callKakaoMapApp',
+    name: '카카오맵 앱 호출 테스트',
+    component: () => import('@/views/vue/test/KakaoMapAppTest.vue'),
+  },
+  {
     path: '/vue/test/shortUrl',
     name: 'Short Url 사용 테스트',
     component: () => import('@/views/vue/test/ShortUrlTest.vue'),
