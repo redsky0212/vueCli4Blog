@@ -48,6 +48,11 @@
                         작업환경 셋팅
                       </router-link>
                     </li>
+                    <li>
+                      <router-link to="/vue/start/dotenv" @click.native="onRouterLink">
+                        .env
+                      </router-link>
+                    </li>
                   </ul>
                 </li>
                 <li class="nav-parent">
