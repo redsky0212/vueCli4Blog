@@ -10,6 +10,11 @@ export default [
     component: () => import('@/views/vue/start/DotEnv.vue'),
   },
   {
+    path: '/vue/start/vueconfig',
+    name: 'vue.config.js 정리',
+    component: () => import('@/views/vue/start/VueConfig.vue'),
+  },
+  {
     path: '/vue/singlefilecomponent/data',
     name: '컴포넌트 Data',
     component: () => import('@/views/vue/tip/singleFileComponent/TheData.vue'),

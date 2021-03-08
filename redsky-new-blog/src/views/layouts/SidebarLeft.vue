@@ -53,6 +53,11 @@
                         .env
                       </router-link>
                     </li>
+                    <li>
+                      <router-link to="/vue/start/vueconfig" @click.native="onRouterLink">
+                        vue.config.js(작업중)
+                      </router-link>
+                    </li>
                   </ul>
                 </li>
                 <li class="nav-parent">

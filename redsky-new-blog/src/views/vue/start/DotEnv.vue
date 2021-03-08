@@ -22,7 +22,7 @@
             <h2 class="panel-title">
               기본 사용방법
             </h2>
-            <p class="panel-subtitle">node.js 프로젝트 루트경로에 .env파일 생성.</p>
+            <p class="panel-subtitle">node.js 프로젝트 루트경로에 .env파일 생성하여 환경변수를 관리한다.</p>
           </header>
           <div class="panel-body">
             <ul>
@@ -77,11 +77,20 @@ console.log('sample server is listening to port ' + process.env.SERVER_PORT);</p
                 </h4>
                 <ul>
                   <li>
-                    <span class="text-dark"> Vue CLI에서는 기본적으로 3개의 모드<code>뷰 애플리케이션이 실행되는 모드</code>가 있습니다. </span>
+                    <span class="text-dark"> Vue CLI에서는 기본적으로 3개의 모드<code>뷰 애플리케이션이 실행되는 모드</code>가 기본으로 있습니다. </span>
                     <pre class="prettyprint">
 1) development
 2) production
 3) test</pre
+                    >
+                  </li>
+                  <li>
+                    <span class="text-dark">Vue CLI 4에서 설정된 .env내용</span>
+                    <pre class="prettyprint">
+.env 파일(확장자 아님)은 모든 경우에 적용되고,
+.env.local은 기본 .gitignore 설정에서 포함되어 있어 git push 시 제외됩니다.
+.env.production은 배포 패키징 시에만 적용되며,
+.env.delveopment은 개발 패키징 시에만 적용되죠.</pre
                     >
                   </li>
                   <li>
@@ -98,6 +107,43 @@ console.log('sample server is listening to port ' + process.env.SERVER_PORT);</p
   "blingbling": "vue-cli-service serve --mode blingbling",
    // .. 생략
 },</pre
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <h4>
+                  <strong>실행모드(Vue CLI) 사용방법</strong>
+                </h4>
+                <ul>
+                  <li>
+                    <span class="text-dark">기본 빌드 <code>mode</code>는 <code>development</code>이다.</span>
+                  </li>
+                  <li>
+                    <span class="text-dark">webpack 4+ 에서는 <code>mode</code>옵션을 통해 프로덕션 모드로 변경할 수 있다.</span>
+                    <pre class="prettyprint">
+module.exports = {
+  mode: 'production',
+}.</pre
+                    >
+                  </li>
+                  <li>
+                    <span class="text-dark">
+                      webpack 3과 그 이전 버전 에서는
+                      <a href="https://webpack.js.org/plugins/define-plugin/" target="_blank">DefinePlugin</a>
+                      을 사용.
+                    </span>
+                    <pre class="prettyprint">
+var webpack = require('webpack')
+module.exports = {
+  // ...
+  plugins: [
+    // ...
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('production')
+    })
+  ]
+}</pre
                     >
                   </li>
                 </ul>
