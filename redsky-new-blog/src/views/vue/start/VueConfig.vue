@@ -76,18 +76,40 @@ module.exports = {
                   <li>
                     <span class="text-dark"> <code>vue-cli-service build</code> 했을때, 빌드파일이 생성 될 디렉토리를 지정한다. </span>
                   </li>
+                  <li>
+                    <span class="text-dark"><code>config.output.path</code>를 직접 수정하지 않고 <code>outputDir</code>에서 수정한다.</span><br />
+                    <span>발생 에러코드: <code>Configuration Error: Avoid modifying webpack output.path directly. Use the “outputDir” option instead</code></span>
+                  </li>
+                  <li>
+                    <span class="text-dark"><code>outputDir: path.resolve(__dirname)</code>, 이와같이 루트만 설정하면 에러 발생</span><br />
+                    <span>발생 에러코드: <code>Configuration Error: Do not set output directory to project root.</code></span>
+                  </li>
                 </ul>
+                <pre class="prettyprint">
+// outputDir변경 방법 예제
+const path = require("path");
+module.exports = {
+  outputDir: path.resolve(__dirname, '../priv/static');
+};</pre
+                >
               </li>
               <li>
                 <h4>
-                  <strong>...</strong>
+                  <strong>assetsDir</strong>
                 </h4>
                 <ul>
                   <li>
-                    <span class="text-dark"> type: <code>...</code>, default값: <code>'...'</code> </span>
+                    <span class="text-dark"> type: <code>string</code>, default값: <code>''</code> </span>
                   </li>
                   <li>
-                    <span class="text-dark">...</span>
+                    <span class="text-dark"><code>outputDir</code>내부에서 부터 아래로 생성된다.</span>
+                  </li>
+                  <li>
+                    <span class="text-dark">프로젝트의 assets에서 사용된 js, image, css등 정적 파일들을 넣을 곳을 지정한다.</span>
+                    <pre class="prettyprint">
+// 이 경로는 outputDir의 내부에 생성되며 상대경로이다.
+assetsDir: './test/asset',</pre
+                    >
                   </li>
                 </ul>
                 <pre class="prettyprint">
