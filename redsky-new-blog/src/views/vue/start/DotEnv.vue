@@ -113,7 +113,7 @@ console.log('sample server is listening to port ' + process.env.SERVER_PORT);</p
               </li>
               <li>
                 <h4>
-                  <strong>실행모드(Vue CLI) 사용방법</strong>
+                  <strong>실행모드(Vue CLI가 아닌 webpack.config에서) 사용방법</strong>
                 </h4>
                 <ul>
                   <li>
