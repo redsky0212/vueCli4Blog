@@ -36,7 +36,10 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
   Vue.$pageTitle = to.name || '';
   console.log(Vue.$pageTitle);
-  next({ params: { title: Vue.$pageTitle } });
+  console.log(to.path);
+  console.log(to.query.eventId);
+  // next({ params: { title: Vue.$pageTitle } });
+  next();
 });
 
 export default router;
