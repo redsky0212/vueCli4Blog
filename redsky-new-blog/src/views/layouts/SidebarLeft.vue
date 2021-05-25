@@ -464,6 +464,18 @@
                     </li>
                   </ul>
                 </li>
+                <li class="nav-parent">
+                  <a>
+                    FrontEnd개발관련
+                  </a>
+                  <ul class="nav nav-children">
+                    <li>
+                      <router-link to="/javascript/frontend/understanddevelop" @click.native="onRouterLink">
+                        개발환경이해정리(작업중)
+                      </router-link>
+                    </li>
+                  </ul>
+                </li>
               </ul>
             </li>
             <li class="nav-parent">
