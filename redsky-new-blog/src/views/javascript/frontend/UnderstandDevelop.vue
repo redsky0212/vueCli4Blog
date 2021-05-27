@@ -3,7 +3,8 @@
     <blockquote class="b-thick primary">
       <p>
         <strong>프론트앤드 개발 시 기본적인 개발환경 이해를 위한 정리</strong><br />
-        <a href="https://www.zerocho.com/category/JavaScript/post/5b67e7847bbbd3001b43fd73" target="_blank">javascript모듈시스템이해 참조 링크</a>
+        <a href="https://www.zerocho.com/category/JavaScript/post/5b67e7847bbbd3001b43fd73" target="_blank">javascript모듈시스템이해 참조 링크</a><br />
+        <a href="https://dkwjdi.tistory.com/203" target="_blank">참조링크 : 프론트앤드 개발에 Node.js가 필요한 이유</a>
       </p>
     </blockquote>
     <div class="row">
@@ -30,142 +31,44 @@
                 </h4>
                 <ol>
                   <li>
-                    <span class="text-dark">현재 클릭한 html 요소에 이벤트가 걸려 있는지 찾고 있으면 이벤트 실행, 없으면 한단계 상위 요소로 진행</span>
+                    <span class="text-dark">javascript의 발전에 비해 브라우저의 지원 속도는 항상 뒤쳐진다.</span>
+                    <span class="text-dark">그로인해 바벨 같은 도구의 도움이 필요하다. 또한 웹팩, NPM 같은 노드 기술로 좀 더 자동화된 프론트앤드 개발환경을 갖출 수 있다.</span>
                   </li>
                   <li>
-                    <span class="text-dark">상위 요소에 이벤트 여부에 따라 실행하고 또 다시 한단계 상위 요소로 진행</span>
-                  </li>
-                  <li>
-                    <span class="text-dark">최 상단 조상 요소까지 계속 같은일 반복 진행</span>
+                    <span class="text-dark">Typescript, SASS 같은 고수준 프로그래밍 언어를 사용하려면 전용 트래스파일러가 필요한데, 그것역시 Node.js환경이 뒷받침 되어야 한다.</span>
                   </li>
                 </ol>
-                <div class="well well-sm">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="353" height="216" viewBox="0 0 353 216">
-                    <g id="dom" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
-                      <g id="event-order-bubbling.svg">
-                        <path id="Rectangle-210" fill="#FFDE99" d="M159.488 140L174 186H60l14.512-46z" />
-                        <path id="Rectangle-209" stroke="#CFCE95" stroke-width="18" d="M173.634 81H59.366l-16.09 51h146.447l-16.09-51z" />
-                        <path id="Rectangle-208" stroke="#99C0C3" stroke-width="18" d="M193.014 29H39.986l-22.71 72h198.448l-22.71-72z" />
-                        <path
-                          id="Fill-46"
-                          fill="#5A4739"
-                          d="M121.5 141v13.816a4.5 4.5 0 11-9 0V141h9zm0-31v13h-9v-13h9zM117 20.53a4.471 4.471 0 013.362 1.3l17.64 17.64a4.5 4.5 0 01-6.364 6.364L121.5 35.698V92h-9V35.7l-10.138 10.136a4.5 4.5 0 11-6.363-6.364l17.639-17.64a4.477 4.477 0 013.363-1.3z"
-                        />
-                        <text id="1" fill="#5A4739" font-family="PTMono-Bold, PT Mono" font-size="14" font-weight="bold"><tspan x="210" y="105">그 위 부모</tspan></text>
-                        <text id="2" fill="#5A4739" font-family="PTMono-Bold, PT Mono" font-size="14" font-weight="bold"><tspan x="185" y="136">부모</tspan></text>
-                        <text id="3" fill="#EE6B47" font-family="PTMono-Bold, PT Mono" font-size="14" font-weight="bold"><tspan x="157" y="181">현재요소</tspan></text>
-                      </g>
-                    </g>
-                  </svg>
-                </div>
               </li>
               <li>
                 <h4>
-                  <strong>버블링 예제</strong>
+                  <strong>빌드 자동화</strong>
                 </h4>
                 <ol>
                   <li>
-                    <span class="text-dark">&lt;p&gt; 요소 이벤트 실행</span>
-                  </li>
-                  <li>
-                    <span class="text-dark">&lt;div&gt; 요소 이벤트 실행</span>
-                  </li>
-                  <li>
-                    <span class="text-dark">&lt;form&gt; 요소 이벤트 실행</span>
-                  </li>
-                  <li>
-                    <span class="text-dark"><code>document</code> 객체를 만날 때까지 계속 진행</span>
+                    <span class="text-dark">과거처럼 코딩 결과물을 브라우저에 바로 올리는 경우는 거의 없다.</span>
+                    <span class="text-dark">파일을 압축하고, 코드를 난독화하고, 폴리필을 추가하는 등 개발 이외의 작업을 거친 후 배포한다.</span>
+                    <span class="text-dark">Node.js는 이러한 일련의 빌드 과정을 이해하는데 적지않은 역할을 하고 있다.</span>
+                    <span class="text-dark">이 뿐만 아니라 라이브러리 의존성을 해결하고,</span>
+                    <span class="text-dark">각종 테스트를 자동화하는데도 사용할 수 있다.</span>
                   </li>
                 </ol>
-                <pre class="prettyprint linenums">
-&lt;form onclick="alert('form')"&gt;FORM
-  &lt;div onclick="alert('div')"&gt;DIV
-    &lt;p onclick="alert('p')"&gt;P&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/form&gt;</pre
-                >
-                <div class="well well-sm">
-                  <p>실제 테스트 해보기</p>
-                  <form onclick="alert('form')" style="margin: 10px;border: 1px solid blue;">
-                    FORM
-                    <div onclick="alert('div')" style="margin: 10px;border: 1px solid blue;">
-                      DIV
-                      <p onclick="alert('p')" style="margin: 10px;border: 1px solid blue;">P</p>
-                    </div>
-                  </form>
-                </div>
               </li>
               <li>
                 <h4>
-                  <strong>event.target 과 event.currentTarget 이해</strong>
+                  <strong>개발 환경 커스터마이징</strong>
                 </h4>
                 <ul>
                   <li>
-                    <span class="text-dark"><code>event.target</code> : 실제 이벤트가 발생한 타깃요소(이벤트 발생의 가장 안쪽 요소). 변하지 않음.</span>
+                    <span class="text-dark">각 프론트앤드 프레임워크에서 제공하는 도구를 사용하면 손쉽게 개발환경을 갖출 수 있다.</span>
+                    <span class="text-dark"><code>React.js의 CRA(create-react-app), Vue.js의 vue-cli</code></span>
                   </li>
                   <li>
-                    <span class="text-dark"><code>event.currentTarget</code> : 이벤트가 발생한 대상 뿐만 아니라 버블링 되면서 event handler가 걸려있는(발생하는) 대상 요소를 가리킨다.</span>
+                    <span class="text-dark">하지만 각 프로젝트 형편에 따라 여러가지 환경을 달리 셋팅해야할 필요성 있다.</span>
                   </li>
                   <li>
-                    <span class="text-dark"><code>this</code> : event handler가 걸려있는 currentTarget에 따라 this는 달라진다. 즉 event.currentTarget === this</span>
+                    <span class="text-dark">만약 자동화된 도구를 사용할 수 없는 환경이라면 직접 환경을 구축해야 하는 상황도 있을 수 있다.</span>
                   </li>
                 </ul>
-                <pre class="prettyprint linenums">
-&lt;form id="eventTargetform" @click="clickEventTargetform"&gt;
-  FORM
-  &lt;div id="eventTargetDiv"&gt;
-    DIV
-    &lt;p id="eventTargetP"&gt;P&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/form&gt;;</pre
-                >
-                <ul>
-                  <li>
-                    <span class="text-dark">이벤트 버블링이 발생하여 실제 클릭한 target과 이벤트가 발생한 요소(currentTarget)는 차이가 생길 수 있다.</span>
-                  </li>
-                </ul>
-                <div class="well well-sm">
-                  <p>click handler는 form요소에 걸려있는 상태임.</p>
-                  <form id="eventTargetform" @click="clickEventTargetform">
-                    FORM
-                    <div id="eventTargetDiv">
-                      DIV
-                      <p id="eventTargetP">P</p>
-                    </div>
-                  </form>
-                </div>
-              </li>
-              <li>
-                <h4>
-                  <strong>이벤트 버블링 중단하기</strong>
-                </h4>
-                <ul>
-                  <li>
-                    <span class="text-danger"><strong>꼭 필요한 경우를 제외하고 버블링은 막지 않는게 좋다.</strong> 이벤트 관련 오류가 생길 확률이 크다.</span><br />
-                    버블링을 막아야 하는 경우라면 커스텀 이벤트를 사용하여 해결하는게 좋음.
-                  </li>
-                  <li>
-                    <span class="text-dark"><code>event.stopPropagation()</code> : 현재 이벤트 이후의 전파를 막는다. (버블링, 캡처링 모두)</span>
-                  </li>
-                  <li>
-                    <span class="text-dark"><code>event.cancelBubble = bool;</code> : <strong>event.stopPropagation()</strong>의 별칭</span>
-                  </li>
-                  <li>
-                    <span class="text-dark"><code>event.stopImmediatePropagation()</code> : 특정 하나의 이벤트가 아닌 걸려있는 모든 이벤트를 막고자 할때 사용.</span>
-                  </li>
-                </ul>
-                <pre class="prettyprint linenums">
-// ...
-</pre
-                >
-                <ul>
-                  <li>
-                    <span class="text-dark">...</span>
-                  </li>
-                </ul>
-                <div class="well well-sm">
-                  <p>버블링 중단</p>
-                </div>
               </li>
             </ul>
           </div>
@@ -177,24 +80,39 @@
             <!-- <a href="#" class="fa fa-times"></a> -->
             <!-- </div> -->
 
-            <h2 class="panel-title"><strong>이벤트 캡처링</strong></h2>
-            <p class="panel-subtitle">...</p>
+            <h2 class="panel-title"><strong>Node.js설치 및 프로젝트 생성</strong></h2>
+            <p class="panel-subtitle"><code>https://nodejs.org</code>에서 설치</p>
           </header>
           <div class="panel-body">
             <ul>
               <li>
                 <h4>
-                  <strong>...</strong>
+                  <strong>Node.js설치</strong>
                 </h4>
                 <ul>
                   <li>
-                    <span class="text-dark"><code>...</code>...</span>
+                    <span class="text-dark"><code>LTS</code>버전은 안정적이어서 서버로 사용할때 좋음</span>
+                  </li>
+                  <li>
+                    <span class="text-dark"><code>Current</code>버전은 불안정할 수 있지만 최신기능을 사용할 수 있음</span>
+                  </li>
+                  <li>
+                    <span class="text-dark">터미널창에서 node --version 또는 npm --version을 치면 버전이 표시되며 설치 된것을 알 수 있다.</span>
                   </li>
                 </ul>
-                <pre class="prettyprint linenums">
-// ...
-</pre
-                >
+              </li>
+              <li>
+                <h4>
+                  <strong>프로젝트 생성</strong>
+                </h4>
+                <ul>
+                  <li>
+                    <span class="text-dark"><code>LTS</code>버전은 안정적이어서 서버로 사용할때 좋음</span>
+                  </li>
+                  <li>
+                    <span class="text-dark"><code>Current</code>버전은 불안정할 수 있지만 최신기능을 사용할 수 있음</span>
+                  </li>
+                </ul>
                 <ul>
                   <li>
                     <span class="text-dark">...</span>
