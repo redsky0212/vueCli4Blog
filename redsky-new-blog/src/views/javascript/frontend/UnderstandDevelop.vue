@@ -4,7 +4,8 @@
       <p>
         <strong>프론트앤드 개발 시 기본적인 개발환경 이해를 위한 정리</strong><br />
         <a href="https://www.zerocho.com/category/JavaScript/post/5b67e7847bbbd3001b43fd73" target="_blank">javascript모듈시스템이해 참조 링크</a><br />
-        <a href="https://dkwjdi.tistory.com/203" target="_blank">참조링크 : 프론트앤드 개발에 Node.js가 필요한 이유</a>
+        <a href="https://dkwjdi.tistory.com/203" target="_blank">참조링크 : 프론트앤드 개발에 Node.js가 필요한 이유</a><br />
+        <a href="https://semver.org/lang/ko/" target="_blank">참조링크 : 유의적 버전(버전관리 규칙중 하나)</a>
       </p>
     </blockquote>
     <div class="row">
@@ -97,6 +98,21 @@
                     <span class="text-dark"><code>Current</code>버전은 불안정할 수 있지만 최신기능을 사용할 수 있음</span>
                   </li>
                   <li>
+                    <span class="text-dark">설치 후 터미널창에서 아래와 같이 크드를 입력하면 REPL(read-eval-print loop)라고 입력하고 즉시 결과를 확인할 수 있는 프로그램을 실행할 수 있다.</span><br />
+                    <pre class="prettyprint linenums">
+// node 를 입력하면 실행 됨.
+
+C: \Users > node
+Welcome to Node.js v16.0.0
+Type ".help" for more information.
+> 1+2
+3
+
+// .exit 명령을 실행하거나 ctrl+c 하면 REPL프로그램 빠져나감.
+</pre
+                    >
+                  </li>
+                  <li>
                     <span class="text-dark">터미널창에서 node --version 또는 npm --version을 치면 버전이 표시되며 설치 된것을 알 수 있다.</span>
                   </li>
                 </ul>
@@ -107,15 +123,108 @@
                 </h4>
                 <ul>
                   <li>
-                    <span class="text-dark"><code>LTS</code>버전은 안정적이어서 서버로 사용할때 좋음</span>
+                    <span class="text-dark"><code>mkdir</code>을 입력하여 프로젝트 사용할 디렉토리를 생성한다.</span>
                   </li>
                   <li>
-                    <span class="text-dark"><code>Current</code>버전은 불안정할 수 있지만 최신기능을 사용할 수 있음</span>
+                    <span class="text-dark">생성한 디렉토리를 이동하여 <code>npm init</code>명령어로 프로젝트를 초기화하고 생성한다.</span>
+                  </li>
+                  <li>
+                    <span class="text-dark">프로젝트를 생성하면 내부에 <code>package.json</code>파일이 만들어져있다.</span>
+                  </li>
+                  <li>
+                    <span class="text-dark"><code>npm</code>치면 명령어 목록이 나온다. 참조할 수 있다.</span>
+                  </li>
+                  <li>
+                    <span class="text-dark">기본 명령어는 <code>npm 명령어</code> 이렇게 사용하고, package.json의 script부분에 생성한 명령어는 <code>npm run 명령어</code> 이렇게 사용한다.</span>
                   </li>
                 </ul>
+              </li>
+              <li>
+                <h4>
+                  <strong>패키지 설치하는 다양한 방법</strong>
+                </h4>
                 <ul>
                   <li>
-                    <span class="text-dark">...</span>
+                    <span class="text-dark">CDN을 이용하여 외부 라이브러리를 가져다 쓰는 방법.</span>
+                    <pre class="prettyprint">&lt;script src="https://cdn.jsdelivr.net/npm/vue"&gt;&lt;/script&gt;</pre>
+                  </li>
+                  <li>
+                    <span class="text-dark">직접 다운로드하는 방법.</span><br />
+                    <span class="text-dark">CDN을 사용하지 않기 때문에 외부서버 장애와 독립적으로 웹 어플리케이션을 제공할 수 있으나 지속적인 업데이트를 귀찮게 해줘야 한다.</span>
+                  </li>
+                  <li>
+                    <span class="text-dark">npm 을 이용하는 방법</span><br />
+                    <span class="text-dark">Node.js가 설치되어있다면 <code>npm install명령어를 이용하여 손쉽게 라이브러리를 설치할 수 있다.</code></span>
+                    <pre class="prettyprint">
+// npm 명령어로 라이브러리 설치
+npm install vue
+// package.json에 설치된 라이브러리의 버전이 표시 되면서 확인할 수 있다.
+                    </pre>
+                  </li>
+                </ul>
+                <div class="well well-sm">
+                  <p>...</p>
+                </div>
+              </li>
+              <li>
+                <h4>
+                  <strong>npm 설치 시 유의적 버전 관련 설명</strong>
+                </h4>
+                <ul>
+                  <li>
+                    <pre class="prettyprint">
+// npm install vue 설치하면 package.json파일에 아래와 같이 버전이 표시된다.
+"dependencies": {
+  "vue": "^2.6.12"
+}</pre
+                    >
+                    <span class="text-dark">이와같이 표시되는 버전은 "유의적 버전"(sementic version)의 의미이다.</span><br />
+                    <span class="text-dark">유의적 버전은 <strong>주(major), 부(Minor), 수(Patch)</strong>세 가지 숫자를 조합해 버전을 관리한다.</span>
+                  </li>
+                  <li>
+                    <span class="text-dark">각 버전을 변경하는 기준은 다음과 같다.</span><br />
+                    <pre class="prettyprint">
+* 주 버전(Major Version): 기존 버전과 호환되지 않게 변경한 경우
+* 부 버전(Minor Version): 기존 버전과 호화되면서 기능이 추가된 경우는
+* 수 버전(Patch Version): 기존 버전과 호환되면서 버그를 수정한 경우</pre
+                    >
+                  </li>
+                  <li>
+                    <span class="text-dark">버전 범위 표기는 아래와 같이 한다.</span><br />
+                    <pre class="prettyprint">
+// 가장 단순한 표기법은 범위없이 표기하는 형태이다.
+1.2.3
+
+// 특정 버전보다 높거나 낮을경우 표기
+&gt;1.2.3
+&gt;=1.2.3
+&lt;1.2.3
+&lt;=1.2.3
+
+// 틸트(~)와 캐럿(^)을 이용해 범위를 명시
+~1.2.3
+^1.2.3</pre
+                    >
+                  </li>
+                  <li>
+                    <span class="text-dark"><strong>틸트(~)</strong>는 마이너 버전이 명시되어 있으면 패치버전만 변경한다.</span>
+                    <ul>
+                      <li>예를들어 ~1.2.3 표기는 1.2.3부터 1.3.0미만 까지를 포함한다.</li>
+                      <li>마이너 버전이 없으면 마이너 버전을 갱신한다.</li>
+                      <li>~0표기는 0.0.0부터 1.0.0미만 까지를 포함한다.</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <span class="text-dark"><strong>캐럿(^)</strong>은 정식버전에서 마이너와 패치버전을 변경한다.</span>
+                    <ul>
+                      <li>예를들어 ^1.2.3표기는 1.2.3부터 2.0.0미만 까지의 버전을 포함한다.</li>
+                      <li>정식버전 미만인 0.x버전은 패치만 갱신한다.</li>
+                      <li>예를들어 ^0표기는 0.0.0부터 0.1.0미만 까지를 포함한다.</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <span class="text-dark">참고로 Node.js는 예전에 틸트를 이용해 버전을 관리했지만 현재는 캐럿을 이용해 버전을 관리한다.</span><br />
+                    <span class="text-dark">이유는 여러 라이브러리들이 부버전이 변하더라도 하위 호환성을 지키지 않고 배포하는 경우가 빈번했기 때문.</span>
                   </li>
                 </ul>
                 <div class="well well-sm">
