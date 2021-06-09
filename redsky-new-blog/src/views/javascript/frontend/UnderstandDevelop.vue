@@ -162,15 +162,13 @@ npm install vue
                     </pre>
                   </li>
                 </ul>
-                <div class="well well-sm">
-                  <p>...</p>
-                </div>
               </li>
               <li>
                 <h4>
                   <strong>npm 설치 시 유의적 버전 관련 설명</strong>
                 </h4>
                 <ul>
+                  <li><a href="https://semver.org/lang/ko/" target="_blank">참조링크URL: 유의적 버전(버전관리 규칙중 하나)</a></li>
                   <li>
                     <pre class="prettyprint">
 // npm install vue 설치하면 package.json파일에 아래와 같이 버전이 표시된다.
@@ -227,9 +225,111 @@ npm install vue
                     <span class="text-dark">이유는 여러 라이브러리들이 부버전이 변하더라도 하위 호환성을 지키지 않고 배포하는 경우가 빈번했기 때문.</span>
                   </li>
                 </ul>
-                <div class="well well-sm">
-                  <p>...</p>
-                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section class="panel">
+          <header class="panel-heading">
+            <!-- <div class="panel-actions"> -->
+            <!-- <a href="javascript:void(0)" class="fa fa-caret-up"></a> -->
+            <!-- <a href="#" class="fa fa-times"></a> -->
+            <!-- </div> -->
+
+            <h2 class="panel-title"><strong>웹팩</strong></h2>
+            <p class="panel-subtitle">
+              프론트앤드 개발 시
+              <code>웹팩</code>
+              이 왜 필요한지 배경부터 사용법 등 알아보기
+            </p>
+          </header>
+          <div class="panel-body">
+            <ul>
+              <li>
+                <h4>
+                  <strong>웹팩이 왜 필요했는지 배경</strong>
+                </h4>
+                <ol>
+                  <li>
+                    <span class="text-dark">
+                      javascript를 사용하는 예전방식은 js파일을 html파일에서 로드하여 불러와 사용하는 방식, 이때 js파일의 함수들이 모두 전역이어서 전역스콥 오염문제가 있음.
+                    </span>
+                  </li>
+                  <li>
+                    <span class="text-dark">그래서 개선된 방식의 사용방법으로 <code>IIFE(Immediately Invoked Function Expressions)(즉시실행함수)</code>방법을 사용함.</span>
+                    <pre class="prettyprint">
+// IIFE표현식의 가장 기본적인 형태
+(function() {
+  // Do fun stuff
+})()</pre
+                    >
+                    <span class="text-dark">이렇게 하면 함수 안에 독립된 스콥이 생성되므로 전역스콥이 오염되지 않는다.</span>
+                  </li>
+                </ol>
+              </li>
+              <li>
+                <h4>
+                  <strong>좀 더 발전된 다양한 모듈 시스템 관련</strong>
+                </h4>
+                <ul>
+                  <li>
+                    <span class="text-dark"><code>AMD, CommonJS, UMD 모듈</code></span>
+                  </li>
+                  <li>
+                    <span class="text-dark"><strong>AMD(Asynchronous Module Definition)</strong>모듈 관련</span>
+                    <ul>
+                      <li>
+                        <code>AMD</code>를 사용한 가장 유명한 스크립트는 <code>RequireJS</code>이다.
+                        <pre class="prettyprint">
+// RequireJS define 사용방식
+// myModule.js
+define(['jquery', 'redsky'], function($, R) {
+  console.log($);
+  console.log(R);
+  return {
+    a: $,
+    b: R,
+  };
+});
+
+// 다른파일에서 myModule.js파일을 가져와 사용할때
+require(['myModule', 'TweenMax'], function(my, T) {
+  console.log(my.a);  // jquery
+  console.log(my.b);  // redsky
+  console.log(T); // TweenMax
+  console.log(jquery);  // undefined도는 에러발생
+});</pre
+                        >
+                        쓰고자하는 남의 코드들을 define의 첫번째 인자 배열에 나열한 후, 두번째 인자인 콜백 함수에서 매개변수로 받아서 사용한다.
+                        <br />
+                        남의 모듈을 명시적으로 알려주고, 사용하지 않는 것들은 접근되지 않게 하기 때문에 유용하다.
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <span class="text-dark"><strong>CommonJS</strong>모듈 관련</span>
+                    <ul>
+                      <li><code>Node.js</code>에서 채택한 방식</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <h4>
+                  <strong>...</strong>
+                </h4>
+                <ul>
+                  <li>
+                    <span class="text-dark">...</span>
+                    <span class="text-dark">...</span>
+                  </li>
+                  <li>
+                    <span class="text-dark">...</span>
+                  </li>
+                  <li>
+                    <span class="text-dark">...</span>
+                  </li>
+                </ul>
               </li>
             </ul>
           </div>
