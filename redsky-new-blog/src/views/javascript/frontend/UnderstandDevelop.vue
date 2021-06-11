@@ -271,6 +271,7 @@ npm install vue
                 <h4>
                   <strong>좀 더 발전된 다양한 모듈 시스템 관련</strong>
                 </h4>
+                <a href="https://d2.naver.com/helloworld/591319" target="_blank">참조링크 : naver D2 모듈관련</a>
                 <ul>
                   <li>
                     <span class="text-dark"><code>AMD, CommonJS, UMD 모듈</code></span>
@@ -278,6 +279,151 @@ npm install vue
                   <li>
                     <span class="text-dark"><strong>AMD(Asynchronous Module Definition)</strong>모듈 관련</span>
                     <ul>
+                      <li>
+                        <strong>AMD</strong>의 근간이 되는 3가지 개념
+                        <ul>
+                          <li>
+                            <strong>동적 로딩</strong><br />
+                            <span>&lt;script&gt;태그는 페이지 렌더링을 방해한다. HTTP요청, 다운로드, 파싱 등 실행하는동안 브라우저는 다른 동작을 멈춘다.</span>
+                            <br />
+                            <span>그래서&lt;body&gt;태그 마지막에 배치하기도 한다.</span>
+                            <br />
+                            <span>하지만 페이지 렌더링을 빨리할 수는 있어도 첫 인터랙션 까지의 시간은 변함이 없다.</span>
+                            <span>그래서 좀 더 최적화를 위한 첫 렌더링과 인터랙션에 필요한 javascript를 먼저 로딩하는 점진적인 방식이 필요하다.</span>
+                            <br />
+                            <span>동적로딩(Dynamic Loading, Lazy Loading)은 렌더링 방해를 하지 않으면서 필요한 파일만 로딩할 수 있다.</span>
+                            <pre class="prettyprint">
+// 가장 기초적인 script태그를 생성하여 추가하는 방법
+var scriptEl = document.createElement('script');
+scriptEl.type = 'text/javascript';
+scriptEl.src = 'example.js';
+document.getElementByTagName('head')[0].appendChild(scriptEl);</pre
+                            >
+                            <span>이 방법을 응용하여 함수로 따로 만들 수 있다.</span>
+                            <pre class="prettyprint">
+function loadScript(url, callback) {
+  var scriptEl = document.createElement('script');
+  scriptEl.type = 'text/javascript';
+  scriptEl.onload = function() {
+    callback();
+  };
+  scriptEl.src = url;
+  document.getElementByTagName('head')[0].appendChild(scriptEl);
+}
+
+loadScript('example.js', function() {
+  // example.js가 로딩 완료된 시점에 실행
+});
+
+</pre
+                            >
+                            <span>하지만 로드할 js파일이 많을경우 콜백 지옥에 빠질 수 있다.</span>
+                            <pre class="prettyprint">
+loadScript('file1.js', function() {
+  loadScript('file2.js', function() {
+    loadScript('file3.js', function() {
+      loadScript('file4.js', function() {
+        // 콜백지옥
+      });
+    });
+  });
+});</pre
+                            >
+                            <span><strong>AMD</strong>는 이런 문제를 자연스럽게 해결했다.</span>
+                          </li>
+                          <li>
+                            <strong>의존성 관리</strong><br />
+                            <span>javascript는 스크립트 간의 의존성을 파악하기 힘들다.</span>
+                            <span>그래서 include나 import같은 명시적인 키워드가 필요하다. 예를들면 아래와 같은 코드</span>
+                            <pre class="prettyprint">
+// 모듈 정의 예시
+defineModule('util', {
+  trim: function() {},
+  extend: function() {}
+});
+
+// 모듈 가져와 사용 예시
+var util = loadModule('util');
+util.trim();</pre
+                            >
+                          </li>
+                          <li>
+                            <strong>모듈화</strong><br />
+                            <span>스크립트의 변수, 함수들은 전역공간을 오염시키면 안된다. 그래서 모듈화가 필요.</span>
+                            <br />
+                            <span>기본적인 모듈 패턴은 다음과 같이 클로저를 이용하고, 외부에 노출할 변수,함수를 골라 return하는 형태이다.</span>
+                            <pre class="prettyprint">
+var foo = (function() {
+  var i = 0;
+
+  function init() {
+    reset();
+  }
+
+  function reset() {
+    i = 0;
+  }
+
+  function increase() {
+    i++;
+  }
+
+  function decrease() {
+    i--;
+  }
+
+  function get() {
+    return i;
+  }
+
+  return {
+    init: init,
+    increase: increase,
+    decrease: decrease,
+    get: get
+  };
+}());
+
+// 사용하는 부분
+foo.increase();
+console.log(foo.get()); // 1
+foo.decrease();
+console.log(foo.get()); // 0
+
+// foo.i와 foo.reset()은 return하지 않았기 때문에 외부에 노출되지 않음.
+console.log(foo.i); // undefined
+foo.reset();  // error</pre
+                            >
+                            <span>위 모듈을 조금 응용하여 클래스처럼 사용할 수도 있다.</span>
+                            <pre class="prettyprint">
+var Foo = (function() {
+  var NAME = 'Foo';
+
+  // 생성자 함수
+  function Foo() {
+    this.i = 0;
+  }
+
+  Foo.prototype.getClassName = function() {
+    return NAME;
+  };
+
+  Foo.prototype.increase = function() {
+    this.i++;
+  };
+
+  Foo.prototype.decrease = function() {
+    this.i--;
+  };
+
+  return Foo;
+}());
+
+var foo = new Foo();</pre
+                            >
+                          </li>
+                        </ul>
+                      </li>
                       <li>
                         <code>AMD</code>를 사용한 가장 유명한 스크립트는 <code>RequireJS</code>이다.
                         <pre class="prettyprint">
