@@ -504,6 +504,19 @@ console.log(my.a, my.b);</pre
                       </li>
                     </ul>
                   </li>
+                  <li>
+                    <span class="text-dark"><strong>ES2015 표준 모듈시스템</strong></span>
+                    <br />
+                    <a href="https://www.zerocho.com/category/EcmaScript/post/579dca4054bae71500727ab9" target="_blank">
+                      참조링크: ES2015모듈시스템 관련 참조 블로그
+                    </a>
+                    <ul>
+                      <li>ES2015에서 모듈시스템 자체 지원 시작.</li>
+                      <li>바벨이나 웹팩에서는 ES2015표준모듈시스템을 사용하는 것이 일반적이다.</li>
+                      <li>일부 브라우저만 지원</li>
+                      <li>모든 브라우저 지원을 위하여 웹팩이 필요</li>
+                    </ul>
+                  </li>
                 </ul>
               </li>
               <li>
