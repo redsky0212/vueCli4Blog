@@ -5,7 +5,8 @@
         <strong>프론트앤드 개발 시 기본적인 개발환경 이해를 위한 정리</strong><br />
         <a href="https://www.zerocho.com/category/JavaScript/post/5b67e7847bbbd3001b43fd73" target="_blank">javascript모듈시스템이해 참조 링크</a><br />
         <a href="https://dkwjdi.tistory.com/203" target="_blank">참조링크 : 프론트앤드 개발에 Node.js가 필요한 이유</a><br />
-        <a href="https://semver.org/lang/ko/" target="_blank">참조링크 : 유의적 버전(버전관리 규칙중 하나)</a>
+        <a href="https://semver.org/lang/ko/" target="_blank">참조링크 : 유의적 버전(버전관리 규칙중 하나)</a><br />
+        <a href="https://d2.naver.com/helloworld/12864" target="_blank">참조링크: Javascript표준을 위한 움직임, 모듈시스템 관련</a>
       </p>
     </blockquote>
     <div class="row">
@@ -271,7 +272,6 @@ npm install vue
                 <h4>
                   <strong>좀 더 발전된 다양한 모듈 시스템 관련</strong>
                 </h4>
-                <a href="https://d2.naver.com/helloworld/591319" target="_blank">참조링크 : naver D2 모듈관련</a>
                 <ul>
                   <li>
                     <span class="text-dark"><code>AMD, CommonJS, UMD 모듈</code></span>
@@ -426,6 +426,8 @@ var foo = new Foo();</pre
                       </li>
                       <li>
                         <code>AMD</code>를 사용한 가장 유명한 스크립트는 <code>RequireJS</code>이다.
+                        <br />
+                        <a href="https://d2.naver.com/helloworld/591319" target="_blank">참조링크 : naver D2(AMD, RequireJS관련 자세한 설명)</a>
                         <pre class="prettyprint">
 // RequireJS define 사용방식
 // myModule.js
@@ -456,6 +458,50 @@ require(['myModule', 'TweenMax'], function(my, T) {
                     <span class="text-dark"><strong>CommonJS</strong>모듈 관련</span>
                     <ul>
                       <li><code>Node.js</code>에서 채택한 방식</li>
+                      <li>
+                        CommonJS의 모듈화 방식의 예시는 아래와 같다.
+                        <pre class="prettyprint">
+// myModule.js
+// module.exports로 모듈화시키고 싶은 변수를 묶어준다.
+const $ = require('jquery');
+const R = require('redsky');
+module.exports = {
+  a: $,
+  b: R,
+};
+
+// 모듈을 사용하는쪽.
+const my = require('myModule');
+console.log(my.a, my.b);</pre
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <span class="text-dark"><strong>UMD</strong> 모듈시스템</span>
+                    <ul>
+                      <li><code>AMD, CommonJS</code>를 쓰는 두 그룹으로 나누어지다보니 서로 호환이 안 되게 되었습니다. 그래서 나온것이 <code>UMD</code>입니다.</li>
+                      <li><code>UMD</code>는 정해진 코드라기 보다는 디자인 패턴에 가깝다.</li>
+                      <li>
+                        모든 경우를 커버할 수 있는 모듈을 작성한다. 아래 예시 참조
+                        <pre class="prettyprint">
+// myModule.js
+(function(root, factory) {
+  if(typeof define === 'function' &amp;&amp; define.amd) {  // AMD
+    define(['jquery', 'redsky'], factory);
+  } else if(typeof module === 'object' &amp;&amp; module.exports) { // CommonJS
+    module.exports = factory(require('jquery'), require('redsky'));
+  } else {  // window
+    root.moModule = factory(root.$, root.R);
+  }
+})(this, function($, R){
+  return {
+    a: $,
+    b: R,
+  };
+});</pre
+                        >
+                      </li>
                     </ul>
                   </li>
                 </ul>
