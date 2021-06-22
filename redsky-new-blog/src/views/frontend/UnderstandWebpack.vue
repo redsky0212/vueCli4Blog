@@ -216,10 +216,109 @@ npm init -y</pre
                     >
                     <span class="text-dark">아래 명령어로 해당 폴더에 웹팩 설치와 lodash 라이브러리 설치</span>
                     <pre class="prettyprint">
-// lodash라이브러리는 모듈 의존성을 구현해보기 위해 설치
+// lodash라이브러리는 모듈 의존성을 구현해보기 위해 설치                    
 npm i webpack webpack-cli -D
 npm i lodash</pre
                     >
+                  </li>
+                </ol>
+              </li>
+              <li>
+                <h4>
+                  <strong>빌드할 파일 생성</strong>
+                </h4>
+                <ol>
+                  <li>
+                    <span class="text-dark">폴더에 <code>index.html</code>파일을 생성하고 아래내용 추가</span>
+                    <pre class="prettyprint">
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Webpack Demo&lt;/title&gt;
+    &lt;script src="https://unpkg.com/lodash@4.16.6"&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;script src="src/index.js"&gt;&lt;/script&gt; 
+  &lt;/body&gt;
+&lt;/html&gt;</pre
+                    >
+                  </li>
+                  <li>
+                    <span class="text-dark">프로젝트 루트레벨에 <code>src</code>폴더를 만들고 그 안에 <code>index.js</code>파일생성</span>
+                    <pre class="prettyprint">
+// index.js 파일
+function component() {
+  var element = document.createElement('div');
+
+  /*lodash를 required 한 다음에 코딩*/
+  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+
+  return element;
+}
+
+document.body.appendChild(component());</pre
+                    >
+                  </li>
+                  <li>
+                    <span class="text-dark">위 파일 소스는 index.html의 일반적인 javascript소스코딩 형태이다.</span><br />
+                    <span class="text-dark"><code>웹팩 빌드</code> 명령어를 실행하여 생성된 파일로 확인하기 위해서 아래와 같이 소스를 수정하여 모듈 형태로 코딩한다.</span>
+                    <pre class="prettyprint">
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Webpack Demo&lt;/title&gt;
+    &lt;!-- &lt;script src="https://unpkg.com/lodash@4.16.6"&gt;&lt;/script&gt; --&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;!-- &lt;script src="src/index.js"&gt;&lt;/script&gt; --&gt;
+    &lt;script src="dist/main.js"&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</pre
+                    >
+                    <pre class="prettyprint">
+// index.js 파일
+// lodash를 가져온다.(빌드 시 의존성 확인)
+import _ from 'lodash';
+
+function component() {
+  var element = document.createElement('div');
+
+  /*lodash를 required 한 다음에 코딩*/
+  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+
+  return element;
+}
+
+document.body.appendChild(component());</pre
+                    >
+                  </li>
+                  <li>
+                    <span class="text-dark"><code>package.json</code>파일에 <code>build</code> 스크립트 추가</span>
+                    <pre class="prettyprint">
+// package.json
+"scripts": {
+  // webpack.config.js에 mode를 설정했으면 --mode값은 빼면된다.
+  // "build": "webpack"
+  "build": "webpack --mode=none"
+}</pre
+                    >
+                  </li>
+                  <li>
+                    <span class="text-dark"><code>webpack.config.js</code>파일을 생성하고 아래내용 추가</span>
+                    <pre class="prettyprint">
+// webpack.config.js
+var path = require('path');
+
+module.exports = {
+  mode: 'none',
+  entry: './src/index.js',
+  output: {
+    filename: 'main.js',
+    path: path.resolve(__dirname, 'dist')
+  }
+};</pre
+                    >
+                  </li>
+                  <li>
+                    <span class="text-dark">명령창에서 <code>npm run build</code>라고 치면 webpack이 실행 되면서 빌드된다.</span>
                   </li>
                 </ol>
               </li>
