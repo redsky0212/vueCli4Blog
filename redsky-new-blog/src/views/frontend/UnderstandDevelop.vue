@@ -521,18 +521,12 @@ console.log(my.a, my.b);</pre
               </li>
               <li>
                 <h4>
-                  <strong>...</strong>
+                  <strong>웹팩</strong>
                 </h4>
                 <ul>
                   <li>
-                    <span class="text-dark">...</span>
-                    <span class="text-dark">...</span>
-                  </li>
-                  <li>
-                    <span class="text-dark">...</span>
-                  </li>
-                  <li>
-                    <span class="text-dark">...</span>
+                    <span class="text-dark"><a href="https://webpack.js.org" target="_blank">참조링크: webpack</a></span>
+                    <span class="text-dark">웹팩 설명 페이지 참조</span>
                   </li>
                 </ul>
               </li>

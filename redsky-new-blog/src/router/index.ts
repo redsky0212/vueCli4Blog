@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 
 import Main from '@/views/TheHome.vue';
+import Frontend from './frontend';
 import vue from './vue';
 import javascript from './javascript';
 import project from './project';
@@ -17,6 +18,7 @@ const routes = [
     name: 'Home',
     component: Main,
   },
+  ...Frontend,
   ...vue,
   ...css,
   ...htmldom,

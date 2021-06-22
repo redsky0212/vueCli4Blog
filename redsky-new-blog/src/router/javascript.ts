@@ -19,9 +19,4 @@ export default [
     name: '모바일 터치 이벤트 관련',
     component: () => import('@/views/javascript/events/TouchEvent.vue'),
   },
-  {
-    path: '/javascript/frontend/understanddevelop',
-    name: '프론트앤드 개발환경이해',
-    component: () => import('@/views/javascript/frontend/UnderstandDevelop.vue'),
-  },
 ];

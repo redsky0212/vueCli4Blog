@@ -20,6 +20,24 @@
             </li>
             <li class="nav-parent">
               <a>
+                <i class="fa fa-code" aria-hidden="true"></i>
+                <span>FrontEnd개발관련</span>
+              </a>
+              <ul class="nav nav-children">
+                <li>
+                  <router-link to="/frontend/understanddevelop" @click.native="onRouterLink">
+                    개발환경이해정리(작업중)
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/frontend/understandwebpack" @click.native="onRouterLink">
+                    Webpack이해(작업중)
+                  </router-link>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-parent">
+              <a>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   aria-hidden="true"
@@ -460,18 +478,6 @@
                     <li>
                       <router-link to="/javascript/network/ajax" title="ajax request, response(CORS, proxy, 응답코드)" @click.native="onRouterLink">
                         ajax request, response(CORS, proxy, 응답코드)
-                      </router-link>
-                    </li>
-                  </ul>
-                </li>
-                <li class="nav-parent">
-                  <a>
-                    FrontEnd개발관련
-                  </a>
-                  <ul class="nav nav-children">
-                    <li>
-                      <router-link to="/javascript/frontend/understanddevelop" @click.native="onRouterLink">
-                        개발환경이해정리(작업중)
                       </router-link>
                     </li>
                   </ul>
