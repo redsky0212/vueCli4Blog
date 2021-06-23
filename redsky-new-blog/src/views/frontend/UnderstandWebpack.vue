@@ -177,6 +177,10 @@ npm install vue
                   </li>
                   <li>
                     <span class="text-dark"><code>webpack.config.js</code>(웹팩설정파일) 파일을 생성.</span><br />
+                    <span class="text-dark">설정 파일명이 기본 webpack.config.js 이지만 이것을 다르게 적용 하려면 </span>
+                    <span class="text-dark">명령 프롬크트에 실행할때 webpack --config webpack.config.prod.js라고 </span>
+                    <span class="text-dark">파일명을 --config플래그를 사용하여 적용하면 된다.</span>
+                    <br />
                     (웹팩 설정 부분은 따로 정리.)
                   </li>
                 </ul>

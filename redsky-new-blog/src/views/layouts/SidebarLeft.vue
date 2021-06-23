@@ -34,6 +34,11 @@
                     Webpack이해(작업중)
                   </router-link>
                 </li>
+                <li>
+                  <router-link to="/frontend/webpackconfig" @click.native="onRouterLink">
+                    Webpack설정(작업중)
+                  </router-link>
+                </li>
               </ul>
             </li>
             <li class="nav-parent">

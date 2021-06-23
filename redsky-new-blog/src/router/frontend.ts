@@ -9,4 +9,9 @@ export default [
     name: '웹팩이해하기',
     component: () => import('@/views/frontend/UnderstandWebpack.vue'),
   },
+  {
+    path: '/frontend/webpackconfig',
+    name: '웹팩설정이해하기(webpack.config.js)',
+    component: () => import('@/views/frontend/WebpackConfiguration.vue'),
+  },
 ];
