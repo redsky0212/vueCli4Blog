@@ -37,7 +37,7 @@
                     <span class="text-dark">그로인해 바벨 같은 도구의 도움이 필요하다. 또한 웹팩, NPM 같은 노드 기술로 좀 더 자동화된 프론트앤드 개발환경을 갖출 수 있다.</span>
                   </li>
                   <li>
-                    <span class="text-dark">Typescript, SASS 같은 고수준 프로그래밍 언어를 사용하려면 전용 트래스파일러가 필요한데, 그것역시 Node.js환경이 뒷받침 되어야 한다.</span>
+                    <span class="text-dark">Typescript, SASS 같은 고수준 프로그래밍 언어를 사용하려면 전용 트랜스파일러가 필요한데, 그것역시 Node.js환경이 뒷받침 되어야 한다.</span>
                   </li>
                 </ol>
               </li>
@@ -48,7 +48,7 @@
                 <ol>
                   <li>
                     <span class="text-dark">과거처럼 코딩 결과물을 브라우저에 바로 올리는 경우는 거의 없다.</span>
-                    <span class="text-dark">파일을 압축하고, 코드를 난독화하고, 폴리필을 추가하는 등 개발 이외의 작업을 거친 후 배포한다.</span>
+                    <span class="text-dark">파일을 압축하고, 코드를 난독화하고, 폴리필을 추가하는 등 개발 이외의 작업을 거친 후 배포한다.</span><br />
                     <span class="text-dark">Node.js는 이러한 일련의 빌드 과정을 이해하는데 적지않은 역할을 하고 있다.</span>
                     <span class="text-dark">이 뿐만 아니라 라이브러리 의존성을 해결하고,</span>
                     <span class="text-dark">각종 테스트를 자동화하는데도 사용할 수 있다.</span>
@@ -99,7 +99,7 @@
                     <span class="text-dark"><code>Current</code>버전은 불안정할 수 있지만 최신기능을 사용할 수 있음</span>
                   </li>
                   <li>
-                    <span class="text-dark">설치 후 터미널창에서 아래와 같이 크드를 입력하면 REPL(read-eval-print loop)라고 입력하고 즉시 결과를 확인할 수 있는 프로그램을 실행할 수 있다.</span><br />
+                    <span class="text-dark">설치 후 터미널창에서 아래와 같이 'node'라고 코드를 입력하면 REPL(read-eval-print loop)이라는 즉시 결과를 확인할 수 있는 프로그램을 실행된다.</span><br />
                     <pre class="prettyprint linenums">
 // node 를 입력하면 실행 됨.
 
@@ -136,13 +136,13 @@ Type ".help" for more information.
                     <span class="text-dark"><code>npm</code>치면 명령어 목록이 나온다. 참조할 수 있다.</span>
                   </li>
                   <li>
-                    <span class="text-dark">기본 명령어는 <code>npm 명령어</code> 이렇게 사용하고, package.json의 script부분에 생성한 명령어는 <code>npm run 명령어</code> 이렇게 사용한다.</span>
+                    <span class="text-dark">기본 명령어는 <code>npm 명령어</code> 이렇게 사용하고, package.json의 scripts부분에 생성한 명령어는 <code>npm run 명령어</code> 이렇게 사용한다.</span>
                   </li>
                 </ul>
               </li>
               <li>
                 <h4>
-                  <strong>패키지 설치하는 다양한 방법</strong>
+                  <strong>패키지(라이브러리) 설치하는 다양한 방법</strong>
                 </h4>
                 <ul>
                   <li>

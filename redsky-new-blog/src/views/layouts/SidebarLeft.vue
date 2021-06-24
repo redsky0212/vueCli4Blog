@@ -21,22 +21,22 @@
             <li class="nav-parent">
               <a>
                 <i class="fa fa-code" aria-hidden="true"></i>
-                <span>FrontEnd개발관련</span>
+                <span>FrontEnd개발이해</span>
               </a>
               <ul class="nav nav-children">
                 <li>
                   <router-link to="/frontend/understanddevelop" @click.native="onRouterLink">
-                    개발환경이해정리(작업중)
+                    1. 개발환경이해
                   </router-link>
                 </li>
                 <li>
                   <router-link to="/frontend/understandwebpack" @click.native="onRouterLink">
-                    Webpack이해(작업중)
+                    2. Webpack이해
                   </router-link>
                 </li>
                 <li>
                   <router-link to="/frontend/webpackconfig" @click.native="onRouterLink">
-                    Webpack설정(작업중)
+                    3. Webpack설정(작업중)
                   </router-link>
                 </li>
               </ul>

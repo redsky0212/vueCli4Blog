@@ -324,6 +324,9 @@ module.exports = {
                   <li>
                     <span class="text-dark">명령창에서 <code>npm run build</code>라고 치면 webpack이 실행 되면서 빌드된다.</span>
                   </li>
+                  <li>
+                    <span class="text-dark">빌드 결과물이 어떤식으로 생성 되는지 확인해 보면서 공부해보자.</span>
+                  </li>
                 </ol>
               </li>
             </ul>

@@ -54,13 +54,31 @@
                 <ul>
                   <li>
                     <h5>
-                      <strong><span class="text-danger">mode</span></strong>
+                      <strong><span class="text-danger">mode</span></strong> :
+                      <a href="https://webpack.kr/configuration/mode/" target="_blank">공식문서 mode 옵션 링크</a>
                     </h5>
                     <span><code>mode</code>옵션을 사용하면 webpack에 내장된 최적화 기능을 사용할 수 있습니다.</span>
+                    <br />
+                    <span>코드를 최적화 했다는 것은 코드를 극한으로 압축해서 파일 크기를 줄였다는 의미이다.</span>
                     <ul>
                       <li><span class="text-warning">타입 :</span> string</li>
                       <li><span class="text-warning">기본값 :</span> 'production'</li>
                       <li><span class="text-warning">설정값 :</span> 'production' | 'none' | 'development'</li>
+                      <li>
+                        <span class="text-warning">설정값 설명 :</span>
+                        <ol>
+                          <li>
+                            <strong>개발(development)모드</strong> : 개발자가 해석하기 쉬우며, 파일 크기가 큼
+                            <br />
+                            DefinePlugin의 환경변수 <code>process.env.NODE_ENV</code>값에 'development'로 설정됨.
+                          </li>
+                          <li>
+                            <strong>배포(production)모드</strong> : 코드를 최적화 했기 때문에 개발자가 해석하기 어렵고, 파일 크기가 작음
+                            <br />
+                            DefinePlugin의 환경변수 <code>process.env.NODE_ENV</code>값에 'production'로 설정됨.
+                          </li>
+                        </ol>
+                      </li>
                       <li>
                         <span class="text-warning">적용 예 :</span>
                         <pre class="prettyprint">
