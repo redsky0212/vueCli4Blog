@@ -118,6 +118,10 @@ console.log('sample server is listening to port ' + process.env.SERVER_PORT);</p
                 <ul>
                   <li>
                     <span class="text-dark">기본 빌드 <code>mode</code>는 <code>development</code>이다.</span>
+                    <ul>
+                      <li><strong>vue-cli-service serve</strong>의 기본모드는 'development'</li>
+                      <li><strong>vue-cli-service build</strong>의 기본모드는 'production'</li>
+                    </ul>
                   </li>
                   <li>
                     <span class="text-dark">webpack 4+ 에서는 <code>mode</code>옵션을 통해 프로덕션 모드로 변경할 수 있다.</span>
