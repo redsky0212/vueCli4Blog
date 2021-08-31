@@ -47,6 +47,33 @@
             </ul>
           </div>
         </section>
+        <section class="panel">
+          <header class="panel-heading">
+            <!-- div class="panel-actions">
+              <a href="#" class="fa fa-caret-down"></a>
+              <a href="#" class="fa fa-times"></a>
+            </div -->
+
+            <h2 class="panel-title">
+              VSCode Extensions
+            </h2>
+            <p class="panel-subtitle">마이메뉴 프로젝트에서 사용한 VSCode Extensions</p>
+          </header>
+          <div class="panel-body">
+            <ul>
+              <li>Bracket Pair Colorizer</li>
+              <li>ESLint</li>
+              <li>GitLens</li>
+              <li>Import cost</li>
+              <li>Sorting HTML and Jade attributes</li>
+              <li>TODO Highlight</li>
+              <li>TSLint</li>
+              <li>Typescript Import Sorter</li>
+              <li>Vetur</li>
+              <li>vscode-icons</li>
+            </ul>
+          </div>
+        </section>
       </div>
     </div>
   </div>

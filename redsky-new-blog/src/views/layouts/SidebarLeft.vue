@@ -35,8 +35,13 @@
                   </router-link>
                 </li>
                 <li>
+                  <router-link to="/frontend/webpackconcepts" title="Webpack concepts(핵심개념 이해하기)" @click.native="onRouterLink">
+                    3. Webpack(핵심개념 이해)(작업중)
+                  </router-link>
+                </li>
+                <li>
                   <router-link to="/frontend/webpackconfig" @click.native="onRouterLink">
-                    3. Webpack설정(작업중)
+                    3. Webpack설정옵션(작업중)
                   </router-link>
                 </li>
               </ul>
@@ -496,6 +501,28 @@
                     <li>
                       <router-link to="/javascript/network/ajax" title="ajax request, response(CORS, proxy, 응답코드)" @click.native="onRouterLink">
                         ajax request, response(CORS, proxy, 응답코드)
+                      </router-link>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-parent">
+                  <a>
+                    tip
+                  </a>
+                  <ul class="nav nav-children">
+                    <li>
+                      <router-link to="/javascript/tip/encodeobject" title="encodeURI와 encodeURIComponent의 차이" @click.native="onRouterLink">
+                        encodeURI와 encodeURIComponent의 차이
+                      </router-link>
+                    </li>
+                    <li>
+                      <router-link to="/javascript/tip/getcolorcode" title="배경색 밝기에 따라 색깔 구하기" @click.native="onRouterLink">
+                        배경색 밝기에 따라 색깔 구하기
+                      </router-link>
+                    </li>
+                    <li>
+                      <router-link to="/javascript/tip/findstringtip" title="문자열 미리검색 팁" @click.native="onRouterLink">
+                        문자열 미리검색 팁 소스
                       </router-link>
                     </li>
                   </ul>
