@@ -540,6 +540,11 @@
                         현대카드앱 Next App
                       </router-link>
                     </li>
+                    <li>
+                      <router-link to="/project/2021/hyundaicapitalmydata" @click.native="onRouterLink">
+                        현대캐피탈 마이데이터 구축
+                      </router-link>
+                    </li>
                   </ul>
                 </li>
               </ul>

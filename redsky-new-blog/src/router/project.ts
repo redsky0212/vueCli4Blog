@@ -19,4 +19,9 @@ export default [
     name: '현대카드앱 NextApp (고도화, 고메위크)',
     component: () => import('@/views/project/2021/HyundaiCardAdvancement.vue'),
   },
+  {
+    path: '/project/2021/hyundaicapitalmydata',
+    name: '현대캐피탈 마이데이터 서비스구축',
+    component: () => import('@/views/project/2021/HyundaiCapitalMydata.vue'),
+  },
 ];
