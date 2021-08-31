@@ -9,6 +9,7 @@ import project from './project';
 import test from './test';
 import css from './css';
 import htmldom from './htmldom';
+import vscode from './vscode';
 
 Vue.use(VueRouter);
 
@@ -25,6 +26,7 @@ const routes = [
   ...javascript,
   ...project,
   ...test,
+  ...vscode,
 ];
 
 const router = new VueRouter({

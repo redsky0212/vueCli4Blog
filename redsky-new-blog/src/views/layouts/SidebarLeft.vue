@@ -43,6 +43,19 @@
             </li>
             <li class="nav-parent">
               <a>
+                <i class="fa fa-wrench" aria-hidden="true"></i>
+                <span>VSCode툴</span>
+              </a>
+              <ul class="nav nav-children">
+                <li>
+                  <router-link to="/vscode/tip/usesvn" @click.native="onRouterLink">
+                    vscode에서 svn사용
+                  </router-link>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-parent">
+              <a>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   aria-hidden="true"
