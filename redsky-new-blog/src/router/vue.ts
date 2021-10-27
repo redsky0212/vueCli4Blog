@@ -134,4 +134,9 @@ export default [
     name: 'Swiper Css 효과 테스트',
     component: () => import('@/views/vue/test/SwiperCssEffectTest.vue'),
   },
+  {
+    path: '/vue/test/infinity_scroll',
+    name: 'Vue 무한스크롤 테스트',
+    component: () => import('@/views/vue/test/InfinityScrollTest.vue'),
+  },
 ];

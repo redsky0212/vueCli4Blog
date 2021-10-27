@@ -283,6 +283,11 @@
                         swiperjs css 효과 테스트
                       </router-link>
                     </li>
+                    <li>
+                      <router-link to="/vue/test/infinity_scroll" @click.native="onRouterLink">
+                        Vue 무한스크롤 처리
+                      </router-link>
+                    </li>
                   </ul>
                 </li>
               </ul>
