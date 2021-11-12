@@ -288,6 +288,11 @@
                         Vue 무한스크롤 처리
                       </router-link>
                     </li>
+                    <li>
+                      <router-link to="/vue/test/pulltoreload" @click.native="onRouterLink">
+                        아래로 당겨서 리프레시 하기 테스트
+                      </router-link>
+                    </li>
                   </ul>
                 </li>
               </ul>

@@ -139,4 +139,9 @@ export default [
     name: 'Vue 무한스크롤 테스트',
     component: () => import('@/views/vue/test/InfinityScrollTest.vue'),
   },
+  {
+    path: '/vue/test/pulltoreload',
+    name: '모바일, 아래로 당겨서 리프레시 하기 테스트',
+    component: () => import('@/views/vue/test/PullToReload.vue'),
+  },
 ];
