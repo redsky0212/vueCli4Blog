@@ -158,6 +158,11 @@
                         동적, 비동기 콤포넌트(작업중)
                       </router-link>
                     </li>
+                    <li>
+                      <router-link to="/vue/skill/codesplitting" @click.native="onRouterLink">
+                        코드 스플리팅
+                      </router-link>
+                    </li>
                   </ul>
                 </li>
                 <li class="nav-parent">

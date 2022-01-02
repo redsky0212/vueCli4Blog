@@ -60,6 +60,11 @@ export default [
     component: () => import('@/views/vue/skill/DynamicComponent.vue'),
   },
   {
+    path: '/vue/skill/codesplitting',
+    name: '코드 스플리팅',
+    component: () => import('@/views/vue/skill/CodeSplitting.vue'),
+  },
+  {
     path: '/vue/router/navigationGuards',
     name: '라우터 네비게이션 가드',
     component: () => import('@/views/vue/router/NavigationGuards.vue'),
